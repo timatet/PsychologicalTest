@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 namespace Wpf
 {
     /// <summary>
@@ -32,6 +31,13 @@ namespace Wpf
         {
             string NameOfTest = ListOfTestNames.SelectedItem.ToString();
             // запустить нужный тест
+            if (NameOfTest == TestNames[0])
+            {
+                DescriptionAndInstruction DesAndIns = new DescriptionAndInstruction();
+                this.Close();
+                DesAndIns.Show();
+            }
+                
         }
     }
 }
