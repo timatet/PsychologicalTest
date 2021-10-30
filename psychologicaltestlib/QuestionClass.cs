@@ -8,8 +8,7 @@
         YesAgree = 3,
         ThinkAgree = 2,
         WhenHow = 1,
-        DontAgree = 0,
-        DontKnow = 0,
+        DontAgreeOrDontKnow = 0,
         Default = -1
     }
     public class Question

@@ -1,139 +1,21 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace psychologicaltestlib
 {
-    /// <summary>
-    /// Шкалы выставления баллов. Значение каждой шкалы - максимум, который можно набрать. 
-    /// </summary>
-    public enum Scale
+    public class MotivationTestType : IVariousTestTemplate
     {
-        LifeSupport = 33, 
-        Comfort = 33, 
-        SocialStatus = 39, 
-        Communication = 42, 
-        GeneralActivity = 36, 
-        CreativeActivity = 48, 
-        SocialUtility = 48
-    }
-    public class MotivationTest : IEnumerable
-    {
-        #region Fields
-        public Dictionary<string, Question> Asks;
-        #endregion Fields
+        private Dictionary<string, Question> _Asks;
 
-        #region Methods
-        /// <summary>
-        /// Возвращает True, если ни один вопрос не остался без ответа. False в противоположном случае.
-        /// </summary>
-        /// <returns>True or False</returns>
-        public bool IsAllQuestionsBeenAnswered()
+        public Dictionary<string, Question> Asks
         {
-            return !Asks.Select(a => a.Value.QuestionAnswer).Contains(Answer.Default);
+            get => _Asks;
+            set => _Asks = value; 
         }
-        /// <summary>
-        /// Получить все ответы, сделанные пользователем на тест.
-        /// </summary>
-        /// <returns></returns>
-        public Answer[] GetAllAnswers()
-        {
-            if (Asks.Select(a => a.Value.QuestionAnswer).Contains(Answer.Default))
-            {
-                throw new NotAllAnswersReceivedException("Error! Not all answer received!", DateTime.Now);
-            } 
 
-            return Asks.Select(a => a.Value.QuestionAnswer).ToArray();
-        }
-        /// <summary>
-        /// Получить словарь результатов. В качестве ключа - шкала. Значение - количество набранных баллов.
-        /// </summary>
-        /// <returns></returns>
-        public Dictionary<Scale, int> Processing()
+        public void InitQuestions()
         {
-            // LifeSupport, Comfort, SocialStatus, Communication, GeneralActivity, CreativeActivity, SocialUtility;
-            Dictionary<Scale, int> TestResults = new Dictionary<Scale, int>();
-
-            if (!Asks.Select(a => a.Value.QuestionAnswer).Contains(Answer.Default)) {
-                TestResults.Add(Scale.LifeSupport, (int)Asks["1A"].QuestionAnswer + (int)Asks["1B"].QuestionAnswer + (int)Asks["2A"].QuestionAnswer +
-                    (int)Asks["3A"].QuestionAnswer + (int)Asks["4F"].QuestionAnswer + (int)Asks["5A"].QuestionAnswer +
-                    (int)Asks["6H"].QuestionAnswer + (int)Asks["8A"].QuestionAnswer + (int)Asks["10E"].QuestionAnswer + 
-                    (int)Asks["11A"].QuestionAnswer + (int)Asks["12A"].QuestionAnswer);
-                TestResults.Add(Scale.Comfort, (int)Asks["2B"].QuestionAnswer + (int)Asks["2C"].QuestionAnswer + (int)Asks["3B"].QuestionAnswer +
-                    (int)Asks["4H"].QuestionAnswer + (int)Asks["5B"].QuestionAnswer + (int)Asks["5C"].QuestionAnswer +
-                    (int)Asks["7A"].QuestionAnswer + (int)Asks["9A"].QuestionAnswer + (int)Asks["11B"].QuestionAnswer +
-                    (int)Asks["11C"].QuestionAnswer + (int)Asks["12B"].QuestionAnswer);
-                TestResults.Add(Scale.SocialStatus, (int)Asks["1F"].QuestionAnswer + (int)Asks["2D"].QuestionAnswer + (int)Asks["7C"].QuestionAnswer +
-                    (int)Asks["7D"].QuestionAnswer + (int)Asks["8C"].QuestionAnswer + (int)Asks["8H"].QuestionAnswer +
-                    (int)Asks["9C"].QuestionAnswer + (int)Asks["9D"].QuestionAnswer + (int)Asks["9F"].QuestionAnswer +
-                    (int)Asks["10D"].QuestionAnswer + (int)Asks["11E"].QuestionAnswer + (int)Asks["12E"].QuestionAnswer +
-                    (int)Asks["12F"].QuestionAnswer);
-                TestResults.Add(Scale.Communication, (int)Asks["1C"].QuestionAnswer + (int)Asks["2E"].QuestionAnswer + (int)Asks["3C"].QuestionAnswer +
-                    (int)Asks["4B"].QuestionAnswer + (int)Asks["6C"].QuestionAnswer + (int)Asks["7B"].QuestionAnswer +
-                    (int)Asks["7H"].QuestionAnswer + (int)Asks["8B"].QuestionAnswer + (int)Asks["8C"].QuestionAnswer +
-                    (int)Asks["9E"].QuestionAnswer + (int)Asks["9H"].QuestionAnswer + (int)Asks["10A"].QuestionAnswer +
-                    (int)Asks["11D"].QuestionAnswer + (int)Asks["12C"].QuestionAnswer);
-                TestResults.Add(Scale.GeneralActivity, (int)Asks["1D"].QuestionAnswer + (int)Asks["1H"].QuestionAnswer + (int)Asks["4A"].QuestionAnswer +
-                    (int)Asks["4D"].QuestionAnswer + (int)Asks["5H"].QuestionAnswer + (int)Asks["6A"].QuestionAnswer +
-                    (int)Asks["6B"].QuestionAnswer + (int)Asks["6D"].QuestionAnswer + (int)Asks["7E"].QuestionAnswer +
-                    (int)Asks["9B"].QuestionAnswer + (int)Asks["10C"].QuestionAnswer + (int)Asks["12H"].QuestionAnswer);
-                TestResults.Add(Scale.CreativeActivity, (int)Asks["1G"].QuestionAnswer + (int)Asks["1H"].QuestionAnswer + (int)Asks["2F"].QuestionAnswer +
-                    (int)Asks["2G"].QuestionAnswer + (int)Asks["3G"].QuestionAnswer + (int)Asks["4E"].QuestionAnswer +
-                    (int)Asks["5E"].QuestionAnswer + (int)Asks["5F"].QuestionAnswer + (int)Asks["6F"].QuestionAnswer +
-                    (int)Asks["7F"].QuestionAnswer + (int)Asks["7G"].QuestionAnswer + (int)Asks["8E"].QuestionAnswer +
-                    (int)Asks["8G"].QuestionAnswer + (int)Asks["10G"].QuestionAnswer + (int)Asks["11H"].QuestionAnswer
-                    + (int)Asks["12D"].QuestionAnswer);
-                TestResults.Add(Scale.SocialUtility, (int)Asks["1E"].QuestionAnswer + (int)Asks["2H"].QuestionAnswer + (int)Asks["3D"].QuestionAnswer +
-                    (int)Asks["3E"].QuestionAnswer + (int)Asks["4C"].QuestionAnswer + (int)Asks["4G"].QuestionAnswer +
-                    (int)Asks["5D"].QuestionAnswer + (int)Asks["5G"].QuestionAnswer + (int)Asks["6G"].QuestionAnswer +
-                    (int)Asks["8F"].QuestionAnswer + (int)Asks["9G"].QuestionAnswer + (int)Asks["10B"].QuestionAnswer +
-                    (int)Asks["10F"].QuestionAnswer + (int)Asks["11F"].QuestionAnswer + (int)Asks["11G"].QuestionAnswer
-                    + (int)Asks["12G"].QuestionAnswer);
-            } else
-            {
-                throw new NotAllAnswersReceivedException("Error! Not all answer received!", DateTime.Now);
-            }
-
-            return TestResults;
-        }
-        #endregion Methods
-
-        #region Interfaces Methods
-        public IEnumerator GetEnumerator()
-        {
-            foreach (var question in Asks)
-            {
-                yield return question.Value;
-            }
-        }
-        /// <summary>
-        /// Получение вопроса по числовому индексу.
-        /// </summary>
-        /// <param name="index">Порядковый номер вопроса.</param>
-        /// <returns></returns>
-        public Question this[int index]
-        {
-            get => Asks.ElementAt(index).Value;
-            private set { }
-        }
-        /// <summary>
-        /// Получение вопроса по собственному индексу.
-        /// </summary>
-        /// <param name="index">Строка. Номер блока + буква вопроса [A..H]</param>
-        /// <returns></returns>
-        public Question this[string index]
-        {
-            get => Asks[index];
-            private set { }
-        }
-        #endregion Interfaces Methods
-
-        #region Constructors
-        public MotivationTestClass()
-        {
-            Asks = new Dictionary<string, Question>();
-
             #region Init Questions
             string QuestionBlock1 = "В своем поведении в жизни нужно придерживаться следующего принципа:";
             Asks.Add("1A", new Question(QuestionBlock1, "«время - деньги». Нужно стремиться зарабатывать их больше."));
@@ -276,6 +158,59 @@ namespace psychologicaltestlib
             Asks.Add("14H", new Question(QuestionBlock14, "стараюсь понять причины неудачи и исправить положение."));
             #endregion Init Questions
         }
-        #endregion Constructors
+
+        public Dictionary<Scale, int> Processing()
+        {
+            Dictionary<Scale, int> TestResults = new Dictionary<Scale, int>();
+
+            if (!Asks.Select(a => a.Value.QuestionAnswer).Contains(Answer.Default))
+            {
+                TestResults.Add(Scale.LifeSupport, (int)Asks["1A"].QuestionAnswer + (int)Asks["1B"].QuestionAnswer + (int)Asks["2A"].QuestionAnswer +
+                    (int)Asks["3A"].QuestionAnswer + (int)Asks["4F"].QuestionAnswer + (int)Asks["5A"].QuestionAnswer +
+                    (int)Asks["6H"].QuestionAnswer + (int)Asks["8A"].QuestionAnswer + (int)Asks["10E"].QuestionAnswer +
+                    (int)Asks["11A"].QuestionAnswer + (int)Asks["12A"].QuestionAnswer);
+                TestResults.Add(Scale.Comfort, (int)Asks["2B"].QuestionAnswer + (int)Asks["2C"].QuestionAnswer + (int)Asks["3B"].QuestionAnswer +
+                    (int)Asks["4H"].QuestionAnswer + (int)Asks["5B"].QuestionAnswer + (int)Asks["5C"].QuestionAnswer +
+                    (int)Asks["7A"].QuestionAnswer + (int)Asks["9A"].QuestionAnswer + (int)Asks["11B"].QuestionAnswer +
+                    (int)Asks["11C"].QuestionAnswer + (int)Asks["12B"].QuestionAnswer);
+                TestResults.Add(Scale.SocialStatus, (int)Asks["1F"].QuestionAnswer + (int)Asks["2D"].QuestionAnswer + (int)Asks["7C"].QuestionAnswer +
+                    (int)Asks["7D"].QuestionAnswer + (int)Asks["8C"].QuestionAnswer + (int)Asks["8H"].QuestionAnswer +
+                    (int)Asks["9C"].QuestionAnswer + (int)Asks["9D"].QuestionAnswer + (int)Asks["9F"].QuestionAnswer +
+                    (int)Asks["10D"].QuestionAnswer + (int)Asks["11E"].QuestionAnswer + (int)Asks["12E"].QuestionAnswer +
+                    (int)Asks["12F"].QuestionAnswer);
+                TestResults.Add(Scale.Communication, (int)Asks["1C"].QuestionAnswer + (int)Asks["2E"].QuestionAnswer + (int)Asks["3C"].QuestionAnswer +
+                    (int)Asks["4B"].QuestionAnswer + (int)Asks["6C"].QuestionAnswer + (int)Asks["7B"].QuestionAnswer +
+                    (int)Asks["7H"].QuestionAnswer + (int)Asks["8B"].QuestionAnswer + (int)Asks["8C"].QuestionAnswer +
+                    (int)Asks["9E"].QuestionAnswer + (int)Asks["9H"].QuestionAnswer + (int)Asks["10A"].QuestionAnswer +
+                    (int)Asks["11D"].QuestionAnswer + (int)Asks["12C"].QuestionAnswer);
+                TestResults.Add(Scale.GeneralActivity, (int)Asks["1D"].QuestionAnswer + (int)Asks["1H"].QuestionAnswer + (int)Asks["4A"].QuestionAnswer +
+                    (int)Asks["4D"].QuestionAnswer + (int)Asks["5H"].QuestionAnswer + (int)Asks["6A"].QuestionAnswer +
+                    (int)Asks["6B"].QuestionAnswer + (int)Asks["6D"].QuestionAnswer + (int)Asks["7E"].QuestionAnswer +
+                    (int)Asks["9B"].QuestionAnswer + (int)Asks["10C"].QuestionAnswer + (int)Asks["12H"].QuestionAnswer);
+                TestResults.Add(Scale.CreativeActivity, (int)Asks["1G"].QuestionAnswer + (int)Asks["1H"].QuestionAnswer + (int)Asks["2F"].QuestionAnswer +
+                    (int)Asks["2G"].QuestionAnswer + (int)Asks["3G"].QuestionAnswer + (int)Asks["4E"].QuestionAnswer +
+                    (int)Asks["5E"].QuestionAnswer + (int)Asks["5F"].QuestionAnswer + (int)Asks["6F"].QuestionAnswer +
+                    (int)Asks["7F"].QuestionAnswer + (int)Asks["7G"].QuestionAnswer + (int)Asks["8E"].QuestionAnswer +
+                    (int)Asks["8G"].QuestionAnswer + (int)Asks["10G"].QuestionAnswer + (int)Asks["11H"].QuestionAnswer
+                    + (int)Asks["12D"].QuestionAnswer);
+                TestResults.Add(Scale.SocialUtility, (int)Asks["1E"].QuestionAnswer + (int)Asks["2H"].QuestionAnswer + (int)Asks["3D"].QuestionAnswer +
+                    (int)Asks["3E"].QuestionAnswer + (int)Asks["4C"].QuestionAnswer + (int)Asks["4G"].QuestionAnswer +
+                    (int)Asks["5D"].QuestionAnswer + (int)Asks["5G"].QuestionAnswer + (int)Asks["6G"].QuestionAnswer +
+                    (int)Asks["8F"].QuestionAnswer + (int)Asks["9G"].QuestionAnswer + (int)Asks["10B"].QuestionAnswer +
+                    (int)Asks["10F"].QuestionAnswer + (int)Asks["11F"].QuestionAnswer + (int)Asks["11G"].QuestionAnswer
+                    + (int)Asks["12G"].QuestionAnswer);
+            }
+            else
+            {
+                throw new NotAllAnswersReceivedException("Error! Not all answer received!", DateTime.Now);
+            }
+
+            return TestResults;
+        }
+
+        public MotivationTestType()
+        {
+            _Asks = new Dictionary<string, Question>();
+        }
     }
 }
