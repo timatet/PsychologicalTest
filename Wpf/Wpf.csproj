@@ -74,6 +74,7 @@
     <Compile Include="DescriptionAndInstruction.xaml.cs">
       <DependentUpon>DescriptionAndInstruction.xaml</DependentUpon>
     </Compile>
+    <Compile Include="InformaitionAboutTests.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

@@ -73,7 +73,7 @@
 
         <Button 
             Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2"
-            Click="ButtonBack_Click" Height="52" Margin="2,2,2,0" VerticalAlignment="Top">
+            Click="ButtonBack_Click">
             <Viewbox>
                 <TextBlock Text="Назад"/>
             </Viewbox>
