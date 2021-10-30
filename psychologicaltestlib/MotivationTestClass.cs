@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -17,13 +18,21 @@ namespace psychologicaltestlib
         CreativeActivity = 48, 
         SocialUtility = 48
     }
-    public class MotivationTestClass
+    public class MotivationTest : IEnumerable
     {
         #region Fields
         public Dictionary<string, Question> Asks;
         #endregion Fields
 
         #region Methods
+        /// <summary>
+        /// Возвращает True, если ни один вопрос не остался без ответа. False в противоположном случае.
+        /// </summary>
+        /// <returns>True or False</returns>
+        public bool IsAllQuestionsBeenAnswered()
+        {
+            return !Asks.Select(a => a.Value.QuestionAnswer).Contains(Answer.Default);
+        }
         /// <summary>
         /// Получить все ответы, сделанные пользователем на тест.
         /// </summary>
@@ -89,6 +98,36 @@ namespace psychologicaltestlib
             return TestResults;
         }
         #endregion Methods
+
+        #region Interfaces Methods
+        public IEnumerator GetEnumerator()
+        {
+            foreach (var question in Asks)
+            {
+                yield return question.Value;
+            }
+        }
+        /// <summary>
+        /// Получение вопроса по числовому индексу.
+        /// </summary>
+        /// <param name="index">Порядковый номер вопроса.</param>
+        /// <returns></returns>
+        public Question this[int index]
+        {
+            get => Asks.ElementAt(index).Value;
+            private set { }
+        }
+        /// <summary>
+        /// Получение вопроса по собственному индексу.
+        /// </summary>
+        /// <param name="index">Строка. Номер блока + буква вопроса [A..H]</param>
+        /// <returns></returns>
+        public Question this[string index]
+        {
+            get => Asks[index];
+            private set { }
+        }
+        #endregion Interfaces Methods
 
         #region Constructors
         public MotivationTestClass()
