@@ -1,22 +1,12 @@
 ﻿namespace psychologicaltestlib
 {
-    /// <summary>
-    /// Варианты ответа. Значения каждого варианта - балл, который учитывается при подведении результатов, если этот вариант выбран.
-    /// </summary>
-    public enum Answer
-    {
-        YesAgree = 3,
-        ThinkAgree = 2,
-        WhenHow = 1,
-        DontAgreeOrDontKnow = 0,
-        Default = -1
-    }
     public class Question
     {
         #region Fields
         private string _QuestionName;
         private string _QuestionBlock;
-        private Answer _QuestionAnswer;
+        public static int Default = 0;
+        private int _QuestionAnswer;
         #endregion Fields
 
         #region Properties
@@ -30,7 +20,7 @@
             get => _QuestionBlock;
             private set => _QuestionBlock = value;
         }
-        public Answer QuestionAnswer
+        public int QuestionAnswer
         {
             get => _QuestionAnswer;
             private set => _QuestionAnswer = value;
@@ -38,7 +28,7 @@
         #endregion Properties
 
         #region Methods
-        public void SetAnswer(Answer AnswerOnQuestion)
+        public void SetAnswer(int AnswerOnQuestion)
         {
             QuestionAnswer = AnswerOnQuestion;
         }
@@ -54,7 +44,7 @@
         {
             QuestionBlock = _QuestionBlock;
             QuestionName = _QuestionName;
-            QuestionAnswer = Answer.Default;
+            QuestionAnswer = 0;
         }
         #endregion Constructors
     }

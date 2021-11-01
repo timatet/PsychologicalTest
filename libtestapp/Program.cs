@@ -14,7 +14,7 @@ namespace libtestapp
             Random rnd = new Random(DateTime.Now.Millisecond);
             foreach (Question q in motivationTest)
             {
-                q.SetAnswer((Answer)rnd.Next(0, 3));
+                q.SetAnswer(rnd.Next(0, 3));
             }
 
             for (int i = 0; i < 14; i++)
@@ -25,7 +25,7 @@ namespace libtestapp
 
             motivationTest.SaveResults(new ConvertTestTo(motivationTest.Processing()));
             Question question = new Question("trdsxcvbnmfdgh");
-            question.SetAnswer(Answer.DontAgreeOrDontKnow);
+            question.SetAnswer(-1);
         }
     }
 }

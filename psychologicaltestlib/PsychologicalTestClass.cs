@@ -5,19 +5,6 @@ using System.Linq;
 
 namespace psychologicaltestlib
 {
-    /// <summary>
-    /// Шкалы выставления баллов. 
-    /// </summary>
-    public enum Scale
-    {
-        LifeSupport,
-        Comfort, 
-        SocialStatus, 
-        Communication, 
-        GeneralActivity, 
-        CreativeActivity, 
-        SocialUtility
-    }
     public class PsychologicalTest : IEnumerable
     {
         #region Fields
@@ -25,6 +12,7 @@ namespace psychologicaltestlib
         #endregion Fields
 
         #region Methods
+        public string[] GetScales() => _VariousTestTemplate.GetScales();
         public int Count() => _VariousTestTemplate.Asks.Count();
         /// <summary>
         /// Сохранение результатов тестирования с помощью выбранного метода сохранения.
@@ -36,15 +24,15 @@ namespace psychologicaltestlib
         /// <returns>True or False</returns>
         public bool IsAllQuestionsBeenAnswered()
         {
-            return !_VariousTestTemplate.Asks.Select(a => a.Value.QuestionAnswer).Contains(Answer.Default);
+            return !_VariousTestTemplate.Asks.Select(a => a.Value.QuestionAnswer).Contains(Question.Default);
         }
         /// <summary>
         /// Получить все ответы, сделанные пользователем на тест.
         /// </summary>
         /// <returns></returns>
-        public Answer[] GetAllAnswers()
+        public int[] GetAllAnswers()
         {
-            if (_VariousTestTemplate.Asks.Select(a => a.Value.QuestionAnswer).Contains(Answer.Default))
+            if (_VariousTestTemplate.Asks.Select(a => a.Value.QuestionAnswer).Contains(Question.Default))
             {
                 throw new NotAllAnswersReceivedException("Error! Not all answer received!", DateTime.Now);
             } 
@@ -55,7 +43,7 @@ namespace psychologicaltestlib
         /// Получить словарь результатов. В качестве ключа - шкала. Значение - количество набранных баллов.
         /// </summary>
         /// <returns></returns>
-        public Dictionary<Scale, int> Processing() => _VariousTestTemplate.Processing();
+        public Dictionary<string, int> Processing() => _VariousTestTemplate.Processing();
         public void InitQuestions() => _VariousTestTemplate.InitQuestions();
         #endregion Methods
 

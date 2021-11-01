@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace psychologicaltestlib
 {
@@ -6,7 +7,8 @@ namespace psychologicaltestlib
     {
         Dictionary<string, Question> Asks { get; set; }
 
-        Dictionary<Scale, int> Processing();
+        Dictionary<string, int> Processing();
         void InitQuestions();
+        string[] GetScales();
     }
 }

@@ -8,7 +8,7 @@ namespace psychologicaltestlib
     public class ConvertTestTo : IDataSaveInterface
     {
         #region Fields
-        private Dictionary<Scale, int> _Results;
+        private Dictionary<string, int> _Results;
         #endregion Fields
 
         #region Methods
@@ -18,7 +18,7 @@ namespace psychologicaltestlib
         }
         #endregion Methods
 
-        public ConvertTestTo(Dictionary<Scale, int> results)
+        public ConvertTestTo(Dictionary<string, int> results)
         {
             _Results = results;
         }

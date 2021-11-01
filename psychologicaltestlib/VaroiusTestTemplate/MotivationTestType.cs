@@ -7,12 +7,15 @@ namespace psychologicaltestlib
     public class MotivationTestType : IVariousTestTemplate
     {
         private Dictionary<string, Question> _Asks;
+        private string[] _Scales;
 
         public Dictionary<string, Question> Asks
         {
             get => _Asks;
             set => _Asks = value; 
         }
+
+        public string[] GetScales() => _Scales;
 
         public void InitQuestions()
         {
@@ -159,41 +162,41 @@ namespace psychologicaltestlib
             #endregion Init Questions
         }
 
-        public Dictionary<Scale, int> Processing()
-        {
-            Dictionary<Scale, int> TestResults = new Dictionary<Scale, int>();
+        public Dictionary<string, int> Processing()
+        {           
+            Dictionary<string, int> TestResults = new Dictionary<string, int>();
 
-            if (!Asks.Select(a => a.Value.QuestionAnswer).Contains(Answer.Default))
+            if (!Asks.Select(a => a.Value.QuestionAnswer).Contains(Question.Default))
             {
-                TestResults.Add(Scale.LifeSupport, (int)Asks["1A"].QuestionAnswer + (int)Asks["1B"].QuestionAnswer + (int)Asks["2A"].QuestionAnswer +
+                TestResults.Add(_Scales[0], (int)Asks["1A"].QuestionAnswer + (int)Asks["1B"].QuestionAnswer + (int)Asks["2A"].QuestionAnswer +
                     (int)Asks["3A"].QuestionAnswer + (int)Asks["4F"].QuestionAnswer + (int)Asks["5A"].QuestionAnswer +
                     (int)Asks["6H"].QuestionAnswer + (int)Asks["8A"].QuestionAnswer + (int)Asks["10E"].QuestionAnswer +
                     (int)Asks["11A"].QuestionAnswer + (int)Asks["12A"].QuestionAnswer);
-                TestResults.Add(Scale.Comfort, (int)Asks["2B"].QuestionAnswer + (int)Asks["2C"].QuestionAnswer + (int)Asks["3B"].QuestionAnswer +
+                TestResults.Add(_Scales[1], (int)Asks["2B"].QuestionAnswer + (int)Asks["2C"].QuestionAnswer + (int)Asks["3B"].QuestionAnswer +
                     (int)Asks["4H"].QuestionAnswer + (int)Asks["5B"].QuestionAnswer + (int)Asks["5C"].QuestionAnswer +
                     (int)Asks["7A"].QuestionAnswer + (int)Asks["9A"].QuestionAnswer + (int)Asks["11B"].QuestionAnswer +
                     (int)Asks["11C"].QuestionAnswer + (int)Asks["12B"].QuestionAnswer);
-                TestResults.Add(Scale.SocialStatus, (int)Asks["1F"].QuestionAnswer + (int)Asks["2D"].QuestionAnswer + (int)Asks["7C"].QuestionAnswer +
+                TestResults.Add(_Scales[2], (int)Asks["1F"].QuestionAnswer + (int)Asks["2D"].QuestionAnswer + (int)Asks["7C"].QuestionAnswer +
                     (int)Asks["7D"].QuestionAnswer + (int)Asks["8C"].QuestionAnswer + (int)Asks["8H"].QuestionAnswer +
                     (int)Asks["9C"].QuestionAnswer + (int)Asks["9D"].QuestionAnswer + (int)Asks["9F"].QuestionAnswer +
                     (int)Asks["10D"].QuestionAnswer + (int)Asks["11E"].QuestionAnswer + (int)Asks["12E"].QuestionAnswer +
                     (int)Asks["12F"].QuestionAnswer);
-                TestResults.Add(Scale.Communication, (int)Asks["1C"].QuestionAnswer + (int)Asks["2E"].QuestionAnswer + (int)Asks["3C"].QuestionAnswer +
+                TestResults.Add(_Scales[3], (int)Asks["1C"].QuestionAnswer + (int)Asks["2E"].QuestionAnswer + (int)Asks["3C"].QuestionAnswer +
                     (int)Asks["4B"].QuestionAnswer + (int)Asks["6C"].QuestionAnswer + (int)Asks["7B"].QuestionAnswer +
                     (int)Asks["7H"].QuestionAnswer + (int)Asks["8B"].QuestionAnswer + (int)Asks["8C"].QuestionAnswer +
                     (int)Asks["9E"].QuestionAnswer + (int)Asks["9H"].QuestionAnswer + (int)Asks["10A"].QuestionAnswer +
                     (int)Asks["11D"].QuestionAnswer + (int)Asks["12C"].QuestionAnswer);
-                TestResults.Add(Scale.GeneralActivity, (int)Asks["1D"].QuestionAnswer + (int)Asks["1H"].QuestionAnswer + (int)Asks["4A"].QuestionAnswer +
+                TestResults.Add(_Scales[4], (int)Asks["1D"].QuestionAnswer + (int)Asks["1H"].QuestionAnswer + (int)Asks["4A"].QuestionAnswer +
                     (int)Asks["4D"].QuestionAnswer + (int)Asks["5H"].QuestionAnswer + (int)Asks["6A"].QuestionAnswer +
                     (int)Asks["6B"].QuestionAnswer + (int)Asks["6D"].QuestionAnswer + (int)Asks["7E"].QuestionAnswer +
                     (int)Asks["9B"].QuestionAnswer + (int)Asks["10C"].QuestionAnswer + (int)Asks["12H"].QuestionAnswer);
-                TestResults.Add(Scale.CreativeActivity, (int)Asks["1G"].QuestionAnswer + (int)Asks["1H"].QuestionAnswer + (int)Asks["2F"].QuestionAnswer +
+                TestResults.Add(_Scales[5], (int)Asks["1G"].QuestionAnswer + (int)Asks["1H"].QuestionAnswer + (int)Asks["2F"].QuestionAnswer +
                     (int)Asks["2G"].QuestionAnswer + (int)Asks["3G"].QuestionAnswer + (int)Asks["4E"].QuestionAnswer +
                     (int)Asks["5E"].QuestionAnswer + (int)Asks["5F"].QuestionAnswer + (int)Asks["6F"].QuestionAnswer +
                     (int)Asks["7F"].QuestionAnswer + (int)Asks["7G"].QuestionAnswer + (int)Asks["8E"].QuestionAnswer +
                     (int)Asks["8G"].QuestionAnswer + (int)Asks["10G"].QuestionAnswer + (int)Asks["11H"].QuestionAnswer
                     + (int)Asks["12D"].QuestionAnswer);
-                TestResults.Add(Scale.SocialUtility, (int)Asks["1E"].QuestionAnswer + (int)Asks["2H"].QuestionAnswer + (int)Asks["3D"].QuestionAnswer +
+                TestResults.Add(_Scales[6], (int)Asks["1E"].QuestionAnswer + (int)Asks["2H"].QuestionAnswer + (int)Asks["3D"].QuestionAnswer +
                     (int)Asks["3E"].QuestionAnswer + (int)Asks["4C"].QuestionAnswer + (int)Asks["4G"].QuestionAnswer +
                     (int)Asks["5D"].QuestionAnswer + (int)Asks["5G"].QuestionAnswer + (int)Asks["6G"].QuestionAnswer +
                     (int)Asks["8F"].QuestionAnswer + (int)Asks["9G"].QuestionAnswer + (int)Asks["10B"].QuestionAnswer +
@@ -211,6 +214,7 @@ namespace psychologicaltestlib
         public MotivationTestType()
         {
             _Asks = new Dictionary<string, Question>();
+            _Scales = new string[] { "LifeSupport", "Comfort", "SocialStatus", "Communication", "GeneralActivity", "SocialUtility" };
         }
     }
 }
