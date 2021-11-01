@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace psychologicaltestlib
 {
     public interface IDataSaveInterface
     {
-        void Print();
+        void Print(string Name, string Desc, Dictionary<string, Question> Answ);
     }
 }

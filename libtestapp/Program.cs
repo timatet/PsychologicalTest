@@ -23,7 +23,7 @@ namespace libtestapp
                     Console.WriteLine($"{i + 1}{j}: " + motivationTest[$"{i+1}{j}"].QuestionName + "\n" + motivationTest[$"{i + 1}{j}"].QuestionAnswer);
             }
 
-            motivationTest.SaveResults(new ConvertTestTo(motivationTest.Processing()));
+            motivationTest.SaveResults(new ConvertTestToXL());
             Question question = new Question("trdsxcvbnmfdgh");
             question.SetAnswer(-1);
         }

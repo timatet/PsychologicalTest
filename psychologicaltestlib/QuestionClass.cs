@@ -5,7 +5,7 @@
         #region Fields
         private string _QuestionName;
         private string _QuestionBlock;
-        public static int Default = 0;
+        public static int Default = -1;
         private int _QuestionAnswer;
         #endregion Fields
 
@@ -44,7 +44,7 @@
         {
             QuestionBlock = _QuestionBlock;
             QuestionName = _QuestionName;
-            QuestionAnswer = 0;
+            QuestionAnswer = -1;
         }
         #endregion Constructors
     }

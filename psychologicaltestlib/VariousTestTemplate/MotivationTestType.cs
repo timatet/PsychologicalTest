@@ -6,17 +6,23 @@ namespace psychologicaltestlib
 {
     public class MotivationTestType : IVariousTestTemplate
     {
+        #region Fields
         private Dictionary<string, Question> _Asks;
         private string[] _Scales;
+        #endregion Fields
 
+        #region Properties
         public Dictionary<string, Question> Asks
         {
             get => _Asks;
             set => _Asks = value; 
         }
+        #endregion Properties
 
+        #region Interface Methods
+        public string GetNameOfTest() => "Дианостика мотивационной структуры личности";
+        public string GetDescriptionOfTest() => "";
         public string[] GetScales() => _Scales;
-
         public void InitQuestions()
         {
             #region Init Questions
@@ -161,13 +167,13 @@ namespace psychologicaltestlib
             Asks.Add("14H", new Question(QuestionBlock14, "стараюсь понять причины неудачи и исправить положение."));
             #endregion Init Questions
         }
-
         public Dictionary<string, int> Processing()
         {           
             Dictionary<string, int> TestResults = new Dictionary<string, int>();
 
             if (!Asks.Select(a => a.Value.QuestionAnswer).Contains(Question.Default))
             {
+                #region Init Results
                 TestResults.Add(_Scales[0], (int)Asks["1A"].QuestionAnswer + (int)Asks["1B"].QuestionAnswer + (int)Asks["2A"].QuestionAnswer +
                     (int)Asks["3A"].QuestionAnswer + (int)Asks["4F"].QuestionAnswer + (int)Asks["5A"].QuestionAnswer +
                     (int)Asks["6H"].QuestionAnswer + (int)Asks["8A"].QuestionAnswer + (int)Asks["10E"].QuestionAnswer +
@@ -202,6 +208,7 @@ namespace psychologicaltestlib
                     (int)Asks["8F"].QuestionAnswer + (int)Asks["9G"].QuestionAnswer + (int)Asks["10B"].QuestionAnswer +
                     (int)Asks["10F"].QuestionAnswer + (int)Asks["11F"].QuestionAnswer + (int)Asks["11G"].QuestionAnswer
                     + (int)Asks["12G"].QuestionAnswer);
+                #endregion Init Results
             }
             else
             {
@@ -210,11 +217,15 @@ namespace psychologicaltestlib
 
             return TestResults;
         }
+        #endregion Interface Methods
 
+
+        #region Constructor
         public MotivationTestType()
         {
             _Asks = new Dictionary<string, Question>();
-            _Scales = new string[] { "LifeSupport", "Comfort", "SocialStatus", "Communication", "GeneralActivity", "SocialUtility" };
+            _Scales = new string[] { "LifeSupport", "Comfort", "SocialStatus", "Communication", "GeneralActivity", "CreativeActivity", "SocialUtility" };
         }
+        #endregion Constructor
     }
 }

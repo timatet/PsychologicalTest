@@ -11,13 +11,24 @@ namespace psychologicaltestlib
         private IVariousTestTemplate _VariousTestTemplate;
         #endregion Fields
 
+        #region Properties
+        public Dictionary<string, Question> Asks
+        {
+            get => _VariousTestTemplate.Asks;
+            set => _VariousTestTemplate.Asks = value;
+        }
+        #endregion Properties
+
         #region Methods
         public string[] GetScales() => _VariousTestTemplate.GetScales();
         public int Count() => _VariousTestTemplate.Asks.Count();
         /// <summary>
         /// Сохранение результатов тестирования с помощью выбранного метода сохранения.
         /// </summary>
-        public void SaveResults(IDataSaveInterface dataSaveInterface) => dataSaveInterface.Print();
+        public void SaveResults(IDataSaveInterface dataSaveInterface)
+        {
+            dataSaveInterface.Print(_VariousTestTemplate.GetNameOfTest(), _VariousTestTemplate.GetDescriptionOfTest(), _VariousTestTemplate.Asks);
+        }
         /// <summary>
         /// Возвращает True, если ни один вопрос не остался без ответа. False в противоположном случае.
         /// </summary>
