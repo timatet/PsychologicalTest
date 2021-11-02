@@ -33,11 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="IronPdf, Version=2021.11.0.4183, Culture=neutral, PublicKeyToken=94e1c31412563c75, processorArchitecture=MSIL">
-      <HintPath>..\psychologicaltestlib\packages\IronPdf.Slim.2021.11.4183\lib\net40\IronPdf.dll</HintPath>
+    <Reference Include="IronPdf">
+      <HintPath>D:\Загрузки\IronPdf\IronPdf\bin\net40\IronPdf.dll</HintPath>
     </Reference>
-    <Reference Include="IronXL, Version=2021.11.0.0, Culture=neutral, PublicKeyToken=0f5804b6690bad1e, processorArchitecture=MSIL">
-      <HintPath>..\psychologicaltestlib\packages\IronXL.Excel.2021.11.0\lib\net45\IronXL.dll</HintPath>
+    <Reference Include="IronXL">
+      <HintPath>D:\Загрузки\IronXL\bin\net45\IronXL.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -66,16 +66,8 @@
     <Compile Include="VariousTestTemplate\TworchestvoTestType.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
     <None Include="Test Documents PDF\motivatsia.pdf" />
     <None Include="Test Documents PDF\tworchestvo.pdf" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\psychologicaltestlib\packages\IronPdf.Native.Chrome.Windows.2021.11.4180\build\net452\IronPdf.Native.Chrome.Windows.targets" Condition="Exists('..\psychologicaltestlib\packages\IronPdf.Native.Chrome.Windows.2021.11.4180\build\net452\IronPdf.Native.Chrome.Windows.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\psychologicaltestlib\packages\IronPdf.Native.Chrome.Windows.2021.11.4180\build\net452\IronPdf.Native.Chrome.Windows.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\psychologicaltestlib\packages\IronPdf.Native.Chrome.Windows.2021.11.4180\build\net452\IronPdf.Native.Chrome.Windows.targets'))" />
-  </Target>
 </Project>
