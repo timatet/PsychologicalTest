@@ -14,4 +14,16 @@ namespace psychologicaltestlib
             ErrTime = d;
         }
     }
+    public class NotAllFieldsNameInputException : Exception
+    {
+        public DateTime ErrTime;
+        public NotAllFieldsNameInputException() { }
+        public NotAllFieldsNameInputException(string msg)
+            : base(msg) { }
+        public NotAllFieldsNameInputException(string msg, DateTime d)
+            : base(msg)
+        {
+            ErrTime = d;
+        }
+    }
 }

@@ -12,7 +12,7 @@ namespace psychologicaltestlib
         #endregion Fields
 
         #region Methods
-        public void Print(string Name, string Desc, Dictionary<string, Question> Answ)
+        public void Print(List<UserClass> _Users)
         {
             //Здесь реализация метода печати в PDF файл
         }

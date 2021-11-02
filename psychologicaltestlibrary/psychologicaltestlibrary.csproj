@@ -57,6 +57,7 @@
     <Compile Include="ExceptionsClass.cs" />
     <Compile Include="InformationAboutTests.cs" />
     <Compile Include="GetDataTemplates\InterfaceGetDataTemplates.cs" />
+    <Compile Include="UserClass\UserClass.cs" />
     <Compile Include="VariousTestTemplate\IVariousTestTemplate.cs" />
     <Compile Include="VariousTestTemplate\MotivationTestType.cs" />
     <Compile Include="PairClass.cs" />
