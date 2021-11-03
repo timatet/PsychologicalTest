@@ -9,10 +9,11 @@ namespace psychologicaltestlib
     {
         #region Fields
         private IVariousTestTemplate _VariousTestTemplate;
+        List<UserClass> _Users;
         #endregion Fields
 
         #region Properties
-        public Dictionary<string, Question> Asks
+        private Dictionary<string, Question> Asks
         {
             get => _VariousTestTemplate.Asks;
             set => _VariousTestTemplate.Asks = value;
@@ -23,19 +24,27 @@ namespace psychologicaltestlib
         public string[] GetScales() => _VariousTestTemplate.GetScales();
         public int Count() => _VariousTestTemplate.Asks.Count();
         /// <summary>
-        /// Сохранение результатов тестирования с помощью выбранного метода сохранения.
+        /// Сохраняет результат для всех пользователей которые прошли этот документ.
+        /// "Завершить прохождение теста и сформировать результаты"
         /// </summary>
-        public void SaveResults(IDataSaveInterface dataSaveInterface)
+        /// <param name="dataSaveInterface"></param>
+        public void StopTestAndSaveResults(IDataSaveInterface dataSaveInterface)
         {
-            dataSaveInterface.Print(_VariousTestTemplate.GetNameOfTest(), _VariousTestTemplate.GetDescriptionOfTest(), _VariousTestTemplate.Asks);
+            dataSaveInterface.Print(_Users);
         }
         /// <summary>
-        /// Возвращает True, если ни один вопрос не остался без ответа. False в противоположном случае.
+        /// Сохранение результатов тестирования и переход к другому пользователю.
+        /// "Перейти к прохождению теста следующим участником"
         /// </summary>
-        /// <returns>True or False</returns>
-        public bool IsAllQuestionsBeenAnswered()
+        public void NextUser(UserClass user)
         {
-            return !_VariousTestTemplate.Asks.Select(a => a.Value.QuestionAnswer).Contains(Question.Default);
+            if (!_VariousTestTemplate.Asks.Select(a => a.Value.QuestionAnswer).Contains(Question.Default))
+            {
+                user.AddResultsAboutTest(_VariousTestTemplate);
+                _Users.Add(user);
+            }
+
+            throw new NotAllAnswersReceivedException("Error! Not all answer received!", DateTime.Now);
         }
         /// <summary>
         /// Получить все ответы, сделанные пользователем на тест.
@@ -50,12 +59,6 @@ namespace psychologicaltestlib
 
             return _VariousTestTemplate.Asks.Select(a => a.Value.QuestionAnswer).ToArray();
         }
-        /// <summary>
-        /// Получить словарь результатов. В качестве ключа - шкала. Значение - количество набранных баллов.
-        /// </summary>
-        /// <returns></returns>
-        public Dictionary<string, int> Processing() => _VariousTestTemplate.Processing();
-        public void InitQuestions() => _VariousTestTemplate.InitQuestions();
         #endregion Methods
 
         #region Interfaces Methods
@@ -92,6 +95,8 @@ namespace psychologicaltestlib
         public PsychologicalTest(IVariousTestTemplate VariousTestTemplate)
         {
             _VariousTestTemplate = VariousTestTemplate;
+            _VariousTestTemplate.InitQuestions();
+            _Users = new List<UserClass>();
         }
         #endregion Constructors
     }

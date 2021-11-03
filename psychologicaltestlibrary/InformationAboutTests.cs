@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace psychologicaltestlib
+﻿namespace psychologicaltestlib
 {
     public class InformaitionAboutTests
     {
         public InformaitionAboutTests() { }
         public readonly string[] TestNames = {
-                "Дианостика мотивационной структуры личности",
+                "Диагностика мотивационной структуры личности",
                 "Личностные творческие характеристики" };
         public readonly string[] TestDescription = {
             //Дианостика мотивационной структуры личности

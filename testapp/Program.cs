@@ -9,7 +9,7 @@ namespace libtestapp
         {
             PsychologicalTest motivationTest = new PsychologicalTest(new MotivationTestType());
 
-            motivationTest.InitQuestions();
+            //motivationTest.InitQuestions();
 
             Random rnd = new Random(DateTime.Now.Millisecond);
             foreach (Question q in motivationTest)
@@ -23,7 +23,7 @@ namespace libtestapp
             //        Console.WriteLine($"{i + 1}{j}: " + motivationTest[$"{i + 1}{j}"].QuestionName + "\n" + motivationTest[$"{i + 1}{j}"].QuestionAnswer);
             //}
 
-            motivationTest.SaveResults(new ConvertTestToXL());
+            motivationTest.StopTestAndSaveResults(new ConvertTestToXL());
             Question question = new Question("trdsxcvbnmfdgh");
             question.SetAnswer(-1);
         }

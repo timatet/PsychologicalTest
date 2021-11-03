@@ -9,6 +9,7 @@ namespace psychologicaltestlib
         #region Fields
         private Dictionary<string, Question> _Asks;
         private string[] _Scales;
+        private InformaitionAboutTests InfAT;
         #endregion Fields
 
         #region Properties
@@ -20,8 +21,8 @@ namespace psychologicaltestlib
         #endregion Properties
 
         #region Interface Methods
-        public string GetNameOfTest() => "Дианостика мотивационной структуры личности";
-        public string GetDescriptionOfTest() => "";
+        public string GetNameOfTest() => InfAT.TestNames[0];
+        public string GetDescriptionOfTest() => InfAT.TestDescription[0];
         public string[] GetScales() => _Scales;
         public void InitQuestions()
         {
@@ -224,6 +225,7 @@ namespace psychologicaltestlib
         {
             _Asks = new Dictionary<string, Question>();
             _Scales = new string[] { "LifeSupport", "Comfort", "SocialStatus", "Communication", "GeneralActivity", "CreativeActivity", "SocialUtility" };
+            InfAT = new InformaitionAboutTests();
         }
         #endregion Constructor
     }
