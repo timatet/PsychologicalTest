@@ -7,6 +7,7 @@ namespace psychologicaltestlib
         #region Fields
         private Dictionary<string, Question> _Asks;
         private string[] _Scales;
+        private InformaitionAboutTests InfAT;
         #endregion Fields
 
         #region Properties
@@ -18,8 +19,8 @@ namespace psychologicaltestlib
         #endregion Properties
 
         #region Interface Methods
-        public string GetNameOfTest() => "Личностные творческие характеристики";
-        public string GetDescriptionOfTest() => "";
+        public string GetNameOfTest() => InfAT.TestNames[1];
+        public string GetDescriptionOfTest() => InfAT.TestNames[1];
         public string[] GetScales() => _Scales;
         public void InitQuestions()
         {
@@ -37,7 +38,9 @@ namespace psychologicaltestlib
         #region Constructor
         public TworchestvoTestType()
         {
-            
+            _Asks = new Dictionary<string, Question>();
+            _Scales = new string[] { "DefaultScale" };
+            InfAT = new InformaitionAboutTests();
         }
         #endregion Constructor
     }
