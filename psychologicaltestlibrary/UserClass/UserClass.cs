@@ -67,7 +67,7 @@ namespace psychologicaltestlib
         #region Methods
         /// <summary>
         /// Регистрирует результат для пользователя о прохождении теста.
-        /// </summary>
+        /// </summary> 
         /// <param name="variousTestTemplate"></param>
         public void AddResultsAboutTest(IVariousTestTemplate variousTestTemplate) => _VariousTestTemplate = variousTestTemplate;
         #endregion Methods
