@@ -70,5 +70,9 @@
     <None Include="Test Documents PDF\motivatsia.pdf" />
     <None Include="Test Documents PDF\tworchestvo.pdf" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="IronLibs\IronPdf.dll" />
+    <Content Include="IronLibs\IronXL.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
