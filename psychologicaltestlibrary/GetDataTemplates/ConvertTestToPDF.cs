@@ -1,5 +1,4 @@
-﻿using IronPdf;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace psychologicaltestlib
 {
@@ -8,7 +7,7 @@ namespace psychologicaltestlib
         #region Fields
         private IVariousTestTemplate _variousTest;
         private Dictionary<string, int> _Results;
-        private ChromePdfRenderer pdf;
+        
         #endregion Fields
 
         #region Methods
