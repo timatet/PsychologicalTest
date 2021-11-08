@@ -23,7 +23,13 @@ namespace Wpf
         {
             InitializeComponent();
         }
-        //убрать кнопку закрытия окна
+
+        private void MouseDown_Click(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
+        }
+
         private void ButtonСancel_Click(object sender, RoutedEventArgs e)
         {
             //закрыть окно

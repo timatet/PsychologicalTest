@@ -24,6 +24,12 @@ namespace Wpf
             InitializeComponent();
         }
 
+        private void MouseDown_Click(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
+        }
+
         private void ButtonReturnToTheStatements_Click(object sender, RoutedEventArgs e)
         {
             //Закрыть окошко

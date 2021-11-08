@@ -47,6 +47,11 @@ namespace Wpf
             //поменять номер
             //увеличить счетчик вопросов
             //изменить значение progressbar
+            //если вопрос последний, то открыть уведомление
+
+            /*открытие уведомления
+            TestingIsOver tio = new TestingIsOver();
+            tio.Show();*/
         }
 
         private void RadioButton_AgreeFomThePart(object sender, RoutedEventArgs e)
@@ -56,6 +61,11 @@ namespace Wpf
             //поменять номер
             //увеличить счетчик вопросов
             //изменить значение progressbar
+            //если вопрос последний, то открыть уведомление
+
+            /*открытие уведомления
+            TestingIsOver tio = new TestingIsOver();
+            tio.Show();*/
         }
 
         private void RadioButton_Doubt(object sender, RoutedEventArgs e)
@@ -65,6 +75,11 @@ namespace Wpf
             //поменять номер
             //увеличить счетчик вопросов
             //изменить значение progressbar
+            //если вопрос последний, то открыть уведомление
+
+            /*открытие уведомления
+            TestingIsOver tio = new TestingIsOver();
+            tio.Show();*/
         }
 
         private void RadioButton_Disagree(object sender, RoutedEventArgs e)
@@ -74,6 +89,11 @@ namespace Wpf
             //поменять номер
             //увеличить счетчик вопросов
             //изменить значение progressbar
+            //если вопрос последний, то открыть уведомление
+
+            /*открытие уведомления
+            TestingIsOver tio = new TestingIsOver();
+            tio.Show();*/
         }
     }
 }

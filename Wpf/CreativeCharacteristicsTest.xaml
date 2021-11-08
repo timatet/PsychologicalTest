@@ -80,7 +80,7 @@
 
         <Button 
             Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2"
-            Click="ButtonBack_Click">
+            Click="ButtonBack_Click" Name="ButtonBack">
             <Viewbox>
                 <TextBlock Text="Назад"/>
             </Viewbox>
