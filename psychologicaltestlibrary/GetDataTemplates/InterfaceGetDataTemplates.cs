@@ -4,6 +4,6 @@ namespace psychologicaltestlib
 {
     public interface IDataSaveInterface
     {
-        void Print(List<UserClass> _Users);
+        void Print(UserClass _User);
     }
 }
