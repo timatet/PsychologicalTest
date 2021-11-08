@@ -42,12 +42,12 @@ namespace Wpf
                 switch (NameOfTest)
                 {
                     case "Диагностика мотивационной структуры личности":
-                        DesAndIns._lableNameOfTest.Content = "Дианостика мотивационной структуры личности";
+                        DesAndIns._lableNameOfTest.Content = InfAT.TestNames[0];
                         DesAndIns.DescriptionOfTest.Text = InfAT.TestDescription[0];
                         DesAndIns.InstructionOfTest.Text = InfAT.TestInstruction[0];
                         break;
                     case "Личностные творческие характеристики":
-                        DesAndIns._lableNameOfTest.Content = "Личностные творческие характеристики";
+                        DesAndIns._lableNameOfTest.Content = InfAT.TestNames[1];
                         DesAndIns.DescriptionOfTest.Text = InfAT.TestDescription[1];
                         DesAndIns.InstructionOfTest.Text = InfAT.TestInstruction[1];
                         break;

@@ -36,6 +36,8 @@ namespace Wpf
             // вывести окошко с предупреждением
             // в нем при выборе "да" - выкенет на инструкцию
             // "отмена" - уберет предупреждение
+            AbortTheTest att = new AbortTheTest();
+            att.Show();
         }
 
         private void RadioButton_Agree(object sender, RoutedEventArgs e)

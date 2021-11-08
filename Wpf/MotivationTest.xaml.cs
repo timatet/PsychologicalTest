@@ -31,7 +31,8 @@ namespace Wpf
 
         private void ButtonBreakOff_Click(object sender, RoutedEventArgs e)
         {
-
+            AbortTheTest att = new AbortTheTest();
+            att.Show();
         }
 
         private void RadioButton_Agree(object sender, RoutedEventArgs e)

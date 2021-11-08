@@ -29,12 +29,27 @@ namespace Wpf
 
         private void ButtonStart_Click(object sender, RoutedEventArgs e)
         {
-
+            //открыть окно теста
+            string NameOfTest = _lableNameOfTest.Content.ToString();
+            
+            switch (NameOfTest)
+            {
+                case "Диагностика мотивационной структуры личности":
+                    MotivationTest MotTest = new MotivationTest();
+                    this.Close();
+                    MotTest.Show();
+                    break;
+                case "Личностные творческие характеристики":
+                    CreativeCharacteristicsTest CrChTest = new CreativeCharacteristicsTest();
+                    this.Close();
+                    CrChTest.Show();
+                    break;
+            }
         }
 
         private void ButtonDownload_Click(object sender, RoutedEventArgs e)
         {
-
+            //скачать файл с тестом
         }
 
         public DescriptionAndInstruction()
