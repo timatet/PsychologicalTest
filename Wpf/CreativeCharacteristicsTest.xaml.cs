@@ -37,6 +37,7 @@ namespace Wpf
             // в нем при выборе "да" - выкенет на инструкцию
             // "отмена" - уберет предупреждение
             AbortTheTest att = new AbortTheTest();
+            att.Owner = this;
             att.Show();
         }
 
