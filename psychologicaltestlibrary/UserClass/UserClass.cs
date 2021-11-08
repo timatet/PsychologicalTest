@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace psychologicaltestlib
 {
-    public class UserClass
+    public class UserClass : ICloneable
     {
         #region Fields
         private string _FirstName;
         private string _MiddleName;
         private string _LastName;
         private string _EducationInstitution;
-        IVariousTestTemplate _VariousTestTemplate;
+        private Dictionary<string, int> _ResultsDict;
         #endregion Fields
 
         #region Properties
@@ -62,6 +62,11 @@ namespace psychologicaltestlib
                     throw new NotAllFieldsNameInputException();
             }
         }
+        public Dictionary<string, int> ResultDict
+        {
+            get { return _ResultsDict; }
+            private set{}
+        }
         #endregion Properties
 
         #region Methods
@@ -69,7 +74,15 @@ namespace psychologicaltestlib
         /// Регистрирует результат для пользователя о прохождении теста.
         /// </summary> 
         /// <param name="variousTestTemplate"></param>
-        public void AddResultsAboutTest(IVariousTestTemplate variousTestTemplate) => _VariousTestTemplate = variousTestTemplate;
+        //public void AddResultsAboutTest(PsychologicalTest ptTestTemplate) => _ptTestTemplate = ptTestTemplate;
+        public void RegisterResult(Dictionary<string, int> resultsDict)
+        {
+            _ResultsDict = new Dictionary<string, int>(resultsDict);
+        }
+        public object Clone()
+        {
+            return new UserClass(this.FirstName, this.MiddleName, this.LastName, this.EducationInstitution);
+        }
         #endregion Methods
 
         #region Constructors

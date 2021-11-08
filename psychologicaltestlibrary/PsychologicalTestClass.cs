@@ -5,11 +5,11 @@ using System.Linq;
 
 namespace psychologicaltestlib
 {
-    public class PsychologicalTest : IEnumerable
+    public class PsychologicalTest : IEnumerable, ICloneable
     {
         #region Fields
         private IVariousTestTemplate _VariousTestTemplate;
-        List<UserClass> _Users;
+        private UserClass _User;
         #endregion Fields
 
         #region Properties
@@ -24,27 +24,23 @@ namespace psychologicaltestlib
         public string[] GetScales() => _VariousTestTemplate.GetScales();
         public int Count() => _VariousTestTemplate.Asks.Count();
         /// <summary>
-        /// Сохраняет результат для всех пользователей которые прошли этот документ.
-        /// "Завершить прохождение теста и сформировать результаты"
+        /// Сохраняет результат пользователя в таблицу.
+        /// Дописывает в таблицу данные о результатах пользователя.
         /// </summary>
         /// <param name="dataSaveInterface"></param>
-        public void StopTestAndSaveResults(IDataSaveInterface dataSaveInterface)
-        {
-            dataSaveInterface.Print(_Users);
-        }
-        /// <summary>
-        /// Сохранение результатов тестирования и переход к другому пользователю.
-        /// "Перейти к прохождению теста следующим участником"
-        /// </summary>
-        public void NextUser(UserClass user)
+        public void SaveResults(IDataSaveInterface dataSaveInterface)
         {
             if (!_VariousTestTemplate.Asks.Select(a => a.Value.QuestionAnswer).Contains(Question.Default))
             {
-                user.AddResultsAboutTest(_VariousTestTemplate);
-                _Users.Add(user);
+                _User.RegisterResult(_VariousTestTemplate.Processing());
+                dataSaveInterface.Print(_User);
             }
 
             throw new NotAllAnswersReceivedException("Error! Not all answer received!", DateTime.Now);
+        }
+        public void RegisterUser(UserClass _User)
+        {
+            this._User = (UserClass)_User.Clone();
         }
         /// <summary>
         /// Получить все ответы, сделанные пользователем на тест.
@@ -69,6 +65,12 @@ namespace psychologicaltestlib
                 yield return question.Value;
             }
         }
+
+        public object Clone()
+        {
+            return new PsychologicalTest(_VariousTestTemplate);
+        }
+
         /// <summary>
         /// Получение вопроса по числовому индексу.
         /// </summary>
@@ -96,7 +98,6 @@ namespace psychologicaltestlib
         {
             _VariousTestTemplate = VariousTestTemplate;
             _VariousTestTemplate.InitQuestions();
-            _Users = new List<UserClass>();
         }
         #endregion Constructors
     }

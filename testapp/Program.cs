@@ -8,6 +8,7 @@ namespace libtestapp
         static void Main(string[] args)
         {
             PsychologicalTest motivationTest = new PsychologicalTest(new MotivationTestType());
+            //PsychologicalTest motivationTest = new PsychologicalTest(new TworchestvoTestType());
 
             //motivationTest.InitQuestions();
 
@@ -23,7 +24,10 @@ namespace libtestapp
             //        Console.WriteLine($"{i + 1}{j}: " + motivationTest[$"{i + 1}{j}"].QuestionName + "\n" + motivationTest[$"{i + 1}{j}"].QuestionAnswer);
             //}
 
-            motivationTest.StopTestAndSaveResults(new ConvertTestToXL());
+            UserClass uc = new UserClass("Ivan", "Ivanov", "Ivanovich", "school");
+            motivationTest.RegisterUser(uc);
+            motivationTest.SaveResults(new ConvertTestToXL());
+
             Question question = new Question("trdsxcvbnmfdgh");
             question.SetAnswer(-1);
         }
