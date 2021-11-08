@@ -37,18 +37,18 @@ namespace Wpf
                 // запустить нужный тест
                 string NameOfTest = ListOfTestNames.SelectedItem.ToString();
                 DescriptionAndInstruction DesAndIns = new DescriptionAndInstruction();
-                        this.Close();
-                        DesAndIns.Show();
+                this.Close();
+                DesAndIns.Show();
                 switch (NameOfTest)
                 {
-                    case "Дианостика мотивационной структуры личности":
+                    case "Диагностика мотивационной структуры личности":
                         DesAndIns._lableNameOfTest.Content = "Дианостика мотивационной структуры личности";
-                        DesAndIns.DescriptionOfTest.Text = InfAT.TestDescription[0];                            
+                        DesAndIns.DescriptionOfTest.Text = InfAT.TestDescription[0];
                         DesAndIns.InstructionOfTest.Text = InfAT.TestInstruction[0];
                         break;
                     case "Личностные творческие характеристики":
                         DesAndIns._lableNameOfTest.Content = "Личностные творческие характеристики";
-                        DesAndIns.DescriptionOfTest.Text = InfAT.TestDescription[1];                            
+                        DesAndIns.DescriptionOfTest.Text = InfAT.TestDescription[1];
                         DesAndIns.InstructionOfTest.Text = InfAT.TestInstruction[1];
                         break;
                 }

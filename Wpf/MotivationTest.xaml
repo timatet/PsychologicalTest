@@ -5,8 +5,97 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf"
         mc:Ignorable="d"
-        Title="MotivationTest" Height="450" Width="800">
+        Title="Диагностика мотивационной структуры личности" Height="450" Width="800" MinHeight="400" MinWidth="400">
+    <Window.Resources>
+        <FontFamily x:Key="CommonFont">Comic Sans MS</FontFamily>
+        <SolidColorBrush Color="#272343" x:Key="ColorOfLine" />
+        <SolidColorBrush Color="#E3F6F5" x:Key="ColorOfAccent" />
+        <SolidColorBrush Color="#BAE8E8" x:Key="ColorOfButtons" />
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="{StaticResource CommonFont}"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="10" Background="{StaticResource ColorOfButtons}"  Padding="15">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.1*"/>
+            <ColumnDefinition Width="0.9*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.9*"/>
+            <ColumnDefinition Width="0.1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Rectangle Grid.ColumnSpan="5" Fill="{StaticResource ColorOfLine}"/>
+        <Rectangle Grid.Row="1" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="5" Fill="{StaticResource ColorOfAccent}"/>
+        <Rectangle Grid.Row="4" Grid.ColumnSpan="5" Fill="{StaticResource ColorOfLine}"/>
+
+        <Viewbox Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+            <ProgressBar  Margin="10" Width="400" Height="30" Minimum="0" Maximum="112" Value="0" 
+                         Background="{StaticResource ColorOfLine}" BorderBrush="White" 
+                         BorderThickness="1" Foreground="{StaticResource ColorOfButtons}"/>
+        </Viewbox>
+
+        <Viewbox Grid.Column="3" HorizontalAlignment="Left">
+            <TextBlock  Name="CountQuestions" Foreground="White" FontFamily="{StaticResource CommonFont}"
+                        Text="/14"
+                        Margin="5"/>
+        </Viewbox>
+
+        <StackPanel Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" >
+            <Border Background="White" BorderBrush="{StaticResource ColorOfLine}" BorderThickness="1" >
+                <StackPanel >
+                    <TextBox Name="NumberOfStatement" Text="Утверждение № 1" FontWeight="Bold" Foreground="Red" FontFamily="{StaticResource CommonFont}"/>
+                    <TextBlock Name="Statement" TextWrapping="Wrap" FontFamily="{StaticResource CommonFont}"/>
+                </StackPanel>
+            </Border>
+            <Border Background="White" BorderBrush="{StaticResource ColorOfLine}" BorderThickness="1" Margin="0 10 0 0 ">
+                <TextBlock Name="Answer" TextWrapping="Wrap" FontFamily="{StaticResource CommonFont}"/>
+            </Border>
+            
+            <Border Margin="0 30 0 0" BorderBrush="{StaticResource ColorOfLine}" BorderThickness="1" >
+                <StackPanel>
+                    <RadioButton Content="Согласен с этим" Margin="0 2" Checked="RadioButton_Agree"/>
+                    <RadioButton Content="Когда как" Margin="0 2" Checked="RadioButton_FiftyFifty"/>
+                    <RadioButton Content="Нет, не согласен" Margin="0 2" Checked="RadioButton_Disagree"/>
+                    <RadioButton Content="Не знаю" Margin="0 2" Checked="RadioButton_DontKnow"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+
+
+
+        <Button 
+            Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2"
+            Click="ButtonBack_Click">
+            <Viewbox>
+                <TextBlock Text="Назад"/>
+            </Viewbox>
+        </Button>
+
+        <Button 
+            Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="2"
+            Click="ButtonBreakOff_Click">
+            <Viewbox>
+                <TextBlock Text="Прервать тест"/>
+            </Viewbox>
+        </Button>
     </Grid>
+
 </Window>

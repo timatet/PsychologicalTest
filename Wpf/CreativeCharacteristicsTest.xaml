@@ -46,20 +46,32 @@
         <Rectangle Grid.Row="1" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="5" Fill="{StaticResource ColorOfAccent}"/>
         <Rectangle Grid.Row="4" Grid.ColumnSpan="5" Fill="{StaticResource ColorOfLine}"/>
 
-        <StackPanel Grid.ColumnSpan="5">
-            <TextBlock Foreground="White">Шкала и кол-во вопросов</TextBlock>
-        </StackPanel>
-        <!--В коде в зависимости от теста задать название--><!--
-        <Viewbox Grid.Row="0" Grid.ColumnSpan ="8">
-            <Label x:Name="_lableNameOfTest" FontFamily="{StaticResource CommonFont}" Foreground="White" HorizontalAlignment="Stretch"/>
-        </Viewbox>-->
-
-        <StackPanel Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3">
-            <Border>
-                <TextBlock>Вопрос</TextBlock>
+        <Viewbox Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+            <ProgressBar  Margin="10" Width="400" Height="30" Minimum="0" Maximum="50" Value="0" 
+                         Background="{StaticResource ColorOfLine}" BorderBrush="White" 
+                         BorderThickness="1" Foreground="{StaticResource ColorOfButtons}"/>
+        </Viewbox>
+        
+        <Viewbox Grid.Column="3" HorizontalAlignment="Left">
+            <TextBlock  Name="CountQuestions" Foreground="White" FontFamily="{StaticResource CommonFont}"
+                        Text="/50"
+                        Margin="5"/>
+        </Viewbox>
+        
+        <StackPanel Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" >
+            <Border Background="White" BorderBrush="{StaticResource ColorOfLine}" BorderThickness="1" >
+                <StackPanel >
+                    <TextBox Name="NumberOfStatement" Text="Утверждение № 1" FontWeight="Bold" Foreground="Red" FontFamily="{StaticResource CommonFont}"/>
+                    <TextBlock Name="Statement" TextWrapping="Wrap" FontFamily="{StaticResource CommonFont}"/>
+                </StackPanel>
             </Border>
-            <Border>
-                <TextBlock>Вопрос</TextBlock>                
+            <Border Margin="0 30 0 0" BorderBrush="{StaticResource ColorOfLine}" BorderThickness="1" >
+                <StackPanel>
+                    <RadioButton Content="Согласен с этим" Margin="0 2" Checked="RadioButton_Agree"/>
+                    <RadioButton Content="Согласен от части" Margin="0 2" Checked="RadioButton_AgreeFomThePart"/>
+                    <RadioButton Content="Затрудняюсь" Margin="0 2" Checked="RadioButton_Doubt"/>
+                    <RadioButton Content="Не согласен" Margin="0 2" Checked="RadioButton_Disagree"/>
+                </StackPanel>                
             </Border>
         </StackPanel>
 

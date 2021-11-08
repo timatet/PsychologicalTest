@@ -23,5 +23,35 @@ namespace Wpf
         {
             InitializeComponent();
         }
+
+        private void ButtonBack_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonBreakOff_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RadioButton_Agree(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RadioButton_FiftyFifty(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RadioButton_Disagree(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RadioButton_DontKnow(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

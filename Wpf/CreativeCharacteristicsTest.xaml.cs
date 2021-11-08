@@ -26,12 +26,52 @@ namespace Wpf
 
         private void ButtonBack_Click(object sender, RoutedEventArgs e)
         {
-
+           //если это первый вопрос, то переводить на описание (а может на главную)
+           // возращает к предыдущему вопросу (изменить вопрос, номер вопроса, прогресс, счетчик) и стирает ответ на вопрос
+           
         }
 
         private void ButtonBreakOff_Click(object sender, RoutedEventArgs e)
         {
+            // вывести окошко с предупреждением
+            // в нем при выборе "да" - выкенет на инструкцию
+            // "отмена" - уберет предупреждение
+        }
 
+        private void RadioButton_Agree(object sender, RoutedEventArgs e)
+        {
+            //сохранить ответ 
+            //вывести следующий вопрос
+            //поменять номер
+            //увеличить счетчик вопросов
+            //изменить значение progressbar
+        }
+
+        private void RadioButton_AgreeFomThePart(object sender, RoutedEventArgs e)
+        {
+            //сохранить ответ 
+            //вывести следующий вопрос
+            //поменять номер
+            //увеличить счетчик вопросов
+            //изменить значение progressbar
+        }
+
+        private void RadioButton_Doubt(object sender, RoutedEventArgs e)
+        {
+            //сохранить ответ 
+            //вывести следующий вопрос
+            //поменять номер
+            //увеличить счетчик вопросов
+            //изменить значение progressbar
+        }
+
+        private void RadioButton_Disagree(object sender, RoutedEventArgs e)
+        {
+            //сохранить ответ 
+            //вывести следующий вопрос
+            //поменять номер
+            //увеличить счетчик вопросов
+            //изменить значение progressbar
         }
     }
 }
