@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using IronXL;
-using IronXL.Styles;
 
 namespace psychologicaltestlib
 {
@@ -11,7 +9,6 @@ namespace psychologicaltestlib
         #region Fields
         private double ConstK = 5.688448074679113;
         private IVariousTestTemplate _variousTest;
-        private WorkBook xlsWorkbook;
         #endregion Fields
 
         #region Methods
@@ -24,7 +21,7 @@ namespace psychologicaltestlib
         #region Constructors
         public ConvertTestToXL()
         {
-            xlsWorkbook = WorkBook.Create(ExcelFileFormat.XLS);
+
         }
         #endregion Constructors
     }
