@@ -1,4 +1,4 @@
-﻿//using OfficeOpenXml;
+﻿using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -16,29 +16,30 @@ namespace psychologicaltestlib
         public void Print(UserClass _User)
         {
             //var ans = _User;
-            //var file_name = _variousTest.GetNameOfTest();
+            //ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+            ////var file_name = _variousTest.GetNameOfTest(); ?????
             //FileInfo fi = new FileInfo(@"Path\To\Your\File.xlsx");
             //using (ExcelPackage excelPackage = new ExcelPackage(fi))
             //{
             //    // Получение листа (Worksheet), созданного в предыдущем примере:
             //    var ws = excelPackage.Workbook.Worksheets[1];
             //    int start_index = 1;
-            //    while(true)
+            //    while (true)
             //    {
             //        if ((string)ws.Cells[start_index, 1].Value == "")
             //        {
             //            break;
             //        }
-            //        start_index ++;
+            //        start_index++;
             //    }
             //    ws.Cells[start_index, 1].Value = DateTime.Now;
             //    int cur_row = 2;
 
-            //    foreach(var item in ans)
+            //    foreach (var item in ans.ResultDict)
             //    {
             //        ws.Cells[start_index, cur_row].Value = item.Value;
-            //        cur_row ++;
-            //    }               
+            //        cur_row++;
+            //    }
             //}
             //Здесь реализация метода печати в XL файл
         }
