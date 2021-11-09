@@ -42,6 +42,7 @@ namespace Wpf
             MainWindow mw = new MainWindow();
             // надо как-то закрыть ранее открытое окно!!!
             this.Close();
+            this.Owner.Close();
             mw.Show();
         }
     }
