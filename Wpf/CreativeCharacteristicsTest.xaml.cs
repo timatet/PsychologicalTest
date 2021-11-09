@@ -26,19 +26,16 @@ namespace Wpf
 
         private void ButtonBack_Click(object sender, RoutedEventArgs e)
         {
-           //если это первый вопрос, то переводить на описание (а может на главную)
-           // возращает к предыдущему вопросу (изменить вопрос, номер вопроса, прогресс, счетчик) и стирает ответ на вопрос
-           
+            //если это первый вопрос, то переводить на описание (а может на главную)
+            // возращает к предыдущему вопросу (изменить вопрос, номер вопроса, прогресс, счетчик) и стирает ответ на вопросa
+            TestingIsOver t = new TestingIsOver { Owner = this };
+            t.ShowDialog();
         }
 
         private void ButtonBreakOff_Click(object sender, RoutedEventArgs e)
         {
-            // вывести окошко с предупреждением
-            // в нем при выборе "да" - выкенет на инструкцию
-            // "отмена" - уберет предупреждение
-            AbortTheTest att = new AbortTheTest();
-            att.Owner = this;
-            att.Show();
+            AbortTheTest att = new AbortTheTest { Owner = this };
+            att.ShowDialog();
         }
 
         private void RadioButton_Agree(object sender, RoutedEventArgs e)
@@ -51,8 +48,8 @@ namespace Wpf
             //если вопрос последний, то открыть уведомление
 
             /*открытие уведомления
-            TestingIsOver tio = new TestingIsOver();
-            tio.Show();*/
+            TestingIsOver tio = new TestingIsOver { Owner = this };
+            t.ShowDialog();*/
         }
 
         private void RadioButton_AgreeFomThePart(object sender, RoutedEventArgs e)
@@ -65,8 +62,8 @@ namespace Wpf
             //если вопрос последний, то открыть уведомление
 
             /*открытие уведомления
-            TestingIsOver tio = new TestingIsOver();
-            tio.Show();*/
+            TestingIsOver tio = new TestingIsOver { Owner = this };
+            t.ShowDialog();*/
         }
 
         private void RadioButton_Doubt(object sender, RoutedEventArgs e)
@@ -79,8 +76,8 @@ namespace Wpf
             //если вопрос последний, то открыть уведомление
 
             /*открытие уведомления
-            TestingIsOver tio = new TestingIsOver();
-            tio.Show();*/
+            TestingIsOver tio = new TestingIsOver { Owner = this };
+            t.ShowDialog();*/
         }
 
         private void RadioButton_Disagree(object sender, RoutedEventArgs e)
@@ -93,8 +90,8 @@ namespace Wpf
             //если вопрос последний, то открыть уведомление
 
             /*открытие уведомления
-            TestingIsOver tio = new TestingIsOver();
-            tio.Show();*/
+            TestingIsOver tio = new TestingIsOver { Owner = this };
+            t.ShowDialog();*/
         }
     }
 }

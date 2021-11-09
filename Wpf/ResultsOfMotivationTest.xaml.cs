@@ -35,8 +35,14 @@ namespace Wpf
         {
             //передать как-то результаты теста
             SaveResults sr = new SaveResults();
-            sr.Show();
+            sr.ShowDialog();
+        }
+
+        private void ButtonReturnToTheMainWindow_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mw = new MainWindow();
             this.Close();
+            mw.ShowDialog();
         }
     }
 }

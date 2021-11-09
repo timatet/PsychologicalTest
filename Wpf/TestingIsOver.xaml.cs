@@ -39,6 +39,19 @@ namespace Wpf
         private void ButtonShowResults_Click(object sender, RoutedEventArgs e)
         {
             //перейти на окно с результатами
+            this.Close();
+            switch (this.Owner.Title)
+            {
+                case "Диагностика мотивационной структуры личности":
+                    ResultsOfMotivationTest rmt = new ResultsOfMotivationTest();
+                    rmt.Show();
+                    break;
+                case "Личностные творческие характеристики":
+                    ResultsOfCreativeCharacteristicsTest rcct = new ResultsOfCreativeCharacteristicsTest();
+                    rcct.Show();
+                    break;
+            }
+            this.Owner.Close();
         }
     }
 }

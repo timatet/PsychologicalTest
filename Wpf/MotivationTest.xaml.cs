@@ -31,14 +31,15 @@ namespace Wpf
 
         private void ButtonBreakOff_Click(object sender, RoutedEventArgs e)
         {
-            AbortTheTest att = new AbortTheTest();
-            att.Owner = this;
-            att.Show();            
+            AbortTheTest att = new AbortTheTest { Owner = this };
+            att.ShowDialog();
         }
 
         private void RadioButton_Agree(object sender, RoutedEventArgs e)
         {
-
+            /*открытие уведомления
+            TestingIsOver tio = new TestingIsOver { Owner = this };
+            t.ShowDialog();*/
         }
 
         private void RadioButton_FiftyFifty(object sender, RoutedEventArgs e)

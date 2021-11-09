@@ -22,6 +22,31 @@ namespace Wpf
         public SaveResults()
         {
             InitializeComponent();
+            for (int i = 7; i < 100; ++i)
+                AgeOfUser.Items.Add(i);
+        }
+
+        private void ButtonCancel_Click(object sender, RoutedEventArgs e)
+        {
+            //вернется к результатам
+            this.Close();
+            return;
+        }
+
+        private void ButtonSaveResults_Click(object sender, RoutedEventArgs e)
+        {
+            // сохранит результат
+            string name = NameOfUser.Text, gender = GenderOfUser.SelectedItem.ToString(),
+                dopInfo = AdditionalInformationOfUser.Text;
+            int age = int.Parse(AgeOfUser.SelectedItem.ToString());
+            // закроет окно регистрации
+            //откроет уведомление messagewindow , что все отправил
+            string message = "Результаты сохранены";
+            MessageWindow mw = new MessageWindow();
+            mw.MessageTextBlock.Text = message;
+            this.Close();
+            mw.ShowDialog();
+
         }
     }
 }

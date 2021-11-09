@@ -33,7 +33,6 @@ namespace Wpf
         private void ButtonYes_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            return;
         }
     }
 }
