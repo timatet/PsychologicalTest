@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using psychologicaltestlib;
 
 namespace Wpf
 {
@@ -19,17 +8,30 @@ namespace Wpf
     /// </summary>
     public partial class CreativeCharacteristicsTest : Window
     {
+        private PsychologicalTest psychologicalTest;
+        private int QuestionCounter;
+
         public CreativeCharacteristicsTest()
         {
             InitializeComponent();
+
+            psychologicalTest = new PsychologicalTest(new TworchestvoTestType());
+            //NumberOfStatement - утвержд номер
+            // Statement - утверждение
+            Statement.Text = psychologicalTest[0].QuestionName;
+            QuestionCounter = 1;
+            CountQuestions.Text = $"{QuestionCounter - 1}/50";
         }
 
         private void ButtonBack_Click(object sender, RoutedEventArgs e)
         {
-            //если это первый вопрос, то переводить на описание (а может на главную)
+            //если это первый вопрос, то ниче не делаем
             // возращает к предыдущему вопросу (изменить вопрос, номер вопроса, прогресс, счетчик) и стирает ответ на вопросa
-            TestingIsOver t = new TestingIsOver { Owner = this };
-            t.ShowDialog();
+
+            if (QuestionCounter == 1) return;
+            QuestionCounter -= 2;
+            EnterTheAction();
+
         }
 
         private void ButtonBreakOff_Click(object sender, RoutedEventArgs e)
@@ -38,60 +40,73 @@ namespace Wpf
             att.ShowDialog();
         }
 
+        private void EnterTheAction()
+        {
+            //увеличить счетчик вопросов
+            CountQuestions.Text = $"{QuestionCounter}/50";
+
+            //если вопрос последний, то открыть уведомление
+            if (QuestionCounter == 50)
+            {
+                ProgressInTest.Value = 50;
+                TestingIsOver tio = new TestingIsOver { Owner = this };
+                if(tio.ShowDialog() == true)
+                {
+                    ProgressInTest.Value--;
+                    CountQuestions.Text = $"{ProgressInTest.Value}/50";
+                }
+            }
+            else
+            {
+                //вывести следующий вопрос
+                Statement.Text = psychologicalTest[QuestionCounter].QuestionName;
+                //поменять номер
+                QuestionCounter++;
+                //изменить значение progressbar
+                ProgressInTest.Value = QuestionCounter - 1;
+                //изменить номер утверждения
+                NumberOfStatement.Text = $"Утверждение №{QuestionCounter}";
+            }
+        }
+
         private void RadioButton_Agree(object sender, RoutedEventArgs e)
         {
             //сохранить ответ 
-            //вывести следующий вопрос
-            //поменять номер
-            //увеличить счетчик вопросов
-            //изменить значение progressbar
-            //если вопрос последний, то открыть уведомление
+            psychologicalTest[QuestionCounter - 1].SetAnswer(3);
+            //очистить радиобуттон
+            AgreeButton.IsChecked = false;
 
-            /*открытие уведомления
-            TestingIsOver tio = new TestingIsOver { Owner = this };
-            t.ShowDialog();*/
+            EnterTheAction();
         }
 
         private void RadioButton_AgreeFomThePart(object sender, RoutedEventArgs e)
         {
             //сохранить ответ 
-            //вывести следующий вопрос
-            //поменять номер
-            //увеличить счетчик вопросов
-            //изменить значение progressbar
-            //если вопрос последний, то открыть уведомление
+            psychologicalTest[QuestionCounter - 1].SetAnswer(2);
+            //очистить радиобуттон
+            AgreeFomThePartButton.IsChecked = false;
 
-            /*открытие уведомления
-            TestingIsOver tio = new TestingIsOver { Owner = this };
-            t.ShowDialog();*/
+            EnterTheAction();
         }
 
         private void RadioButton_Doubt(object sender, RoutedEventArgs e)
         {
             //сохранить ответ 
-            //вывести следующий вопрос
-            //поменять номер
-            //увеличить счетчик вопросов
-            //изменить значение progressbar
-            //если вопрос последний, то открыть уведомление
+            psychologicalTest[QuestionCounter - 1].SetAnswer(0);
+            //очистить радиобуттон
+            DoubtButton.IsChecked = false;
 
-            /*открытие уведомления
-            TestingIsOver tio = new TestingIsOver { Owner = this };
-            t.ShowDialog();*/
+            EnterTheAction();
         }
 
         private void RadioButton_Disagree(object sender, RoutedEventArgs e)
         {
             //сохранить ответ 
-            //вывести следующий вопрос
-            //поменять номер
-            //увеличить счетчик вопросов
-            //изменить значение progressbar
-            //если вопрос последний, то открыть уведомление
+            psychologicalTest[QuestionCounter - 1].SetAnswer(1);
+            //очистить радиобуттон
+            DisagreeButton.IsChecked = false;
 
-            /*открытие уведомления
-            TestingIsOver tio = new TestingIsOver { Owner = this };
-            t.ShowDialog();*/
+            EnterTheAction();
         }
     }
 }

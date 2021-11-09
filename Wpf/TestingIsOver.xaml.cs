@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using psychologicaltestlib;
 
 namespace Wpf
 {
@@ -33,6 +34,7 @@ namespace Wpf
         private void ButtonReturnToTheStatements_Click(object sender, RoutedEventArgs e)
         {
             //Закрыть окошко
+            this.DialogResult = true;
             this.Close();
         }
 

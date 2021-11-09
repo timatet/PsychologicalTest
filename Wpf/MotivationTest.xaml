@@ -62,7 +62,7 @@
         <StackPanel Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" >
             <Border Background="White" BorderBrush="{StaticResource ColorOfLine}" BorderThickness="1" >
                 <StackPanel >
-                    <TextBox Name="NumberOfStatement" Text="Утверждение № 1" FontWeight="Bold" Foreground="Red" FontFamily="{StaticResource CommonFont}"/>
+                    <TextBlock Name="NumberOfStatement" Text="Утверждение № 1" FontWeight="Bold" Foreground="Red" FontFamily="{StaticResource CommonFont}"/>
                     <TextBlock Name="Statement" TextWrapping="Wrap" FontFamily="{StaticResource CommonFont}"/>
                 </StackPanel>
             </Border>

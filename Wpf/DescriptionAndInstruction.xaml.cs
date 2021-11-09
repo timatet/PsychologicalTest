@@ -64,10 +64,10 @@ namespace Wpf
             switch (_lableNameOfTest.Content.ToString())
             {
                 case "Диагностика мотивационной структуры личности":
-                    pathOfTest = "Мотивационная структура личности- Мильман полн..pdf";
+                    pathOfTest = "motivatsia.pdf";
                     break;
                 case "Личностные творческие характеристики":
-                    pathOfTest = "Личностные творческие характеристики Туник (полный вар).pdf";
+                    pathOfTest = "tworchestvo.pdf";
                     break;
             }
             string DownloadPath = GetDownloadFolderPath() + "\\" + pathOfTest;
