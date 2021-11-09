@@ -22,6 +22,17 @@ namespace Wpf
         public ResultsOfCreativeCharacteristicsTest()
         {
             InitializeComponent();
+            // отобразить результаты
+            //PBGeneralScore_Negative;
+            //PBGeneralScore_Positive;
+            //PBRisk_Negative;
+            //PBRisk_Positive;
+            //PBCurious_Negative;
+            //PBCurious_Positive;
+            //PBHard_Negative;
+            //PBHard_Positive;
+            //PBImagination_Negative;
+            //PBImagination_Positive;
         }
 
         private void ButtonRepeat_Click(object sender, RoutedEventArgs e)

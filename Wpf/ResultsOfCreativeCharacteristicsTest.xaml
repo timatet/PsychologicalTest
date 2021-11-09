@@ -53,19 +53,20 @@
 
         <StackPanel Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" 
                     ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            
             <Grid Margin="0 0 0 10">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
+                    <RowDefinition />
                     <RowDefinition Height="23"/>
-                    <RowDefinition Height="0.3*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="0.3*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="0.3*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="0.3*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="0.3*"/>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="3.5*"/>
@@ -95,7 +96,7 @@
 
                 <ProgressBar Name="PBGeneralScore_Negative" Grid.Row="1" 
                              VerticalAlignment="Bottom" Height="20"
-                             Maximum="50" Minimum="0"
+                             Maximum="50" Minimum="0" Value="50"
                              Background="LimeGreen" Foreground="White"/>
                 <ProgressBar Name="PBGeneralScore_Positive" 
                              Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
@@ -114,7 +115,7 @@
                 <ProgressBar Name="PBRisk_Negative" 
                              Grid.Row="3" Grid.Column="1" 
                              VerticalAlignment="Bottom" Height="16"
-                             Maximum="13" Minimum="0"
+                             Maximum="13" Minimum="0" Value="13"
                              Background="LimeGreen" Foreground="White"/>
                 <ProgressBar Name="PBRisk_Positive" 
                              Grid.Row="3" Grid.Column="2"
@@ -133,7 +134,7 @@
                 <ProgressBar Name="PBCurious_Negative" 
                              Grid.Row="5" Grid.Column="1" 
                              VerticalAlignment="Bottom" Height="16"
-                             Maximum="12" Minimum="0"
+                             Maximum="12" Minimum="0" Value="12"
                              Background="LimeGreen" Foreground="White"/>
                 <ProgressBar Name="PBCurious_Positive" 
                              Grid.Row="5" Grid.Column="2"
@@ -152,7 +153,7 @@
                 <ProgressBar Name="PBHard_Negative" 
                              Grid.Row="7" Grid.Column="1" 
                              VerticalAlignment="Bottom" Height="16"
-                             Maximum="13" Minimum="0"
+                             Maximum="13" Minimum="0" Value="13"
                              Background="LimeGreen" Foreground="White"/>
                 <ProgressBar Name="PBHard_Positive" 
                              Grid.Row="7" Grid.Column="2"
@@ -171,7 +172,7 @@
                 <ProgressBar Name="PBImagination_Negative" 
                              Grid.Row="9" Grid.Column="1" 
                              VerticalAlignment="Bottom" Height="16"
-                             Maximum="12" Minimum="0"
+                             Maximum="12" Minimum="0" Value="12"
                              Background="LimeGreen" Foreground="White"/>
                 <ProgressBar Name="PBImagination_Positive" 
                              Grid.Row="9" Grid.Column="2"
