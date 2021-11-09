@@ -23,5 +23,20 @@ namespace Wpf
         {
             InitializeComponent();
         }
+
+        private void ButtonRepeat_Click(object sender, RoutedEventArgs e)
+        {
+            CreativeCharacteristicsTest cct = new CreativeCharacteristicsTest();
+            cct.Show();
+            this.Close();
+        }
+
+        private void ButtonSaveResults_Click(object sender, RoutedEventArgs e)
+        {
+            //передать как-то результаты теста
+            SaveResults sr = new SaveResults();
+            sr.Show();
+            this.Close();
+        }
     }
 }
