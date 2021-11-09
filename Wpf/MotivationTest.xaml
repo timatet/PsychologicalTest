@@ -48,7 +48,7 @@
         <Rectangle Grid.Row="4" Grid.ColumnSpan="5" Fill="{StaticResource ColorOfLine}"/>
 
         <Viewbox Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
-            <ProgressBar  Margin="10" Width="400" Height="30" Minimum="0" Maximum="112" Value="0" 
+            <ProgressBar Name="ProgressInTest" Margin="10" Width="400" Height="30" Minimum="0" Maximum="112" Value="0" 
                          Background="{StaticResource ColorOfLine}" BorderBrush="White" 
                          BorderThickness="1" Foreground="{StaticResource ColorOfButtons}"/>
         </Viewbox>
@@ -62,7 +62,7 @@
         <StackPanel Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" >
             <Border Background="White" BorderBrush="{StaticResource ColorOfLine}" BorderThickness="1" >
                 <StackPanel >
-                    <TextBlock Name="NumberOfStatement" Text="Утверждение № 1" FontWeight="Bold" Foreground="Red" FontFamily="{StaticResource CommonFont}"/>
+                    <TextBlock Name="NumberOfStatement" Text="Утверждение 1A" FontWeight="Bold" Foreground="Red" FontFamily="{StaticResource CommonFont}"/>
                     <TextBlock Name="Statement" TextWrapping="Wrap" FontFamily="{StaticResource CommonFont}"/>
                 </StackPanel>
             </Border>
@@ -72,10 +72,11 @@
             
             <Border Margin="0 30 0 0" BorderBrush="{StaticResource ColorOfLine}" BorderThickness="1" >
                 <StackPanel>
-                    <RadioButton Content="Согласен с этим" Margin="0 2" Checked="RadioButton_Agree"/>
-                    <RadioButton Content="Когда как" Margin="0 2" Checked="RadioButton_FiftyFifty"/>
-                    <RadioButton Content="Нет, не согласен" Margin="0 2" Checked="RadioButton_Disagree"/>
-                    <RadioButton Content="Не знаю" Margin="0 2" Checked="RadioButton_DontKnow"/>
+                    <RadioButton Name="AgreeButton" Content="Согласен с этим" Margin="0 2" Checked="RadioButton_Agree"/>
+                    <RadioButton Name="MaybeButton" Content="Пожалуй согласен" Margin="0 2" Checked="RadioButton_MaybeAgree"/>
+                    <RadioButton Name="FiftyFiftyButton" Content="Когда как" Margin="0 2" Checked="RadioButton_FiftyFifty"/>
+                    <RadioButton Name="DisagreeButton" Content="Нет, не согласен" Margin="0 2" Checked="RadioButton_Disagree"/>
+                    <RadioButton Name="DontKnowButton" Content="Не знаю" Margin="0 2" Checked="RadioButton_DontKnow"/>
                 </StackPanel>
             </Border>
         </StackPanel>

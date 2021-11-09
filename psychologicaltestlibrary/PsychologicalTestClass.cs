@@ -76,9 +76,9 @@ namespace psychologicaltestlib
         /// </summary>
         /// <param name="index">Порядковый номер вопроса.</param>
         /// <returns></returns>
-        public Question this[int index]
+        public KeyValuePair<string, Question> this[int index]
         {
-            get => _VariousTestTemplate.Asks.ElementAt(index).Value;
+            get => _VariousTestTemplate.Asks.ElementAt(index);
             private set { }
         }
         /// <summary>

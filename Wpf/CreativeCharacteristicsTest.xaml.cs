@@ -18,7 +18,7 @@ namespace Wpf
             psychologicalTest = new PsychologicalTest(new TworchestvoTestType());
             //NumberOfStatement - утвержд номер
             // Statement - утверждение
-            Statement.Text = psychologicalTest[0].QuestionName;
+            Statement.Text = psychologicalTest[0].Value.QuestionName;
             QuestionCounter = 1;
             CountQuestions.Text = $"{QuestionCounter - 1}/50";
         }
@@ -59,7 +59,7 @@ namespace Wpf
             else
             {
                 //вывести следующий вопрос
-                Statement.Text = psychologicalTest[QuestionCounter].QuestionName;
+                Statement.Text = psychologicalTest[QuestionCounter].Value.QuestionName;
                 //поменять номер
                 QuestionCounter++;
                 //изменить значение progressbar
@@ -72,7 +72,7 @@ namespace Wpf
         private void RadioButton_Agree(object sender, RoutedEventArgs e)
         {
             //сохранить ответ 
-            psychologicalTest[QuestionCounter - 1].SetAnswer(3);
+            psychologicalTest[QuestionCounter - 1].Value.SetAnswer(3);
             //очистить радиобуттон
             AgreeButton.IsChecked = false;
 
@@ -82,7 +82,7 @@ namespace Wpf
         private void RadioButton_AgreeFomThePart(object sender, RoutedEventArgs e)
         {
             //сохранить ответ 
-            psychologicalTest[QuestionCounter - 1].SetAnswer(2);
+            psychologicalTest[QuestionCounter - 1].Value.SetAnswer(2);
             //очистить радиобуттон
             AgreeFomThePartButton.IsChecked = false;
 
@@ -92,7 +92,7 @@ namespace Wpf
         private void RadioButton_Doubt(object sender, RoutedEventArgs e)
         {
             //сохранить ответ 
-            psychologicalTest[QuestionCounter - 1].SetAnswer(0);
+            psychologicalTest[QuestionCounter - 1].Value.SetAnswer(0);
             //очистить радиобуттон
             DoubtButton.IsChecked = false;
 
@@ -102,7 +102,7 @@ namespace Wpf
         private void RadioButton_Disagree(object sender, RoutedEventArgs e)
         {
             //сохранить ответ 
-            psychologicalTest[QuestionCounter - 1].SetAnswer(1);
+            psychologicalTest[QuestionCounter - 1].Value.SetAnswer(1);
             //очистить радиобуттон
             DisagreeButton.IsChecked = false;
 
