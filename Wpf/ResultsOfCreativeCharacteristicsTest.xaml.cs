@@ -19,6 +19,8 @@ namespace Wpf
     /// </summary>
     public partial class ResultsOfCreativeCharacteristicsTest : Window
     {
+        public Dictionary<string, int> ResultsScales;
+
         public ResultsOfCreativeCharacteristicsTest()
         {
             InitializeComponent();

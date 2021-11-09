@@ -50,6 +50,14 @@ namespace Wpf
             {
                 ProgressInTest.Value = 50;
                 TestingIsOver tio = new TestingIsOver { Owner = this };
+
+                try
+                {
+                    psychologicalTest.GetAllAnswers();
+                    tio.ResultsScales = psychologicalTest.GetResults();
+                }
+                catch { }
+
                 if(tio.ShowDialog() == true)
                 {
                     ProgressInTest.Value--;

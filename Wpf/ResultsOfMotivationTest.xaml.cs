@@ -19,6 +19,8 @@ namespace Wpf
     /// </summary>
     public partial class ResultsOfMotivationTest : Window
     {
+        public Dictionary<string, int> ResultsScales;
+
         public ResultsOfMotivationTest()
         {
             InitializeComponent();

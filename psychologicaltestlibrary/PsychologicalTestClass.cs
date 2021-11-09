@@ -23,6 +23,7 @@ namespace psychologicaltestlib
         #region Methods
         public string[] GetScales() => _VariousTestTemplate.GetScales();
         public int Count() => _VariousTestTemplate.Asks.Count();
+        public Dictionary<string, int> GetResults() => _VariousTestTemplate.Processing();
         /// <summary>
         /// Сохраняет результат пользователя в таблицу.
         /// Дописывает в таблицу данные о результатах пользователя.
