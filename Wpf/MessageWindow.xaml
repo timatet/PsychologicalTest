@@ -1,0 +1,65 @@
+﻿<Window x:Class="Wpf.MessageWindow" MouseDown="MouseDown_Click"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf"
+        mc:Ignorable="d"
+        Height="225" Width="600" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterOwner">
+    <Window.Resources>
+        <FontFamily x:Key="CommonFont">Comic Sans MS</FontFamily>
+        <SolidColorBrush Color="#272343" x:Key="ColorOfLine" />
+        <SolidColorBrush Color="#E3F6F5" x:Key="ColorOfAccent" />
+        <SolidColorBrush Color="#BAE8E8" x:Key="ColorOfButtons" />
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="{StaticResource CommonFont}"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="10" Background="{StaticResource ColorOfButtons}"  Padding="15">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.1*"/>
+            <ColumnDefinition Width="0.9*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.9*"/>
+            <ColumnDefinition Width="0.1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Rectangle Grid.ColumnSpan="5" Fill="{StaticResource ColorOfAccent}"/>
+        <Rectangle Grid.Row="1" Grid.ColumnSpan="5" Fill="{StaticResource ColorOfLine}"/>
+
+        <WrapPanel Grid.Column="1" Grid.ColumnSpan="3" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Viewbox Width="48" Height="48">
+                <Canvas Width="24" Height="24">
+                    <Path Fill="{StaticResource ColorOfLine}" Data="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
+                </Canvas>
+            </Viewbox>
+            
+            <TextBlock Name="MessageTextBlock" VerticalAlignment="Center" Text="Сообщение" Margin="5 0 0 0"
+                     FontFamily="{StaticResource CommonFont}" FontSize="28" TextWrapping="Wrap"
+                     Background="{StaticResource ColorOfAccent}" Foreground="{StaticResource ColorOfLine}"/>
+        </WrapPanel>
+
+        <Button 
+            Grid.Column="2" Grid.Row="3"
+            Click="ButtonYes_Click">
+            <Viewbox>
+                <TextBlock Text="Ок"/>
+            </Viewbox>
+        </Button>
+    </Grid>
+</Window>

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,7 +33,7 @@ namespace Wpf
         {
             //открыть окно теста
             string NameOfTest = _lableNameOfTest.Content.ToString();
-            
+
             switch (NameOfTest)
             {
                 case "Диагностика мотивационной структуры личности":
@@ -47,9 +49,47 @@ namespace Wpf
             }
         }
 
+        string FilePath { get; set; }
+        string GetDownloadFolderPath()
+        {
+            return Registry.GetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders", "{374DE290-123F-4565-9164-39C4925E467B}", String.Empty).ToString();
+        }
+
         private void ButtonDownload_Click(object sender, RoutedEventArgs e)
         {
             //скачать файл с тестом
+            bool fileIsLoaded = false;
+            MessageWindow mw = new MessageWindow();
+            string message = "", pathOfTest = "";
+            switch (_lableNameOfTest.Content.ToString())
+            {
+                case "Диагностика мотивационной структуры личности":
+                    pathOfTest = "Мотивационная структура личности- Мильман полн..pdf";
+                    break;
+                case "Личностные творческие характеристики":
+                    pathOfTest = "Личностные творческие характеристики Туник (полный вар).pdf";
+                    break;
+            }
+            string DownloadPath = GetDownloadFolderPath() + "\\" + pathOfTest;
+            try
+            {
+                File.Copy(pathOfTest, DownloadPath);
+            }
+            catch
+            {
+                fileIsLoaded = true;
+                message = "Файл " + DownloadPath + " уже существует.";
+                File.Open(DownloadPath, FileMode.Open);
+                mw.MessageTextBlock.FontSize = 15;
+            }
+            if (!fileIsLoaded)
+            {
+                FileInfo fi = new FileInfo(DownloadPath);
+                fi.LastWriteTime = DateTime.Now;
+                message = "Файл сохранен в папку \"Загрузки\"";
+            }
+            mw.MessageTextBlock.Text = message;
+            mw.ShowDialog();
         }
 
         public DescriptionAndInstruction()
