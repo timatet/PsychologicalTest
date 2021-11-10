@@ -102,7 +102,7 @@ namespace Wpf
         {
             //передать как-то результаты теста
             SaveResults sr = new SaveResults();
-            sr.psychologicaltest = (PsychologicalTest)psychologicaltest.Clone();
+            sr.psychologicaltest = (PsychologicalTest)psychologicaltest;
             sr.ShowDialog();
         }
 
