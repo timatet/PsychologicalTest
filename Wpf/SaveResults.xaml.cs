@@ -37,11 +37,17 @@ namespace Wpf
 
             // процесс сохранения результатов это вызов метода сохранения из объекта теста
             string[] fio = name.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            if (string.IsNullOrEmpty(fio[0]) || string.IsNullOrEmpty(fio[1]) || string.IsNullOrEmpty(fio[2]))
-                throw new NotAllFieldsNameInputException();
+            if (fio.Length < 3 || (string.IsNullOrEmpty(fio[0]) || string.IsNullOrEmpty(fio[1]) || string.IsNullOrEmpty(fio[2])))
+            {
+                MessageWindow msgWindow = new MessageWindow();
+                msgWindow.MessageTextBlock.Text = "Некорректно введены ФИО. Пожалуйста, повторите.";
+                msgWindow.ShowDialog();
+                return;
+            }
 
             UserClass uc = new UserClass(fio[0], fio[1], fio[2], gender, age, dopInfo);
             psychologicaltest.RegisterUser(uc);
+
             psychologicaltest.SaveResults(new ConvertTestToXL());
 
             //откроет уведомление messagewindow , что все отправил
