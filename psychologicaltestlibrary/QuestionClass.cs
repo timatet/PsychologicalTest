@@ -5,7 +5,7 @@
         #region Fields
         private string _QuestionName;
         private string _QuestionBlock;
-        public static int Default = -1;
+        public static int Default = -2;
         private int _QuestionAnswer;
         #endregion Fields
 
