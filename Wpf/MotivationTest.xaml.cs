@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
+using System.Windows.Input;
 using psychologicaltestlib;
 
 namespace Wpf
@@ -127,6 +129,19 @@ namespace Wpf
             DontKnowButton.IsChecked = false;
 
             EnterTheAction();
+        }
+
+        private void ShiftQ(object sender, KeyEventArgs e)
+        {
+            if (e.KeyboardDevice.Modifiers == ModifierKeys.Shift && e.Key == Key.Q)
+            {
+                Random rnd = new Random(DateTime.Now.Millisecond);
+                foreach (Question q in psychologicalTest)
+                {
+                    EnterTheAction();
+                    q.SetAnswer(rnd.Next(0,3));
+                }
+            }
         }
     }
 }
