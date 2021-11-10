@@ -34,7 +34,7 @@ namespace psychologicaltestlib
             if (!_VariousTestTemplate.Asks.Select(a => a.Value.QuestionAnswer).Contains(Question.Default))
             {
                 _User.RegisterResult(_VariousTestTemplate.Processing());
-                dataSaveInterface.Print(_User);
+                dataSaveInterface.Print(_User, _VariousTestTemplate.GetNameOfTest());
             }
             else
             {
