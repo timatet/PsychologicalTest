@@ -11,9 +11,10 @@ namespace Wpf
     {
         public PsychologicalTest psychologicaltest;
 
-        public SaveResults()
+        public SaveResults(PsychologicalTest psychologicalTest)
         {
             InitializeComponent();
+            psychologicaltest = psychologicalTest;
             for (int i = 7; i < 100; ++i)
                 AgeOfUser.Items.Add(i);
         }

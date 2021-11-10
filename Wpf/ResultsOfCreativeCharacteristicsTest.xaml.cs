@@ -101,8 +101,7 @@ namespace Wpf
         private void ButtonSaveResults_Click(object sender, RoutedEventArgs e)
         {
             //передать как-то результаты теста
-            SaveResults sr = new SaveResults();
-            sr.psychologicaltest = (PsychologicalTest)psychologicaltest.Clone();
+            SaveResults sr = new SaveResults(psychologicaltest);
             sr.ShowDialog();
         }
 
