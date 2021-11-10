@@ -37,13 +37,7 @@ namespace Wpf
 
         private void ButtonSaveResults_Click(object sender, RoutedEventArgs e)
         {
-            //передать как-то результаты теста
-<<<<<<< HEAD
-            SaveResults sr = new SaveResults();
-            sr.psychologicaltest = (PsychologicalTest)psychologicaltest;
-=======
             SaveResults sr = new SaveResults(psychologicaltest);
->>>>>>> 2400890510e236361875336a6c59ff526f47de5a
             sr.ShowDialog();
         }
 

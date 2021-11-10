@@ -29,7 +29,8 @@ namespace Wpf
         private void ButtonSaveResults_Click(object sender, RoutedEventArgs e)
         {
             // сохранит результат
-            string name = NameOfUser.Text, gender = GenderOfUser.SelectedItem.ToString(),
+            string name = NameOfUser.Text, 
+                gender = GenderOfUser.Text,
                 dopInfo = AdditionalInformationOfUser.Text;
             int age = int.Parse(AgeOfUser.SelectedItem.ToString());
             // закроет окно регистрации
