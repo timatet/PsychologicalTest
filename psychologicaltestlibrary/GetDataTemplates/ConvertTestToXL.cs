@@ -21,7 +21,25 @@ namespace psychologicaltestlib
             using (ExcelPackage excelPackage = new ExcelPackage(fi))
             {
                 // Получение листа (Worksheet), созданного в предыдущем примере:
-                var ws = excelPackage.Workbook.Worksheets[0];
+                ExcelWorksheet ws;
+                if (excelPackage.Workbook.Worksheets.Count != 0)
+                    ws = excelPackage.Workbook.Worksheets[0];
+                else
+                {
+                    ws = excelPackage.Workbook.Worksheets.Add("Лист1");
+                    ws.Cells[1, 1].Value = "Дата прохождения";
+                    ws.Cells[1, 2].Value = "Фамилия";
+                    ws.Cells[1, 3].Value = "Имя";
+                    ws.Cells[1, 4].Value = "Отчество";
+                    ws.Cells[1, 5].Value = "Возраст";
+                    ws.Cells[1, 6].Value = "Пол";
+                    ws.Cells[1, 7].Value = "Доп. Инфа";
+                    ws.Cells[1, 8].Value = "Склонность к риску";
+                    ws.Cells[1, 9].Value = "Любознательность";
+                    ws.Cells[1, 10].Value = "Сложность";
+                    ws.Cells[1, 11].Value = "Воображение";
+                }
+
                 int start_index = 1;
                 while (true)
                 {
@@ -38,7 +56,7 @@ namespace psychologicaltestlib
                 ws.Cells[start_index, 5].Value = _User.Age;
                 ws.Cells[start_index, 6].Value = _User.Gender;
                 ws.Cells[start_index, 7].Value = _User.DopInfo;
-                
+
                 int cur_row = 8;
 
                 foreach (var item in _User.ResultDict)
@@ -48,6 +66,7 @@ namespace psychologicaltestlib
                 }
 
                 excelPackage.Save();
+
             }
             //Здесь реализация метода печати в XL файл
         }
