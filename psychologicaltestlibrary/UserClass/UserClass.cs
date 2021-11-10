@@ -13,7 +13,9 @@ namespace psychologicaltestlib
         private string _FirstName;
         private string _MiddleName;
         private string _LastName;
-        private string _EducationInstitution;
+        private string _Gender;
+        private int _Age;
+        private string _DopInfo;
         private Dictionary<string, int> _ResultsDict;
         #endregion Fields
 
@@ -51,13 +53,35 @@ namespace psychologicaltestlib
                     throw new NotAllFieldsNameInputException();
             }
         }
-        public string EducationInstitution
+        public string Gender
         {
-            get { return _EducationInstitution; }
+            get { return _Gender; }
             private set
             {
                 if (!string.IsNullOrEmpty(value))
-                    _EducationInstitution = value;
+                    _Gender = value;
+                else
+                    throw new NotAllFieldsNameInputException();
+            }
+        }
+        public int Age
+        {
+            get { return _Age; }
+            private set
+            {
+                if (!string.IsNullOrEmpty(value.ToString()))
+                    _Age = value;
+                else
+                    throw new NotAllFieldsNameInputException();
+            }
+        }
+        public string DopInfo
+        {
+            get { return _DopInfo; }
+            private set
+            {
+                if (!string.IsNullOrEmpty(value.ToString()))
+                    _DopInfo = value;
                 else
                     throw new NotAllFieldsNameInputException();
             }
@@ -81,17 +105,19 @@ namespace psychologicaltestlib
         }
         public object Clone()
         {
-            return new UserClass(this.FirstName, this.MiddleName, this.LastName, this.EducationInstitution);
+            return new UserClass(this.FirstName, this.MiddleName, this.LastName, this.Gender, this.Age, this.DopInfo);
         }
         #endregion Methods
 
         #region Constructors
-        public UserClass(string firstName, string middleName, string lastName, string educationInstitution)
+        public UserClass(string firstName, string middleName, string lastName, string gender, int age, string dopinfo)
         {
             FirstName = firstName;
             MiddleName = middleName;
             LastName = lastName;
-            EducationInstitution = educationInstitution;
+            Gender = gender;
+            Age = age;
+            DopInfo = dopinfo;
         }
         #endregion Constructors
     }

@@ -1,16 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using psychologicaltestlib;
 
 namespace Wpf
 {
@@ -19,6 +9,8 @@ namespace Wpf
     /// </summary>
     public partial class SaveResults : Window
     {
+        public PsychologicalTest psychologicaltest;
+
         public SaveResults()
         {
             InitializeComponent();
@@ -40,13 +32,22 @@ namespace Wpf
                 dopInfo = AdditionalInformationOfUser.Text;
             int age = int.Parse(AgeOfUser.SelectedItem.ToString());
             // закроет окно регистрации
+
+            // процесс сохранения результатов это вызов метода сохранения из объекта теста
+            string[] fio = name.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            if (string.IsNullOrEmpty(fio[0]) || string.IsNullOrEmpty(fio[1]) || string.IsNullOrEmpty(fio[2]))
+                throw new NotAllFieldsNameInputException();
+
+            UserClass uc = new UserClass(fio[0], fio[1], fio[2], gender, age, dopInfo);
+            psychologicaltest.RegisterUser(uc);
+            psychologicaltest.SaveResults(new ConvertTestToXL());
+
             //откроет уведомление messagewindow , что все отправил
             string message = "Результаты сохранены";
             MessageWindow mw = new MessageWindow();
             mw.MessageTextBlock.Text = message;
             this.Close();
             mw.ShowDialog();
-
         }
     }
 }

@@ -54,11 +54,12 @@ namespace Wpf
                 try
                 {
                     psychologicalTest.GetAllAnswers();
-                    tio.ResultsScales = psychologicalTest.GetResults();
                 }
                 catch { }
 
-                if(tio.ShowDialog() == true)
+                tio.psychologicaltest = psychologicalTest;
+
+                if (tio.ShowDialog() == true)
                 {
                     ProgressInTest.Value--;
                     CountQuestions.Text = $"{ProgressInTest.Value}/50";

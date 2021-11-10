@@ -41,9 +41,10 @@ namespace Wpf
                 try
                 {
                     psychologicalTest.GetAllAnswers();
-                    tio.ResultsScales = psychologicalTest.GetResults();
                 }
                 catch { }
+
+                tio.psychologicaltest = psychologicalTest;
 
                 if (tio.ShowDialog() == true)
                 {

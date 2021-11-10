@@ -9,7 +9,6 @@ namespace psychologicaltestlib
     public class ConvertTestToXL : IDataSaveInterface
     {
         #region Fields
-        private IVariousTestTemplate _variousTest;
         #endregion Fields
 
         #region Method
