@@ -22,22 +22,30 @@ namespace psychologicaltestlib
             {
                 // Получение листа (Worksheet), созданного в предыдущем примере:
                 ExcelWorksheet ws;
+                int cur_row;
                 if (excelPackage.Workbook.Worksheets.Count != 0)
                     ws = excelPackage.Workbook.Worksheets[0];
                 else
                 {
-                    ws = excelPackage.Workbook.Worksheets.Add("Лист1");
-                    ws.Cells[1, 1].Value = "Дата прохождения";
-                    ws.Cells[1, 2].Value = "Фамилия";
-                    ws.Cells[1, 3].Value = "Имя";
-                    ws.Cells[1, 4].Value = "Отчество";
-                    ws.Cells[1, 5].Value = "Возраст";
-                    ws.Cells[1, 6].Value = "Пол";
-                    ws.Cells[1, 7].Value = "Доп. Инфа";
-                    ws.Cells[1, 8].Value = "Склонность к риску";
-                    ws.Cells[1, 9].Value = "Любознательность";
-                    ws.Cells[1, 10].Value = "Сложность";
-                    ws.Cells[1, 11].Value = "Воображение";
+                    ws = excelPackage.Workbook.Worksheets.Add("List1");
+                    ws.Cells[1, 1].Value = "Date";
+                    ws.Cells[1, 2].Value = "First Name";
+                    ws.Cells[1, 3].Value = "Last Name";
+                    ws.Cells[1, 4].Value = "Middle Name";
+                    ws.Cells[1, 5].Value = "Age";
+                    ws.Cells[1, 6].Value = "Sex";
+                    ws.Cells[1, 7].Value = "Additional information";
+                    cur_row = 8;
+                    foreach (var item in _User.ResultDict)
+                    {
+                        ws.Cells[1, cur_row].Value = item.Key;
+                        cur_row++;
+                    }
+
+                    //ws.Cells[1, 8].Value = "Склонность к риску";
+                    //ws.Cells[1, 9].Value = "Любознательность";
+                    //ws.Cells[1, 10].Value = "Сложность";
+                    //ws.Cells[1, 11].Value = "Воображение";
                 }
 
                 int start_index = 1;
@@ -57,7 +65,7 @@ namespace psychologicaltestlib
                 ws.Cells[start_index, 6].Value = _User.Gender;
                 ws.Cells[start_index, 7].Value = _User.DopInfo;
 
-                int cur_row = 8;
+                cur_row = 8;
 
                 foreach (var item in _User.ResultDict)
                 {
