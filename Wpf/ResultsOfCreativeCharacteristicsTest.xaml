@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Wpf"
         mc:Ignorable="d"
         WindowStartupLocation="CenterOwner"
-        Height="450" Width="800" MinHeight="400" MinWidth="400">
+        Height="450" Width="800" MinHeight="400" MinWidth="450">
     <Window.Resources>
         <FontFamily x:Key="CommonFont">Comic Sans MS</FontFamily>
         <SolidColorBrush Color="#272343" x:Key="ColorOfLine" />
@@ -50,9 +50,11 @@
         <Viewbox Grid.Row="0" Grid.ColumnSpan ="8">
             <Label Content="Личностные творческие характеристики" FontFamily="{StaticResource CommonFont}" Foreground="White" HorizontalAlignment="Stretch"/>
         </Viewbox>
-
-        <StackPanel Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" 
-                    ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <ScrollViewer Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" VerticalScrollBarVisibility="Hidden">
+            <!--HorizontalScrollBarVisibility="Hidden"--> 
+            
+        <StackPanel>
+            <!--ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto"-->
             
             <Grid Margin="0 0 0 10">
                 <Grid.RowDefinitions>
@@ -97,11 +99,13 @@
                 <ProgressBar Name="PBGeneralScore_Negative" Grid.Row="1" 
                              VerticalAlignment="Bottom" Height="20"
                              Maximum="50" Minimum="0" Value="50"
+                             BorderBrush="White"
                              Background="LimeGreen" Foreground="White"/>
                 <ProgressBar Name="PBGeneralScore_Positive" 
                              Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
                              VerticalAlignment="Bottom" Height="20"
                              Maximum="100" Minimum="0"
+                             BorderBrush="White"
                              Background="White" Foreground="LimeGreen"/>
 
                 <!--склонность к риску-->
@@ -116,11 +120,13 @@
                              Grid.Row="3" Grid.Column="1" 
                              VerticalAlignment="Bottom" Height="16"
                              Maximum="13" Minimum="0" Value="13"
+                             BorderBrush="White"
                              Background="LimeGreen" Foreground="White"/>
                 <ProgressBar Name="PBRisk_Positive" 
                              Grid.Row="3" Grid.Column="2"
                              VerticalAlignment="Bottom" Height="16"
                              Maximum="26" Minimum="0"
+                             BorderBrush="White"
                              Background="White" Foreground="LimeGreen"/>
 
                 <!--любознательность-->
@@ -135,11 +141,13 @@
                              Grid.Row="5" Grid.Column="1" 
                              VerticalAlignment="Bottom" Height="16"
                              Maximum="12" Minimum="0" Value="12"
+                             BorderBrush="White"
                              Background="LimeGreen" Foreground="White"/>
                 <ProgressBar Name="PBCurious_Positive" 
                              Grid.Row="5" Grid.Column="2"
                              VerticalAlignment="Bottom" Height="16"
                              Maximum="24" Minimum="0"
+                             BorderBrush="White"
                              Background="White" Foreground="LimeGreen"/>
 
                 <!--сложность-->
@@ -154,11 +162,13 @@
                              Grid.Row="7" Grid.Column="1" 
                              VerticalAlignment="Bottom" Height="16"
                              Maximum="13" Minimum="0" Value="13"
+                             BorderBrush="White"
                              Background="LimeGreen" Foreground="White"/>
                 <ProgressBar Name="PBHard_Positive" 
                              Grid.Row="7" Grid.Column="2"
                              VerticalAlignment="Bottom" Height="16"
                              Maximum="26" Minimum="0"
+                             BorderBrush="White"
                              Background="White" Foreground="LimeGreen"/>
 
                 <!--Воображение-->
@@ -173,17 +183,19 @@
                              Grid.Row="9" Grid.Column="1" 
                              VerticalAlignment="Bottom" Height="16"
                              Maximum="12" Minimum="0" Value="12"
+                             BorderBrush="White"
                              Background="LimeGreen" Foreground="White"/>
                 <ProgressBar Name="PBImagination_Positive" 
                              Grid.Row="9" Grid.Column="2"
                              VerticalAlignment="Bottom" Height="16"
                              Maximum="24" Minimum="0"
+                             BorderBrush="White"
                              Background="White" Foreground="LimeGreen"/>
 
             </Grid>
             <Border Background="White" BorderBrush="{StaticResource ColorOfLine}" BorderThickness="1" >
                 <StackPanel >
-                    <TextBox Text="Расшифровка ключей" FontWeight="Bold" Foreground="Red" FontFamily="{StaticResource CommonFont}"/>
+                    <TextBlock Text="Расшифровка ключей" FontWeight="Bold" Foreground="Red" FontFamily="{StaticResource CommonFont}"/>
                     <TextBlock Text="• Склонность к риску. Проявляется в том, что субъект: будет отстаивать свои идеи, не обращая внимания на реакцию других; ставит перед собой высоки цели, и будет пытаться их осуществить; допускает для себя возможность ошибок и провалов; любит изучать новые вещи или идеи и не поддается чужому мнению; не слишком озабочен, когда одноклассники, учителя или родители выражают ему свое неодобрение; предпочитает иметь шанс рискнуть, чтобы узнать, что из этого получится." 
                                TextWrapping="Wrap" FontFamily="{StaticResource CommonFont}" Margin="2 0 0 0"/>
                     <TextBlock Text="• Любознательность. Субъект с выраженной любознательностью чаще всего спрашивает всех и обо всем, ему нравится изучать устройство механических вещей, он постоянно ищет новые пути (способы) мышления, любит изучать новые вещи и идеи, ищет разные возможности решения задач, изучает книги, игры, карты, картины и т. д., чтобы познать как можно больше." 
@@ -196,6 +208,7 @@
             </Border>
         </StackPanel>
 
+        </ScrollViewer>
 
 
         <Button 
