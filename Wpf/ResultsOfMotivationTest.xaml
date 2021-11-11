@@ -51,18 +51,123 @@
             <Label Content="Диагностика мотивационной структуры личности" FontFamily="{StaticResource CommonFont}" Foreground="White" HorizontalAlignment="Stretch"/>
         </Viewbox>
 
-        <StackPanel Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" 
-                    ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
-            <Border>
-                <TextBlock Text="Красивые столбики с результатами" FontSize="40"/>
-            </Border>
-            <Border Background="White" BorderBrush="{StaticResource ColorOfLine}" BorderThickness="1" >
-                <StackPanel >
-                    <TextBox Text="Расшифровка ключей может будет" FontWeight="Bold" Foreground="Red" FontFamily="{StaticResource CommonFont}"/>
-                    
-                </StackPanel>
-            </Border>
-        </StackPanel>
+        <ScrollViewer Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" 
+                    VerticalScrollBarVisibility="Hidden">
+            <StackPanel>
+                <Grid Margin="0 0 0 10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition  Height="30"/>
+                        <RowDefinition Height="30" />
+                        <RowDefinition  Height="30"/>
+                        <RowDefinition  Height="30"/>
+                        <RowDefinition  Height="30"/>
+                        <RowDefinition  Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="0.5*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Rectangle Grid.RowSpan="5" Fill="{StaticResource ColorOfLine}" Width="1" HorizontalAlignment="Right"/>
+                    <TextBlock Grid.Row="0" Text="50" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="3 0"/>
+                    <TextBlock Grid.Row="1" Text="40" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="3 0"/>
+                    <TextBlock Grid.Row="2" Text="30" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="3 0"/>
+                    <TextBlock Grid.Row="3" Text="20" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="3 0"/>
+                    <TextBlock Grid.Row="4" Text="10" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="3 0"/>
+
+                    <!--<Rectangle Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="7" 
+                               Fill="{StaticResource ColorOfLine}" Height="1" VerticalAlignment="Bottom"/>
+                    <Rectangle Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="7" 
+                               Fill="{StaticResource ColorOfLine}" Height="1" VerticalAlignment="Bottom"/>
+                    <Rectangle Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="7" 
+                               Fill="{StaticResource ColorOfLine}" Height="1" VerticalAlignment="Bottom"/>
+                    <Rectangle Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="7" 
+                               Fill="{StaticResource ColorOfLine}" Height="1" VerticalAlignment="Bottom"/>-->
+                    <Rectangle Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="7" 
+                               Fill="{StaticResource ColorOfLine}" Height="1" VerticalAlignment="Bottom"/>
+
+                    <TextBlock Grid.Row="5" Grid.Column="1" Text="Ж" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="3 0"/>
+                    <TextBlock Grid.Row="5" Grid.Column="2" Text="К" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="3 0"/>
+                    <TextBlock Grid.Row="5" Grid.Column="3" Text="С" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="3 0"/>
+                    <TextBlock Grid.Row="5" Grid.Column="4" Text="О" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="3 0"/>
+                    <TextBlock Grid.Row="5" Grid.Column="5" Text="Д" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="3 0"/>
+                    <TextBlock Grid.Row="5" Grid.Column="6" Text="ДР" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="3 0"/>
+                    <TextBlock Grid.Row="5" Grid.Column="7" Text="ОД" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="3 0"/>
+
+                    <ProgressBar Name="PBLifeSupport" Orientation="Vertical"
+                             Grid.Row="0" Grid.RowSpan="5" Grid.Column="1" 
+                             VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="35" Height="150"
+                             Maximum="50" Minimum="0" Value="30"
+                             BorderBrush="{StaticResource ColorOfAccent}"
+                             Background="{StaticResource ColorOfAccent}" Foreground="#142850">
+                    </ProgressBar>
+                    <ProgressBar Name="PBComfort" Orientation="Vertical"
+                             Grid.Row="0" Grid.RowSpan="5" Grid.Column="2" 
+                             VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="35" Height="150"
+                             Maximum="50" Minimum="0" Value="30"
+                             BorderBrush="{StaticResource ColorOfAccent}"
+                             Background="{StaticResource ColorOfAccent}" Foreground="#27496D"/>
+                    <ProgressBar Name="PBSocialStatus" Orientation="Vertical"
+                             Grid.Row="0" Grid.RowSpan="5" Grid.Column="3" 
+                             VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="35" Height="150"
+                             Maximum="50" Minimum="0" Value="30"
+                             BorderBrush="{StaticResource ColorOfAccent}"
+                             Background="{StaticResource ColorOfAccent}" Foreground="#0C7B93"/>
+                    <ProgressBar Name="PBCommunication" Orientation="Vertical"
+                             Grid.Row="0" Grid.RowSpan="5" Grid.Column="4" 
+                             VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="35" Height="150"
+                             Maximum="50" Minimum="0" Value="30"
+                             BorderBrush="{StaticResource ColorOfAccent}"
+                             Background="{StaticResource ColorOfAccent}" Foreground="#46B7B9"/>
+                    <ProgressBar Name="PBGeneralActivity" Orientation="Vertical"
+                             Grid.Row="0" Grid.RowSpan="5" Grid.Column="5" 
+                             VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="35" Height="150"
+                             Maximum="50" Minimum="0" Value="30"
+                             BorderBrush="{StaticResource ColorOfAccent}"
+                             Background="{StaticResource ColorOfAccent}" Foreground="#6DC9C8"/>
+                    <ProgressBar Name="PBCreativeActivity" Orientation="Vertical"
+                             Grid.Row="0" Grid.RowSpan="5" Grid.Column="6" 
+                             VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="35" Height="150"
+                             Maximum="50" Minimum="0" Value="30"
+                             BorderBrush="{StaticResource ColorOfAccent}"
+                             Background="{StaticResource ColorOfAccent}" Foreground="#87DFD6"/>
+                    <ProgressBar Name="PBSocialUtility" Orientation="Vertical"
+                             Grid.Row="0" Grid.RowSpan="5" Grid.Column="7" 
+                             VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="35" Height="150"
+                             Maximum="50" Minimum="0" Value="50"
+                             BorderBrush="{StaticResource ColorOfAccent}"
+                             Background="{StaticResource ColorOfAccent}" Foreground="#B4E9EC"/>
+                </Grid>
+
+                <Border Background="White" BorderBrush="{StaticResource ColorOfLine}" BorderThickness="1" >
+                    <StackPanel >
+                        <TextBlock Text="Расшифровка ключей" FontWeight="Bold" Foreground="Red" FontFamily="{StaticResource CommonFont}"/>
+                        <TextBlock Text="• Мотивация поддержания жизнеобеспечения: забота о насущных условиях существования, стремление обеспечить себя и  своих  близких материальными ресурсами жизни. Включает в себя  следующие  мотивы-интересы: телесные нужды, пищу, секс, приобретение." 
+                               TextWrapping="Wrap" FontFamily="{StaticResource CommonFont}" Margin="2 0 0 0"/>
+                        <TextBlock Text="• Мотивы комфорта и безопасности: забота о средствах  существования, но в более совершенных, удобных, надежных проявлениях, приносящих больше удовольствий. Включает в  себя:  комфорт,  порядок, удовольствие, развлечение, приобретение, защита, безопасность."
+                                   TextWrapping="Wrap" FontFamily="{StaticResource CommonFont}" Margin="2 0 0 0"/>
+                        <TextBlock Text="• Cтатусно-престижная мотивация: мотивы  поддержания  жизнедеятельности и комфорта в социальной сфере. Стремление получать  внимание окружающих, престиж, положение в обществе, влияние и власть. Включает в себя мотивы-интересы: внимание,  уважение,  честолюбие, доминирование."
+                                   TextWrapping="Wrap" FontFamily="{StaticResource CommonFont}" Margin="2 0 0 0"/>
+                        <TextBlock Text="• Мотивация общения, присоединения к группе.  Может  выражаться как в положительных  устремлениях - аффилиация,  опека,  внимание, так и в социально отрицательных - унижение, угождение, подчинение, агрессия."
+                                   TextWrapping="Wrap" FontFamily="{StaticResource CommonFont}" Margin="2 0 0 0"/>
+                        <TextBlock Text="• Мотивация общей активности: энергичность,  стремление  приложить свою энергию и умения в  той  или  иной  сфере  деятельности. Включает в себя мотивы-интересы: собственно  активность,  выносливость, упорство, возможно, противодействие."
+                                   TextWrapping="Wrap" FontFamily="{StaticResource CommonFont}" Margin="2 0 0 0"/>
+                        <TextBlock Text="• Мотивация творческой активности: стремление использовать свою энергию и возможности в той сфере, где можно  получить  творческие результаты. Включает в  себя:  созидание,  достижение,  понимание, познание." 
+                                   TextWrapping="Wrap" FontFamily="{StaticResource CommonFont}" Margin="2 0 0 0"/>
+                        <TextBlock Text="• Мотивация принести общественную пользу." 
+                               TextWrapping="Wrap" FontFamily="{StaticResource CommonFont}" Margin="2 0 0 0"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
 
 
 
