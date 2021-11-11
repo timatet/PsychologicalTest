@@ -56,13 +56,13 @@
             <StackPanel>
                 <Border Background="White" BorderBrush="{StaticResource ColorOfLine}" BorderThickness="1" Margin="0 0 0 10">
                     <StackPanel >
-                        <TextBox Text="Описание" FontWeight="Bold" Foreground="Red"/>
+                        <TextBlock Text="Описание" FontWeight="Bold" Foreground="Red"/>
                         <TextBlock Name="DescriptionOfTest" TextWrapping="Wrap"/>
                     </StackPanel>
                 </Border>
                 <Border Background="White" BorderBrush="{StaticResource ColorOfLine}" BorderThickness="1" Margin="0 10 0 0">
                     <StackPanel>
-                        <TextBox Text="Инструкция" FontWeight="Bold" Foreground="Red"/>
+                        <TextBlock Text="Инструкция" FontWeight="Bold" Foreground="Red"/>
                         <TextBlock Name="InstructionOfTest" TextWrapping="Wrap"/>
                     </StackPanel>
                 </Border>
