@@ -48,7 +48,7 @@
         <Rectangle Grid.Row="4" Grid.ColumnSpan="5" Fill="{StaticResource ColorOfLine}"/>
 
         <Viewbox Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
-            <ProgressBar Name="ProgressInTest" Margin="10" Width="400" Height="30" Minimum="0" Maximum="112" Value="0" 
+            <ProgressBar x:Name="ProgressInTest" Margin="10" Width="400" Height="30" Minimum="0" Maximum="112" Value="0" 
                          Background="{StaticResource ColorOfLine}" BorderBrush="White" 
                          BorderThickness="1" Foreground="{StaticResource ColorOfButtons}"/>
         </Viewbox>
