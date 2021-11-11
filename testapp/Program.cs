@@ -24,12 +24,9 @@ namespace libtestapp
             //        Console.WriteLine($"{i + 1}{j}: " + motivationTest[$"{i + 1}{j}"].QuestionName + "\n" + motivationTest[$"{i + 1}{j}"].QuestionAnswer);
             //}
 
-            UserClass uc = new UserClass("Ivan", "Ivanov", "Ivanovich", "school");
+            UserClass uc = new UserClass("Ivan", "Ivanov", "Ivanovich", "school", 15, "dopinfo");
             motivationTest.RegisterUser(uc);
             motivationTest.SaveResults(new ConvertTestToXL());
-
-            Question question = new Question("trdsxcvbnmfdgh");
-            question.SetAnswer(-1);
         }
     }
 }

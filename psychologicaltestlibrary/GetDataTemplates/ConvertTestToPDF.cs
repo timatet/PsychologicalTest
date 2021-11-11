@@ -9,7 +9,7 @@ namespace psychologicaltestlib
         #endregion Fields
 
         #region Methods
-        public void Print(UserClass _User)
+        public void Print(UserClass _User, string _NameTest)
         {
             //Здесь реализация метода печати в PDF файл
         }

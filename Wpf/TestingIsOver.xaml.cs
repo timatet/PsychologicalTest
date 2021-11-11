@@ -20,7 +20,7 @@ namespace Wpf
     /// </summary>
     public partial class TestingIsOver : Window
     {
-        public Dictionary<string, int> ResultsScales;
+        public PsychologicalTest psychologicaltest;
 
         public TestingIsOver()
         {
@@ -47,13 +47,13 @@ namespace Wpf
             switch (this.Owner.Title)
             {
                 case "Диагностика мотивационной структуры личности":
-                    ResultsOfMotivationTest rmt = new ResultsOfMotivationTest();
-                    rmt.ResultsScales = this.ResultsScales;
+                    ResultsOfMotivationTest rmt = new ResultsOfMotivationTest(psychologicaltest);
+                    //rmt.psychologicaltest = psychologicaltest;
                     rmt.Show();
                     break;
                 case "Личностные творческие характеристики":
-                    ResultsOfCreativeCharacteristicsTest rcct = new ResultsOfCreativeCharacteristicsTest();
-                    rcct.ResultsScales = this.ResultsScales;
+                    ResultsOfCreativeCharacteristicsTest rcct = new ResultsOfCreativeCharacteristicsTest(psychologicaltest);
+                    //rcct.psychologicaltest = psychologicaltest;
                     rcct.Show();
                     break;
             }

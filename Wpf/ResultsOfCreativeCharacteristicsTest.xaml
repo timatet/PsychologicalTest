@@ -76,7 +76,7 @@
 
                 <!--Подписи-->
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Grid.ColumnSpan="3"
-                           FontFamily="{StaticResource CommonFont}" FontSize="15" Text="Общий балл криативности"/>
+                           FontFamily="{StaticResource CommonFont}" FontSize="15" Text="Общий балл креативности"/>
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="3" Margin="0 0 5 0"
                            FontFamily="{StaticResource CommonFont}" FontSize="15" Text="Склонность к риску"/>
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="5" Margin="0 0 5 0"

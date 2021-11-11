@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using psychologicaltestlib;
 
 namespace Wpf
 {
@@ -19,11 +20,12 @@ namespace Wpf
     /// </summary>
     public partial class ResultsOfMotivationTest : Window
     {
-        public Dictionary<string, int> ResultsScales;
+        public PsychologicalTest psychologicaltest;
 
-        public ResultsOfMotivationTest()
+        public ResultsOfMotivationTest(PsychologicalTest psychologicaltest)
         {
             InitializeComponent();
+            this.psychologicaltest = psychologicaltest;
         }
 
         private void ButtonRepeat_Click(object sender, RoutedEventArgs e)
@@ -35,8 +37,7 @@ namespace Wpf
 
         private void ButtonSaveResults_Click(object sender, RoutedEventArgs e)
         {
-            //передать как-то результаты теста
-            SaveResults sr = new SaveResults();
+            SaveResults sr = new SaveResults(psychologicaltest);
             sr.ShowDialog();
         }
 

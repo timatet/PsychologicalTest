@@ -1,4 +1,5 @@
 ﻿using OfficeOpenXml;
+using OfficeOpenXml.Style;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -9,38 +10,100 @@ namespace psychologicaltestlib
     public class ConvertTestToXL : IDataSaveInterface
     {
         #region Fields
-        private IVariousTestTemplate _variousTest;
         #endregion Fields
 
         #region Method
-        public void Print(UserClass _User)
+        public void Print(UserClass _User, string _NameTest)
         {
-            //var ans = _User;
-            //ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-            ////var file_name = _variousTest.GetNameOfTest(); ?????
-            //FileInfo fi = new FileInfo(@"Path\To\Your\File.xlsx");
-            //using (ExcelPackage excelPackage = new ExcelPackage(fi))
-            //{
-            //    // Получение листа (Worksheet), созданного в предыдущем примере:
-            //    var ws = excelPackage.Workbook.Worksheets[1];
-            //    int start_index = 1;
-            //    while (true)
-            //    {
-            //        if ((string)ws.Cells[start_index, 1].Value == "")
-            //        {
-            //            break;
-            //        }
-            //        start_index++;
-            //    }
-            //    ws.Cells[start_index, 1].Value = DateTime.Now;
-            //    int cur_row = 2;
+            
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+            string path = Directory.GetCurrentDirectory() + @"\\" + _NameTest + ".xlsx";
+            FileInfo fi = new FileInfo(path);
+            using (ExcelPackage excelPackage = new ExcelPackage(fi))
+            {
+                // Получение листа (Worksheet), созданного в предыдущем примере:
+                ExcelWorksheet ws;
+                int cur_row;
+                if (excelPackage.Workbook.Worksheets.Count != 0)
+                    ws = excelPackage.Workbook.Worksheets[0];
+                else
+                {
+                    ws = excelPackage.Workbook.Worksheets.Add("List1");
+                    ws.Cells[1, 1].Value = "Date";
+                    ws.Cells[1, 2].Value = "First Name";
+                    ws.Cells[1, 3].Value = "Last Name";
+                    ws.Cells[1, 4].Value = "Middle Name";
+                    ws.Cells[1, 5].Value = "Age";
+                    ws.Cells[1, 6].Value = "Sex";
+                    ws.Cells[1, 7].Value = "Additional information";
 
-            //    foreach (var item in ans.ResultDict)
-            //    {
-            //        ws.Cells[start_index, cur_row].Value = item.Value;
-            //        cur_row++;
-            //    }
-            //}
+                    cur_row = 8;
+                    foreach (var item in _User.ResultDict)
+                    {
+                        ws.Cells[1, cur_row].Value = item.Key;
+                        cur_row++;
+                    }
+
+                    ws.Rows[1].Height = 20;
+                    for (int i = 1; i < cur_row; i++)
+                    {
+                        ws.Cells[1, i].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                        ws.Cells[1, i].Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        ws.Cells[1, i].Style.Font.Bold = true;
+                        ws.Cells[1, i].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                        ws.Cells[1, i].Style.Fill.BackgroundColor.SetColor(Color.FromArgb(255, 232, 197));
+                    }
+
+                    //ws.Cells[1, 8].Value = "Склонность к риску";
+                    //ws.Cells[1, 9].Value = "Любознательность";
+                    //ws.Cells[1, 10].Value = "Сложность";
+                    //ws.Cells[1, 11].Value = "Воображение";
+                }
+
+                int start_index = 1;
+                while (true)
+                {
+                    if (ws.Cells[start_index, 1].Value == null)
+                    {
+                        break;
+                    }
+                    start_index++;
+                }
+
+                ws.Columns[1].Width = 15;
+                ws.Columns[2].Width = 15;
+                ws.Columns[3].Width = 15;
+                ws.Columns[4].Width = 15;
+                ws.Columns[5].Width = 8;
+                ws.Columns[6].Width = 8;
+                ws.Columns[7].Width = 30;
+                ws.Columns[8].Width = 13;
+                ws.Columns[9].Width = 13;
+                ws.Columns[10].Width = 13;
+                ws.Columns[11].Width = 13;
+
+                ws.Cells[start_index, 1].Style.Numberformat.Format = "yyyy-mm-dd";
+                ws.Cells[start_index, 1].Value = DateTime.Now;
+                ws.Cells[start_index, 2].Value = _User.FirstName;
+                ws.Cells[start_index, 3].Value = _User.MiddleName;
+                ws.Cells[start_index, 4].Value = _User.LastName;
+                ws.Cells[start_index, 5].Style.Numberformat.Format = "0";
+                ws.Cells[start_index, 5].Value = _User.Age;
+                ws.Cells[start_index, 6].Value = _User.Gender;
+                ws.Cells[start_index, 7].Value = _User.DopInfo;
+
+                cur_row = 8;
+
+                foreach (var item in _User.ResultDict)
+                {
+                    ws.Cells[start_index, cur_row].Style.Numberformat.Format = "0";
+                    ws.Cells[start_index, cur_row].Value = item.Value;
+                    cur_row++;
+                }
+
+                excelPackage.Save();
+
+            }
             //Здесь реализация метода печати в XL файл
         }
         #endregion Methods

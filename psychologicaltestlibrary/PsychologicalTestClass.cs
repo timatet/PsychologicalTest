@@ -34,10 +34,12 @@ namespace psychologicaltestlib
             if (!_VariousTestTemplate.Asks.Select(a => a.Value.QuestionAnswer).Contains(Question.Default))
             {
                 _User.RegisterResult(_VariousTestTemplate.Processing());
-                dataSaveInterface.Print(_User);
+                dataSaveInterface.Print(_User, _VariousTestTemplate.GetNameOfTest());
             }
-
-            throw new NotAllAnswersReceivedException("Error! Not all answer received!", DateTime.Now);
+            else
+            {
+                throw new NotAllAnswersReceivedException("Error! Not all answer received!", DateTime.Now);
+            }
         }
         public void RegisterUser(UserClass _User)
         {

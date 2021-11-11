@@ -1,16 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using psychologicaltestlib;
 
 namespace Wpf
 {
@@ -19,9 +11,12 @@ namespace Wpf
     /// </summary>
     public partial class SaveResults : Window
     {
-        public SaveResults()
+        public PsychologicalTest psychologicaltest;
+
+        public SaveResults(PsychologicalTest psychologicalTest)
         {
             InitializeComponent();
+            psychologicaltest = psychologicalTest;
             for (int i = 7; i < 100; ++i)
                 AgeOfUser.Items.Add(i);
         }
@@ -36,17 +31,56 @@ namespace Wpf
         private void ButtonSaveResults_Click(object sender, RoutedEventArgs e)
         {
             // сохранит результат
-            string name = NameOfUser.Text, gender = GenderOfUser.SelectedItem.ToString(),
+            string name = NameOfUser.Text, 
+                gender = GenderOfUser.Text,
                 dopInfo = AdditionalInformationOfUser.Text;
             int age = int.Parse(AgeOfUser.SelectedItem.ToString());
             // закроет окно регистрации
+
+            // процесс сохранения результатов это вызов метода сохранения из объекта теста
+            string[] fio = name.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            if (!IsNameCorrect() || string.IsNullOrEmpty(gender))
+            {
+                MessageWindow msgWindow = new MessageWindow();
+                msgWindow.MessageTextBlock.Text = "Некорректно введены данные. Пожалуйста, повторите.";
+                msgWindow.ShowDialog();
+                return;
+            }
+
+            UserClass uc = new UserClass(fio[0], fio[1], fio[2], gender, age, dopInfo);
+            psychologicaltest.RegisterUser(uc);
+
+            psychologicaltest.SaveResults(new ConvertTestToXL());
+
             //откроет уведомление messagewindow , что все отправил
             string message = "Результаты сохранены";
             MessageWindow mw = new MessageWindow();
             mw.MessageTextBlock.Text = message;
             this.Close();
             mw.ShowDialog();
+        }
 
+        private void CheckCorrectInput(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            IsNameCorrect();
+        }
+
+        public bool IsNameCorrect()
+        {
+            string text = NameOfUser.Text;
+            Regex isNameOK = new Regex(@"^\s*([a-zA-Z]|[а-яА-Я])+\s+([a-zA-Z]|[а-яА-Я])+\s+([a-zA-Z]|[а-яА-Я])+\s*$");
+            if (!isNameOK.IsMatch(text))
+            {
+                NameOfUser.Foreground = Brushes.White;
+                NameOfUser.Background = Brushes.DarkRed;
+                return false;
+            }
+            else
+            {
+                NameOfUser.Foreground = Brushes.Black;
+                NameOfUser.Background = Brushes.LimeGreen;
+                return true;
+            }
         }
     }
 }

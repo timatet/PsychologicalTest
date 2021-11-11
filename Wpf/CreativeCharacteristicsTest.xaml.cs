@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
+using System.Windows.Input;
 using psychologicaltestlib;
 
 namespace Wpf
@@ -54,11 +56,12 @@ namespace Wpf
                 try
                 {
                     psychologicalTest.GetAllAnswers();
-                    tio.ResultsScales = psychologicalTest.GetResults();
                 }
                 catch { }
 
-                if(tio.ShowDialog() == true)
+                tio.psychologicaltest = psychologicalTest;
+
+                if (tio.ShowDialog() == true)
                 {
                     ProgressInTest.Value--;
                     CountQuestions.Text = $"{ProgressInTest.Value}/50";
@@ -115,6 +118,19 @@ namespace Wpf
             DisagreeButton.IsChecked = false;
 
             EnterTheAction();
+        }
+
+        private void ShiftQ(object sender, KeyEventArgs e)
+        {
+            if (e.KeyboardDevice.Modifiers == ModifierKeys.Shift && e.Key == Key.Q)
+            {
+                Random rnd = new Random(DateTime.Now.Millisecond);
+                foreach (Question q in psychologicalTest)
+                {
+                    EnterTheAction();
+                    q.SetAnswer(rnd.Next(0, 3));
+                }
+            }
         }
     }
 }
