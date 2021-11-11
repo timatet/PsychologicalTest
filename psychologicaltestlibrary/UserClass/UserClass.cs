@@ -82,8 +82,7 @@ namespace psychologicaltestlib
             {
                 if (!string.IsNullOrEmpty(value.ToString()))
                     _DopInfo = value;
-                else
-                    throw new NotAllFieldsNameInputException();
+                else _DopInfo = string.Empty;
             }
         }
         public Dictionary<string, int> ResultDict

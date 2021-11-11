@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Media;
 using psychologicaltestlib;
 
 namespace Wpf
@@ -37,10 +39,10 @@ namespace Wpf
 
             // процесс сохранения результатов это вызов метода сохранения из объекта теста
             string[] fio = name.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            if (fio.Length < 3 || (string.IsNullOrEmpty(fio[0]) || string.IsNullOrEmpty(fio[1]) || string.IsNullOrEmpty(fio[2])))
+            if (!IsNameCorrect() || string.IsNullOrEmpty(gender))
             {
                 MessageWindow msgWindow = new MessageWindow();
-                msgWindow.MessageTextBlock.Text = "Некорректно введены ФИО. Пожалуйста, повторите.";
+                msgWindow.MessageTextBlock.Text = "Некорректно введены данные. Пожалуйста, повторите.";
                 msgWindow.ShowDialog();
                 return;
             }
@@ -56,6 +58,29 @@ namespace Wpf
             mw.MessageTextBlock.Text = message;
             this.Close();
             mw.ShowDialog();
+        }
+
+        private void CheckCorrectInput(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            IsNameCorrect();
+        }
+
+        public bool IsNameCorrect()
+        {
+            string text = NameOfUser.Text;
+            Regex isNameOK = new Regex(@"^\s*([a-zA-Z]|[а-яА-Я])+\s+([a-zA-Z]|[а-яА-Я])+\s+([a-zA-Z]|[а-яА-Я])+\s*$");
+            if (!isNameOK.IsMatch(text))
+            {
+                NameOfUser.Foreground = Brushes.White;
+                NameOfUser.Background = Brushes.DarkRed;
+                return false;
+            }
+            else
+            {
+                NameOfUser.Foreground = Brushes.Black;
+                NameOfUser.Background = Brushes.LimeGreen;
+                return true;
+            }
         }
     }
 }
