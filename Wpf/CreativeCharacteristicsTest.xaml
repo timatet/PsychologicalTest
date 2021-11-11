@@ -66,7 +66,7 @@
                     <TextBlock Name="Statement" TextWrapping="Wrap" FontFamily="{StaticResource CommonFont}"/>
                 </StackPanel>
             </Border>
-            <Border Margin="0 30 0 0" BorderBrush="{StaticResource ColorOfLine}" BorderThickness="1" >
+            <Border Margin="0 30 0 0">
                 <StackPanel>
                     <RadioButton Name="AgreeButton" Content="Согласен с этим" Margin="0 2" Checked="RadioButton_Agree"/>
                     <RadioButton Name="AgreeFomThePartButton" Content="Согласен от части" Margin="0 2" Checked="RadioButton_AgreeFomThePart"/>
