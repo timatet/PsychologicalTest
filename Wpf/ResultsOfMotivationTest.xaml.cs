@@ -26,6 +26,37 @@ namespace Wpf
         {
             InitializeComponent();
             this.psychologicaltest = psychologicaltest;
+            var Results = psychologicaltest.GetResults();
+
+            //обработка результатов
+            //PBLifeSupport
+            //PBComfort
+            //PBSocialStatus
+            //PBCommunication
+            //PBGeneralActivity
+            //PBCreativeActivity
+            //PBSocialUtility
+
+            PBLifeSupport.Value = Results["LifeSupport"];
+            TBLifeSupport.Text = Results["LifeSupport"].ToString();
+
+            PBComfort.Value = Results["Comfort"];
+            TBComfort.Text = Results["Comfort"].ToString();
+
+            PBSocialStatus.Value = Results["SocialStatus"];
+            TBSocialStatus.Text = Results["SocialStatus"].ToString();
+
+            PBCommunication.Value = Results["Communication"];
+            TBCommunication.Text = Results["Communication"].ToString();
+
+            PBGeneralActivity.Value = Results["GeneralActivity"];
+            TBGeneralActivity.Text = Results["GeneralActivity"].ToString();
+
+            PBCreativeActivity.Value = Results["CreativeActivity"];
+            TBCreativeActivity.Text = Results["CreativeActivity"].ToString();
+
+            PBSocialUtility.Value = Results["SocialUtility"];
+            TBSocialUtility.Text = Results["SocialUtility"].ToString();
         }
 
         private void ButtonRepeat_Click(object sender, RoutedEventArgs e)

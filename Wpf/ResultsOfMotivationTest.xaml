@@ -86,17 +86,6 @@
                     <TextBlock Grid.Row="3" Text="20" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="3 0"/>
                     <TextBlock Grid.Row="4" Text="10" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="3 0"/>
 
-                    <!--<Rectangle Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="7" 
-                               Fill="{StaticResource ColorOfLine}" Height="1" VerticalAlignment="Bottom"/>
-                    <Rectangle Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="7" 
-                               Fill="{StaticResource ColorOfLine}" Height="1" VerticalAlignment="Bottom"/>
-                    <Rectangle Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="7" 
-                               Fill="{StaticResource ColorOfLine}" Height="1" VerticalAlignment="Bottom"/>
-                    <Rectangle Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="7" 
-                               Fill="{StaticResource ColorOfLine}" Height="1" VerticalAlignment="Bottom"/>-->
-                    <Rectangle Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="7" 
-                               Fill="{StaticResource ColorOfLine}" Height="1" VerticalAlignment="Bottom"/>
-
                     <TextBlock Grid.Row="5" Grid.Column="1" Text="Ж" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="3 0"/>
                     <TextBlock Grid.Row="5" Grid.Column="2" Text="К" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="3 0"/>
                     <TextBlock Grid.Row="5" Grid.Column="3" Text="С" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="3 0"/>
@@ -108,54 +97,67 @@
                     <ProgressBar Name="PBLifeSupport" Orientation="Vertical"
                              Grid.Row="0" Grid.RowSpan="5" Grid.Column="1" 
                              VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="35" Height="150"
-                             Maximum="50" Minimum="0" Value="30" Margin="0 0 0 1"
+                             Maximum="50" Minimum="0" Value="0" Margin="0 0 0 1"
                              BorderBrush="{StaticResource ColorOfAccent}" 
                              Background="{StaticResource ColorOfAccent}" Foreground="#142850">
                     </ProgressBar>
                     <ProgressBar Name="PBComfort" Orientation="Vertical"
                              Grid.Row="0" Grid.RowSpan="5" Grid.Column="2" 
                              VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="35" Height="150"
-                             Maximum="50" Minimum="0" Value="30" Margin="0 0 0 1"
+                             Maximum="50" Minimum="0" Value="0" Margin="0 0 0 1"
                              BorderBrush="{StaticResource ColorOfAccent}"
                              Background="{StaticResource ColorOfAccent}" Foreground="#27496D"/>
                     <ProgressBar Name="PBSocialStatus" Orientation="Vertical"
                              Grid.Row="0" Grid.RowSpan="5" Grid.Column="3" 
                              VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="35" Height="150"
-                             Maximum="50" Minimum="0" Value="30" Margin="0 0 0 1"
+                             Maximum="50" Minimum="0" Value="0" Margin="0 0 0 1"
                              BorderBrush="{StaticResource ColorOfAccent}"
                              Background="{StaticResource ColorOfAccent}" Foreground="#0C7B93"/>
                     <ProgressBar Name="PBCommunication" Orientation="Vertical"
                              Grid.Row="0" Grid.RowSpan="5" Grid.Column="4" 
                              VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="35" Height="150"
-                             Maximum="50" Minimum="0" Value="30" Margin="0 0 0 1"
+                             Maximum="50" Minimum="0" Value="0" Margin="0 0 0 1"
                              BorderBrush="{StaticResource ColorOfAccent}"
                              Background="{StaticResource ColorOfAccent}" Foreground="#46B7B9"/>
                     <ProgressBar Name="PBGeneralActivity" Orientation="Vertical"
                              Grid.Row="0" Grid.RowSpan="5" Grid.Column="5" 
                              VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="35" Height="150"
-                             Maximum="50" Minimum="0" Value="30" Margin="0 0 0 1"
+                             Maximum="50" Minimum="0" Value="0" Margin="0 0 0 1"
                              BorderBrush="{StaticResource ColorOfAccent}"
-                             Background="{StaticResource ColorOfAccent}" Foreground="#6DC9C8"/>
+                             Background="{StaticResource ColorOfAccent}" Foreground="#0C7B93"/>
                     <ProgressBar Name="PBCreativeActivity" Orientation="Vertical"
                              Grid.Row="0" Grid.RowSpan="5" Grid.Column="6" 
                              VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="35" Height="150"
-                             Maximum="50" Minimum="0" Value="30" Margin="0 0 0 1"
+                             Maximum="50" Minimum="0" Value="0" Margin="0 0 0 1"
                              BorderBrush="{StaticResource ColorOfAccent}"
-                             Background="{StaticResource ColorOfAccent}" Foreground="#87DFD6"/>
+                             Background="{StaticResource ColorOfAccent}" Foreground="#27496D"/>
                     <ProgressBar Name="PBSocialUtility" Orientation="Vertical"
                              Grid.Row="0" Grid.RowSpan="5" Grid.Column="7" 
                              VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="35" Height="150"
-                             Maximum="50" Minimum="0" Value="50"  Margin="0 0 0 1"
+                             Maximum="50" Minimum="0" Value="0"  Margin="0 0 0 1"
                              BorderBrush="{StaticResource ColorOfAccent}"
-                             Background="{StaticResource ColorOfAccent}" Foreground="#B4E9EC"/>
-                    
-                    <TextBlock Name="TBLifeSupport" Grid.Row="4" Grid.Column="1" Text="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0" Foreground="#FF2E63" FontWeight="Bold"/>
-                    <TextBlock Name="TBComfort" Grid.Row="4" Grid.Column="2" Text="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0" Foreground="#FF2E63" FontWeight="Bold"/>
-                    <TextBlock Name="TBSocialStatus" Grid.Row="4" Grid.Column="3" Text="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0" Foreground="#FF2E63" FontWeight="Bold"/>
-                    <TextBlock Name="TBCommunication" Grid.Row="4" Grid.Column="4" Text="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0" Foreground="#FF2E63" FontWeight="Bold"/>
-                    <TextBlock Name="TBGeneralActivity" Grid.Row="4" Grid.Column="5" Text="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0" Foreground="#FF2E63" FontWeight="Bold"/>
-                    <TextBlock Name="TBCreativeActivity" Grid.Row="4" Grid.Column="6" Text="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0" Foreground="#FF2E63" FontWeight="Bold"/>
-                    <TextBlock Name="TBSocialUtility" Grid.Row="4" Grid.Column="7" Text="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0" Foreground="#FF2E63" FontWeight="Bold"/>
+                             Background="{StaticResource ColorOfAccent}" Foreground="#142850"/>
+
+                    <Rectangle Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="7" 
+                               Fill="{StaticResource ColorOfLine}" Height="1" VerticalAlignment="Top"/>
+                    <Rectangle Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="7" 
+                               Fill="{StaticResource ColorOfLine}" Height="1" VerticalAlignment="Bottom"/>
+                    <Rectangle Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="7" 
+                               Fill="{StaticResource ColorOfLine}" Height="1" VerticalAlignment="Bottom"/>
+                    <Rectangle Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="7" 
+                               Fill="{StaticResource ColorOfLine}" Height="1" VerticalAlignment="Bottom"/>
+                    <Rectangle Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="7" 
+                               Fill="{StaticResource ColorOfLine}" Height="1" VerticalAlignment="Bottom"/>
+                    <Rectangle Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="7" 
+                               Fill="{StaticResource ColorOfLine}" Height="1" VerticalAlignment="Bottom"/>
+
+                    <TextBlock Name="TBLifeSupport" Grid.Row="4" Grid.Column="1" Text="0"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0" Foreground="#FF2E63" FontWeight="Bold"/>
+                    <TextBlock Name="TBComfort" Grid.Row="4" Grid.Column="2" Text="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0" Foreground="#FF2E63" FontWeight="Bold"/>
+                    <TextBlock Name="TBSocialStatus" Grid.Row="4" Grid.Column="3" Text="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0" Foreground="#FF2E63" FontWeight="Bold"/>
+                    <TextBlock Name="TBCommunication" Grid.Row="4" Grid.Column="4" Text="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0" Foreground="#FF2E63" FontWeight="Bold"/>
+                    <TextBlock Name="TBGeneralActivity" Grid.Row="4" Grid.Column="5" Text="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0" Foreground="#FF2E63" FontWeight="Bold"/>
+                    <TextBlock Name="TBCreativeActivity" Grid.Row="4" Grid.Column="6" Text="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0" Foreground="#FF2E63" FontWeight="Bold"/>
+                    <TextBlock Name="TBSocialUtility" Grid.Row="4" Grid.Column="7" Text="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0" Foreground="#FF2E63" FontWeight="Bold"/>
                 </Grid>
 
                 <Border Background="White" BorderBrush="{StaticResource ColorOfLine}" BorderThickness="1" >
