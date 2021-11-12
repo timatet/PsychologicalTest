@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf"
-        mc:Ignorable="d" Height="450" Width="800"
+        mc:Ignorable="d"  Height="675" Width="1200"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.Resources>
         <FontFamily x:Key="CommonFont">Comic Sans MS</FontFamily>
@@ -23,6 +23,13 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="20"/>
         </Style>
     </Window.Resources>
 

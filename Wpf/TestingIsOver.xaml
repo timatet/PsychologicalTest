@@ -53,7 +53,7 @@
                 </Canvas>
             </Viewbox>
             <TextBlock VerticalAlignment="Center" Text="Тестирование окончено"
-                     FontFamily="{StaticResource CommonFont}" FontSize="25"
+                     FontFamily="{StaticResource CommonFont}" FontSize="28"
                      Background="{StaticResource ColorOfAccent}" Foreground="{StaticResource ColorOfLine}"/>
         </WrapPanel>
 

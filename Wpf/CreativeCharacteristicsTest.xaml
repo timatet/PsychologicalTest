@@ -25,6 +25,14 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style TargetType="RadioButton">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="{StaticResource CommonFont}"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
     </Window.Resources>
 
     <Grid>
