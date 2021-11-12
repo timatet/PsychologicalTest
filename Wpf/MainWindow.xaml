@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Wpf"
         mc:Ignorable="d" 
         Title="Психологические тесты" Height="675" Width="1200"
-        WindowStartupLocation="CenterScreen" ResizeMode="NoResize"><!--Icon="icon/da.ico"-->
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="Icon/Tests.ico"><!--Icon="icon/da.ico"-->
     <Window.Resources>
         <FontFamily x:Key="CommonFont">Comic Sans MS</FontFamily>
         <SolidColorBrush Color="#272343" x:Key="ColorOfLine" />
