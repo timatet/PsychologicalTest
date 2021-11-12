@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf"
-        mc:Ignorable="d"
-        Title="Психологические тесты" Height="450" Width="800" MinHeight="400" MinWidth="400">
+        mc:Ignorable="d" 
+        Title="Психологические тесты" Height="450" Width="800" MinHeight="400" MinWidth="400"><!--Icon="icon/da.ico"-->
     <Window.Resources>
         <FontFamily x:Key="CommonFont">Comic Sans MS</FontFamily>
         <SolidColorBrush Color="#272343" x:Key="ColorOfLine" />
