@@ -33,7 +33,6 @@ namespace Wpf
             //порядок расположения в словаре шкал-ключей
             //"Risk appetite", "Complexity", "Curiosity", "Imagination"
 
-
             //PBGeneralScore_Negative;
             //PBGeneralScore_Positive;
             int GeneralResult = Results.Sum(x => x.Value);

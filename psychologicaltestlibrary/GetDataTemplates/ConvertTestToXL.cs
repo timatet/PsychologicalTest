@@ -77,10 +77,6 @@ namespace psychologicaltestlib
                 ws.Columns[5].Width = 8;
                 ws.Columns[6].Width = 8;
                 ws.Columns[7].Width = 30;
-                ws.Columns[8].Width = 13;
-                ws.Columns[9].Width = 13;
-                ws.Columns[10].Width = 13;
-                ws.Columns[11].Width = 13;
 
                 ws.Cells[start_index, 1].Style.Numberformat.Format = "yyyy-mm-dd";
                 ws.Cells[start_index, 1].Value = DateTime.Now;
@@ -98,6 +94,8 @@ namespace psychologicaltestlib
                 {
                     ws.Cells[start_index, cur_row].Style.Numberformat.Format = "0";
                     ws.Cells[start_index, cur_row].Value = item.Value;
+
+                    ws.Columns[cur_row].Width = 30;
                     cur_row++;
                 }
 
