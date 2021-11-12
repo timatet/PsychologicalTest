@@ -169,7 +169,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Icon\" />
+    <Resource Include="Icon\psi.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icon\Tests.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icon\w.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

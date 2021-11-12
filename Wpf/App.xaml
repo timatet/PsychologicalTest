@@ -4,6 +4,27 @@
              xmlns:local="clr-namespace:Wpf"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <FontFamily x:Key="CommonFont">Comic Sans MS</FontFamily>
+        <SolidColorBrush Color="#272343" x:Key="ColorOfLine" />
+        <SolidColorBrush Color="#E3F6F5" x:Key="ColorOfAccent" />
+        <SolidColorBrush Color="#BAE8E8" x:Key="ColorOfButtons" />
+        <SolidColorBrush Color="#BAE8E8" x:Key="ColorOfButtonsMouseOver" />
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="{StaticResource CommonFont}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="10" Background="{StaticResource ColorOfButtons}"  Padding="15">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Background" Value="{StaticResource ColorOfButtonsMouseOver}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </Application.Resources>
 </Application>
