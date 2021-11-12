@@ -72,13 +72,13 @@ namespace Wpf
             if (!isNameOK.IsMatch(text))
             {
                 NameOfUser.Foreground = Brushes.White;
-                NameOfUser.Background = Brushes.DarkRed;
+                NameOfUser.Background = new SolidColorBrush(Color.FromRgb(255, 182, 185));
                 return false;
             }
             else
             {
                 NameOfUser.Foreground = Brushes.Black;
-                NameOfUser.Background = Brushes.LimeGreen;
+                NameOfUser.Background = new SolidColorBrush(Color.FromRgb(187, 222, 214));
                 return true;
             }
         }

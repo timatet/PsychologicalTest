@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf"
         mc:Ignorable="d"
-        WindowStartupLocation="CenterOwner"
-        Height="450" Width="800" MinHeight="400" MinWidth="450">
+        Height="675" Width="1200"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.Resources>
         <FontFamily x:Key="CommonFont">Comic Sans MS</FontFamily>
         <SolidColorBrush Color="#272343" x:Key="ColorOfLine" />
@@ -24,6 +24,9 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
         </Style>
     </Window.Resources>
 
@@ -78,15 +81,15 @@
 
                 <!--Подписи-->
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Grid.ColumnSpan="3"
-                           FontFamily="{StaticResource CommonFont}" FontSize="15" Text="Общий балл креативности"/>
+                           FontFamily="{StaticResource CommonFont}" Text="Общий балл креативности"/>
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="3" Margin="0 0 5 0"
-                           FontFamily="{StaticResource CommonFont}" FontSize="15" Text="Склонность к риску"/>
+                           FontFamily="{StaticResource CommonFont}" Text="Склонность к риску"/>
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="5" Margin="0 0 5 0"
-                           FontFamily="{StaticResource CommonFont}" FontSize="15" Text="Любознательность"/>
+                           FontFamily="{StaticResource CommonFont}" Text="Любознательность"/>
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="7" Margin="0 0 5 0"
-                           FontFamily="{StaticResource CommonFont}" FontSize="15" Text="Сложность"/>
+                           FontFamily="{StaticResource CommonFont}" Text="Сложность"/>
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="9" Margin="0 0 5 0"
-                           FontFamily="{StaticResource CommonFont}" FontSize="15" Text="Воображение"/>
+                           FontFamily="{StaticResource CommonFont}" Text="Воображение"/>
 
                 <!--Общий балл-->
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="2"

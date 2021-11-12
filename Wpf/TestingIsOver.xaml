@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf"
         mc:Ignorable="d"
-        Height="225" Width="600" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterOwner">
+        Height="225" Width="600" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <FontFamily x:Key="CommonFont">Comic Sans MS</FontFamily>
         <SolidColorBrush Color="#272343" x:Key="ColorOfLine" />
@@ -40,6 +40,9 @@
 
         <Rectangle Grid.ColumnSpan="5" Fill="{StaticResource ColorOfAccent}"/>
         <Rectangle Grid.Row="1" Grid.ColumnSpan="5" Fill="{StaticResource ColorOfLine}"/>
+        <Rectangle Grid.ColumnSpan="5" Fill="{StaticResource ColorOfLine}" Height="1" VerticalAlignment="Top"/>
+        <Rectangle Grid.RowSpan="2" Fill="{StaticResource ColorOfLine}" Width="1" HorizontalAlignment="Left"/>
+        <Rectangle Grid.Column="4" Grid.RowSpan="2" Fill="{StaticResource ColorOfLine}" Width="1" HorizontalAlignment="Right"/>
 
         <WrapPanel Grid.Column="1" Grid.ColumnSpan="3" 
                    HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -50,7 +53,7 @@
                 </Canvas>
             </Viewbox>
             <TextBlock VerticalAlignment="Center" Text="Тестирование окончено"
-                     FontFamily="{StaticResource CommonFont}" FontSize="25"
+                     FontFamily="{StaticResource CommonFont}" FontSize="28"
                      Background="{StaticResource ColorOfAccent}" Foreground="{StaticResource ColorOfLine}"/>
         </WrapPanel>
 
