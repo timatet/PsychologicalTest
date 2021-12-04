@@ -45,7 +45,7 @@ namespace Wpf
             }
             else
             {
-                PBGeneralScore_Negative.Value = 50 - (-1) * GeneralResult;
+                PBGeneralScore_Negative.Value = PBGeneralScore_Negative.Maximum - (-1) * GeneralResult;
                 PBGeneralScore_Negative.Background = Brushes.DarkRed;
             }
 
@@ -63,7 +63,7 @@ namespace Wpf
             }
             else if (Results[Scales[0]] < 0)
             {
-                PBRisk_Negative.Value = 13 - (-1) * Results[Scales[0]]*12;
+                PBRisk_Negative.Value = PBRisk_Negative.Maximum - (-1) * Results[Scales[0]]*12;
                 //PBRisk_Negative.Background = Brushes.DarkRed;
             }
 
@@ -78,7 +78,7 @@ namespace Wpf
             }
             else if (Results[Scales[2]] < 0)
             {
-                PBCurious_Negative.Value = 12 - (-1) * Results[Scales[2]]*13;
+                PBCurious_Negative.Value = PBCurious_Negative.Maximum - (-1) * Results[Scales[2]]*13;
                 //PBCurious_Negative.Background = Brushes.DarkRed;
             }
 
@@ -93,7 +93,7 @@ namespace Wpf
             }
             else if (Results[Scales[1]] < 0)
             {
-                PBHard_Negative.Value = 13 - (-1) * Results[Scales[1]]*12;
+                PBHard_Negative.Value = PBHard_Negative.Maximum - (-1) * Results[Scales[1]]*12;
                 //PBHard_Negative.Background = Brushes.DarkRed;
             }
 
@@ -108,7 +108,7 @@ namespace Wpf
             }
             else if (Results[Scales[3]] < 0)
             {
-                PBImagination_Negative.Value = 12 - (-1) * Results[Scales[3]]*13;
+                PBImagination_Negative.Value = PBImagination_Negative.Maximum - (-1) * Results[Scales[3]]*13;
                 //PBImagination_Negative.Background = Brushes.DarkRed;
             }
         }
