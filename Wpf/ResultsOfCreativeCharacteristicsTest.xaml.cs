@@ -53,60 +53,63 @@ namespace Wpf
             //PBRisk_Positive;
             if (Results[Scales[0]] > 0)
             {
-                PBRisk_Positive.Value = Results[Scales[0]];
-                if (Results[Scales[0]] <= 12) PBRisk_Positive.Foreground = Brushes.DarkRed;
-                else if (Results[Scales[0]] <= 21) PBRisk_Positive.Foreground = Brushes.Green;
-                else if (Results[Scales[0]] <= 26) PBRisk_Positive.Foreground = Brushes.LimeGreen;
+                PBRisk_Positive.Value = Results[Scales[0]]*12;
+
+                //!!!!//Надо переделать
+
+                //if (Results[Scales[0]] <= 12) PBRisk_Positive.Foreground = Brushes.DarkRed;
+                //else if (Results[Scales[0]] <= 21) PBRisk_Positive.Foreground = Brushes.Green;
+                //else if (Results[Scales[0]] <= 26) PBRisk_Positive.Foreground = Brushes.LimeGreen;
             }
             else if (Results[Scales[0]] < 0)
             {
-                PBRisk_Negative.Value = 13 - (-1) * Results[Scales[0]];
-                PBRisk_Negative.Background = Brushes.DarkRed;
+                PBRisk_Negative.Value = 13 - (-1) * Results[Scales[0]]*12;
+                //PBRisk_Negative.Background = Brushes.DarkRed;
             }
 
             //PBCurious_Negative;
             //PBCurious_Positive;
             if (Results[Scales[2]] > 0)
             {
-                PBCurious_Positive.Value = Results[Scales[2]];
-                if (Results[Scales[2]] <= 11) PBCurious_Positive.Foreground = Brushes.DarkRed;
-                else if (Results[Scales[2]] <= 20) PBCurious_Positive.Foreground = Brushes.Green;
-                else if (Results[Scales[2]] <= 24) PBCurious_Positive.Foreground = Brushes.LimeGreen;
+                PBCurious_Positive.Value = Results[Scales[2]]*13;
+                //if (Results[Scales[2]] <= 11) PBCurious_Positive.Foreground = Brushes.DarkRed;
+                //else if (Results[Scales[2]] <= 20) PBCurious_Positive.Foreground = Brushes.Green;
+                //else if (Results[Scales[2]] <= 24) PBCurious_Positive.Foreground = Brushes.LimeGreen;
             }
             else if (Results[Scales[2]] < 0)
             {
-                PBCurious_Negative.Value = 12 - (-1) * Results[Scales[2]];
-                PBCurious_Negative.Background = Brushes.DarkRed;
+                PBCurious_Negative.Value = 12 - (-1) * Results[Scales[2]]*13;
+                //PBCurious_Negative.Background = Brushes.DarkRed;
             }
 
             //PBHard_Negative;
             //PBHard_Positive;
             if (Results[Scales[1]] > 0)
             {
-                PBHard_Positive.Value = Results[Scales[1]];
-                if (Results[Scales[1]] <= 12) PBHard_Positive.Foreground = Brushes.DarkRed;
-                else if (Results[Scales[1]] <= 21) PBHard_Positive.Foreground = Brushes.Green;
-                else if (Results[Scales[1]] <= 26) PBHard_Positive.Foreground = Brushes.LimeGreen;
+                PBHard_Positive.Value = Results[Scales[1]]*12;
+                //if (Results[Scales[1]] <= 12) PBHard_Positive.Foreground = Brushes.DarkRed;
+                //else if (Results[Scales[1]] <= 21) PBHard_Positive.Foreground = Brushes.Green;
+                //else if (Results[Scales[1]] <= 26) PBHard_Positive.Foreground = Brushes.LimeGreen;
             }
             else if (Results[Scales[1]] < 0)
             {
-                PBHard_Negative.Value = 13 - (-1) * Results[Scales[1]];
-                PBHard_Negative.Background = Brushes.DarkRed;
+                PBHard_Negative.Value = 13 - (-1) * Results[Scales[1]]*12;
+                //PBHard_Negative.Background = Brushes.DarkRed;
             }
 
             //PBImagination_Negative;
             //PBImagination_Positive;
             if (Results[Scales[3]] > 0)
             {
-                PBImagination_Positive.Value = Results[Scales[3]];
-                if (Results[Scales[3]] <= 11) PBImagination_Positive.Foreground = Brushes.DarkRed;
-                else if (Results[Scales[3]] <= 20) PBImagination_Positive.Foreground = Brushes.Green;
-                else if (Results[Scales[3]] <= 24) PBImagination_Positive.Foreground = Brushes.LimeGreen;
+                PBImagination_Positive.Value = Results[Scales[3]]*13;
+                //if (Results[Scales[3]] <= 11) PBImagination_Positive.Foreground = Brushes.DarkRed;
+                //else if (Results[Scales[3]] <= 20) PBImagination_Positive.Foreground = Brushes.Green;
+                //else if (Results[Scales[3]] <= 24) PBImagination_Positive.Foreground = Brushes.LimeGreen;
             }
             else if (Results[Scales[3]] < 0)
             {
-                PBImagination_Negative.Value = 12 - (-1) * Results[Scales[3]];
-                PBImagination_Negative.Background = Brushes.DarkRed;
+                PBImagination_Negative.Value = 12 - (-1) * Results[Scales[3]]*13;
+                //PBImagination_Negative.Background = Brushes.DarkRed;
             }
         }
 
