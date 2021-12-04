@@ -1,6 +1,7 @@
 ﻿using iTextSharp;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using System;
 using System.IO;
 
 namespace psychologicaltestlib
@@ -32,6 +33,7 @@ namespace psychologicaltestlib
             doc.Close();
             //Здесь реализация метода печати в PDF файл
         }
+
         #endregion Methods
 
         #region Constructors
