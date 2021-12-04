@@ -1,18 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Wpf
 {
@@ -24,28 +13,48 @@ namespace Wpf
 
         private void ButtonBack_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow MainW = new MainWindow();
-            this.Close();
-            MainW.Show();
+            if (Button_continue_start.Text == "Дальше")
+            {
+                MainWindow MainW = new MainWindow();
+                this.Close();
+                MainW.Show();
+            }
+            else
+            {
+                // скрыть инструкцию, окрыть описание, поменять название кнопки
+                BorderDescriptionOfTest.Visibility = Visibility.Visible;
+                BorderInstructionOfTest.Visibility = Visibility.Hidden;
+                Button_continue_start.Text = "Дальше";
+            }
         }
 
         private void ButtonStart_Click(object sender, RoutedEventArgs e)
         {
-            //открыть окно теста
-            string NameOfTest = _lableNameOfTest.Content.ToString();
-
-            switch (NameOfTest)
+            if (Button_continue_start.Text == "Начать")
             {
-                case "Диагностика мотивационной структуры личности":
-                    MotivationTest MotTest = new MotivationTest();
-                    this.Close();
-                    MotTest.Show();
-                    break;
-                case "Личностные творческие характеристики":
-                    CreativeCharacteristicsTest CrChTest = new CreativeCharacteristicsTest();
-                    this.Close();
-                    CrChTest.Show();
-                    break;
+                //открыть окно теста
+                string NameOfTest = _lableNameOfTest.Content.ToString();
+
+                switch (NameOfTest)
+                {
+                    case "Диагностика мотивационной структуры личности":
+                        MotivationTest MotTest = new MotivationTest();
+                        this.Close();
+                        MotTest.Show();
+                        break;
+                    case "Личностные творческие характеристики":
+                        CreativeCharacteristicsTest CrChTest = new CreativeCharacteristicsTest();
+                        this.Close();
+                        CrChTest.Show();
+                        break;
+                }
+            }
+            else
+            {
+                // скрыть описание, окрыть инструкцию, поменять название кнопки
+                BorderDescriptionOfTest.Visibility = Visibility.Hidden;
+                BorderInstructionOfTest.Visibility = Visibility.Visible;
+                Button_continue_start.Text = "Начать";
             }
         }
 

@@ -39,9 +39,6 @@
     <StartupObject>
     </StartupObject>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>Tests.ico</ApplicationIcon>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -173,11 +170,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Tests.ico" />
+    <Resource Include="Icon\psi.ico" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Icon\Tests.ico" />
-    <Resource Include="Icon\Tests.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icon\w.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
