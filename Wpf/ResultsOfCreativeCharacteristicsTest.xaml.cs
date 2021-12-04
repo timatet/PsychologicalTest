@@ -54,6 +54,7 @@ namespace Wpf
             if (Results[Scales[0]] > 0)
             {
                 PBRisk_Positive.Value = Results[Scales[0]]*12;
+                PBRisk.Text = PBRisk_Positive.Value.ToString();
 
                 //!!!!//Надо переделать
 
@@ -64,6 +65,7 @@ namespace Wpf
             else if (Results[Scales[0]] < 0)
             {
                 PBRisk_Negative.Value = PBRisk_Negative.Maximum - (-1) * Results[Scales[0]]*12;
+                PBRisk.Text = "-"+(Results[Scales[0]]*12).ToString();
                 //PBRisk_Negative.Background = Brushes.DarkRed;
             }
 
@@ -72,6 +74,7 @@ namespace Wpf
             if (Results[Scales[2]] > 0)
             {
                 PBCurious_Positive.Value = Results[Scales[2]]*13;
+                PBCurious.Text = PBCurious_Positive.Value.ToString();
                 //if (Results[Scales[2]] <= 11) PBCurious_Positive.Foreground = Brushes.DarkRed;
                 //else if (Results[Scales[2]] <= 20) PBCurious_Positive.Foreground = Brushes.Green;
                 //else if (Results[Scales[2]] <= 24) PBCurious_Positive.Foreground = Brushes.LimeGreen;
@@ -79,6 +82,7 @@ namespace Wpf
             else if (Results[Scales[2]] < 0)
             {
                 PBCurious_Negative.Value = PBCurious_Negative.Maximum - (-1) * Results[Scales[2]]*13;
+                PBCurious.Text = (Results[Scales[2]] * 13).ToString();
                 //PBCurious_Negative.Background = Brushes.DarkRed;
             }
 
@@ -87,6 +91,7 @@ namespace Wpf
             if (Results[Scales[1]] > 0)
             {
                 PBHard_Positive.Value = Results[Scales[1]]*12;
+                PBHard.Text = PBHard_Positive.Value.ToString();
                 //if (Results[Scales[1]] <= 12) PBHard_Positive.Foreground = Brushes.DarkRed;
                 //else if (Results[Scales[1]] <= 21) PBHard_Positive.Foreground = Brushes.Green;
                 //else if (Results[Scales[1]] <= 26) PBHard_Positive.Foreground = Brushes.LimeGreen;
@@ -94,6 +99,7 @@ namespace Wpf
             else if (Results[Scales[1]] < 0)
             {
                 PBHard_Negative.Value = PBHard_Negative.Maximum - (-1) * Results[Scales[1]]*12;
+                PBHard.Text = (Results[Scales[1]] * 12).ToString();
                 //PBHard_Negative.Background = Brushes.DarkRed;
             }
 
@@ -102,13 +108,15 @@ namespace Wpf
             if (Results[Scales[3]] > 0)
             {
                 PBImagination_Positive.Value = Results[Scales[3]]*13;
+                PBImagination.Text = PBImagination_Positive.Value.ToString();
                 //if (Results[Scales[3]] <= 11) PBImagination_Positive.Foreground = Brushes.DarkRed;
                 //else if (Results[Scales[3]] <= 20) PBImagination_Positive.Foreground = Brushes.Green;
                 //else if (Results[Scales[3]] <= 24) PBImagination_Positive.Foreground = Brushes.LimeGreen;
             }
             else if (Results[Scales[3]] < 0)
             {
-                PBImagination_Negative.Value = PBImagination_Negative.Maximum - (-1) * Results[Scales[3]]*13;
+                PBImagination_Negative.Value = PBImagination_Negative.Maximum - (-1) * Results[Scales[3]] * 13;
+                PBImagination.Text = (Results[Scales[3]] * 13).ToString();
                 //PBImagination_Negative.Background = Brushes.DarkRed;
             }
         }

@@ -200,19 +200,19 @@
                             <RowDefinition Height="10"/>
                             <RowDefinition Height="160"/>
                             <RowDefinition Height="80"/>
-                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="25"/>
                             <RowDefinition Height="10"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="0.3*"/>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="0.3*"/>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="0.3*"/>
                             <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="0.3*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="0.3*"/>
                         </Grid.ColumnDefinitions>
                         <!--Склонность к риску-->
                         <ProgressBar Name="PBRisk_Negative" 
@@ -267,6 +267,15 @@
                              BorderBrush="White"
                              Background="White" Foreground="LimeGreen"/>
 
+                        <TextBlock Name="PBRisk" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1"
+                           FontFamily="{StaticResource CommonFont}" Text="0"/>
+                        <TextBlock Name="PBCurious" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="3"
+                           FontFamily="{StaticResource CommonFont}" Text="0"/>
+                        <TextBlock Name="PBHard" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="5"
+                           FontFamily="{StaticResource CommonFont}" Text="0"/>
+                        <TextBlock Name="PBImagination" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="7"
+                           FontFamily="{StaticResource CommonFont}" Text="0"/>
+                        
                         <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="1"
                            FontFamily="{StaticResource CommonFont}" Text="1"/>
                         <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="3"
