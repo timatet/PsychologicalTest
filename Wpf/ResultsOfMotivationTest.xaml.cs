@@ -37,6 +37,7 @@ namespace Wpf
             //PBCreativeActivity
             //PBSocialUtility
 
+
             PBLifeSupport.Value = Results["LifeSupport"];
             TBLifeSupport.Text = Results["LifeSupport"].ToString();
 
@@ -57,6 +58,9 @@ namespace Wpf
 
             PBSocialUtility.Value = Results["SocialUtility"];
             TBSocialUtility.Text = Results["SocialUtility"].ToString();
+
+            // Новые шкалы "Эмоциональный профиль"
+            // "StenType", "AstenType", "StenFrust", "AstenFrust"
         }
 
         private void ButtonRepeat_Click(object sender, RoutedEventArgs e)

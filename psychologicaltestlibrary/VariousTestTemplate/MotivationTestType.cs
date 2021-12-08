@@ -175,40 +175,60 @@ namespace psychologicaltestlib
             if (!Asks.Select(a => a.Value.QuestionAnswer).Contains(Question.Default))
             {
                 #region Init Results
+                // "LifeSupport", 
                 TestResults.Add(_Scales[0], (int)Asks["1A"].QuestionAnswer + (int)Asks["1B"].QuestionAnswer + (int)Asks["2A"].QuestionAnswer +
                     (int)Asks["3A"].QuestionAnswer + (int)Asks["4F"].QuestionAnswer + (int)Asks["5A"].QuestionAnswer +
                     (int)Asks["6H"].QuestionAnswer + (int)Asks["8A"].QuestionAnswer + (int)Asks["10E"].QuestionAnswer +
                     (int)Asks["11A"].QuestionAnswer + (int)Asks["12A"].QuestionAnswer);
+                // "Comfort", 
                 TestResults.Add(_Scales[1], (int)Asks["2B"].QuestionAnswer + (int)Asks["2C"].QuestionAnswer + (int)Asks["3B"].QuestionAnswer +
                     (int)Asks["4H"].QuestionAnswer + (int)Asks["5B"].QuestionAnswer + (int)Asks["5C"].QuestionAnswer +
                     (int)Asks["7A"].QuestionAnswer + (int)Asks["9A"].QuestionAnswer + (int)Asks["11B"].QuestionAnswer +
                     (int)Asks["11C"].QuestionAnswer + (int)Asks["12B"].QuestionAnswer);
+                // "SocialStatus",
                 TestResults.Add(_Scales[2], (int)Asks["1F"].QuestionAnswer + (int)Asks["2D"].QuestionAnswer + (int)Asks["7C"].QuestionAnswer +
                     (int)Asks["7D"].QuestionAnswer + (int)Asks["8C"].QuestionAnswer + (int)Asks["8H"].QuestionAnswer +
                     (int)Asks["9C"].QuestionAnswer + (int)Asks["9D"].QuestionAnswer + (int)Asks["9F"].QuestionAnswer +
                     (int)Asks["10D"].QuestionAnswer + (int)Asks["11E"].QuestionAnswer + (int)Asks["12E"].QuestionAnswer +
                     (int)Asks["12F"].QuestionAnswer);
+                // "Communication", 
                 TestResults.Add(_Scales[3], (int)Asks["1C"].QuestionAnswer + (int)Asks["2E"].QuestionAnswer + (int)Asks["3C"].QuestionAnswer +
                     (int)Asks["4B"].QuestionAnswer + (int)Asks["6C"].QuestionAnswer + (int)Asks["7B"].QuestionAnswer +
                     (int)Asks["7H"].QuestionAnswer + (int)Asks["8B"].QuestionAnswer + (int)Asks["8C"].QuestionAnswer +
                     (int)Asks["9E"].QuestionAnswer + (int)Asks["9H"].QuestionAnswer + (int)Asks["10A"].QuestionAnswer +
                     (int)Asks["11D"].QuestionAnswer + (int)Asks["12C"].QuestionAnswer);
+                // "GeneralActivity", 
                 TestResults.Add(_Scales[4], (int)Asks["1D"].QuestionAnswer + (int)Asks["1H"].QuestionAnswer + (int)Asks["4A"].QuestionAnswer +
                     (int)Asks["4D"].QuestionAnswer + (int)Asks["5H"].QuestionAnswer + (int)Asks["6A"].QuestionAnswer +
                     (int)Asks["6B"].QuestionAnswer + (int)Asks["6D"].QuestionAnswer + (int)Asks["7E"].QuestionAnswer +
                     (int)Asks["9B"].QuestionAnswer + (int)Asks["10C"].QuestionAnswer + (int)Asks["12H"].QuestionAnswer);
+                // "CreativeActivity", 
                 TestResults.Add(_Scales[5], (int)Asks["1G"].QuestionAnswer + (int)Asks["1H"].QuestionAnswer + (int)Asks["2F"].QuestionAnswer +
                     (int)Asks["2G"].QuestionAnswer + (int)Asks["3G"].QuestionAnswer + (int)Asks["4E"].QuestionAnswer +
                     (int)Asks["5E"].QuestionAnswer + (int)Asks["5F"].QuestionAnswer + (int)Asks["6F"].QuestionAnswer +
                     (int)Asks["7F"].QuestionAnswer + (int)Asks["7G"].QuestionAnswer + (int)Asks["8E"].QuestionAnswer +
                     (int)Asks["8G"].QuestionAnswer + (int)Asks["10G"].QuestionAnswer + (int)Asks["11H"].QuestionAnswer
                     + (int)Asks["12D"].QuestionAnswer);
+                // "SocialUtility"
                 TestResults.Add(_Scales[6], (int)Asks["1E"].QuestionAnswer + (int)Asks["2H"].QuestionAnswer + (int)Asks["3D"].QuestionAnswer +
                     (int)Asks["3E"].QuestionAnswer + (int)Asks["4C"].QuestionAnswer + (int)Asks["4G"].QuestionAnswer +
                     (int)Asks["5D"].QuestionAnswer + (int)Asks["5G"].QuestionAnswer + (int)Asks["6G"].QuestionAnswer +
                     (int)Asks["8F"].QuestionAnswer + (int)Asks["9G"].QuestionAnswer + (int)Asks["10B"].QuestionAnswer +
                     (int)Asks["10F"].QuestionAnswer + (int)Asks["11F"].QuestionAnswer + (int)Asks["11G"].QuestionAnswer
                     + (int)Asks["12G"].QuestionAnswer);
+                // Шкалы эмоционального профиля
+                // Стенического типа
+                TestResults.Add(_Scales[7], (int)Asks["13E"].QuestionAnswer + (int)Asks["13F"].QuestionAnswer +
+                    (int)Asks["13G"].QuestionAnswer + (int)Asks["13H"].QuestionAnswer);
+                // Астенического типа
+                TestResults.Add(_Scales[8], (int)Asks["13A"].QuestionAnswer + (int)Asks["13B"].QuestionAnswer +
+                    (int)Asks["13C"].QuestionAnswer + (int)Asks["13D"].QuestionAnswer);
+                // Стенический тип фрустрации
+                TestResults.Add(_Scales[9], (int)Asks["14E"].QuestionAnswer + (int)Asks["14F"].QuestionAnswer +
+                    (int)Asks["14G"].QuestionAnswer + (int)Asks["14H"].QuestionAnswer);
+                // Астенический тип фрустрации
+                TestResults.Add(_Scales[10], (int)Asks["14A"].QuestionAnswer + (int)Asks["14B"].QuestionAnswer +
+                    (int)Asks["14C"].QuestionAnswer + (int)Asks["14D"].QuestionAnswer);
                 #endregion Init Results
             }
             else
@@ -224,7 +244,7 @@ namespace psychologicaltestlib
         public MotivationTestType()
         {
             _Asks = new Dictionary<string, Question>();
-            _Scales = new string[] { "LifeSupport", "Comfort", "SocialStatus", "Communication", "GeneralActivity", "CreativeActivity", "SocialUtility" };
+            _Scales = new string[] { "LifeSupport", "Comfort", "SocialStatus", "Communication", "GeneralActivity", "CreativeActivity", "SocialUtility", "StenType", "AstenType", "StenFrust", "AstenFrust" };
             InfAT = new InformaitionAboutTests();
         }
         #endregion Constructor
