@@ -81,7 +81,6 @@
             <Border Margin="0 30 0 0">
                 <StackPanel>
                     <RadioButton Name="AgreeButton" Content="Согласен с этим" Margin="0 2" Checked="RadioButton_Agree"/>
-                    <RadioButton Name="MaybeButton" Content="Пожалуй согласен" Margin="0 2" Checked="RadioButton_MaybeAgree"/>
                     <RadioButton Name="FiftyFiftyButton" Content="Когда как" Margin="0 2" Checked="RadioButton_FiftyFifty"/>
                     <RadioButton Name="DisagreeButton" Content="Нет, не согласен" Margin="0 2" Checked="RadioButton_Disagree"/>
                     <RadioButton Name="DontKnowButton" Content="Не знаю" Margin="0 2" Checked="RadioButton_DontKnow"/>

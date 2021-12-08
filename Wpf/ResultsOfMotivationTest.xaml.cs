@@ -37,7 +37,8 @@ namespace Wpf
             //PBCreativeActivity
             //PBSocialUtility
 
-
+//            int k = int.Parse(3.5.ToString());
+//k = int.Parse(3.6.ToString());
             PBLifeSupport.Value = Results["LifeSupport"];
             TBLifeSupport.Text = Results["LifeSupport"].ToString();
 

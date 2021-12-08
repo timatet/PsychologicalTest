@@ -84,19 +84,9 @@ namespace Wpf
         private void RadioButton_Agree(object sender, RoutedEventArgs e)
         {
             //сохранить ответ 
-            psychologicalTest[QuestionCounter - 1].Value.SetAnswer(3);
-            //очистить радиобуттон
-            AgreeButton.IsChecked = false;
-
-            EnterTheAction();
-        }
-
-        private void RadioButton_MaybeAgree(object sender, RoutedEventArgs e)
-        {
-            //сохранить ответ 
             psychologicalTest[QuestionCounter - 1].Value.SetAnswer(2);
             //очистить радиобуттон
-            MaybeButton.IsChecked = false;
+            AgreeButton.IsChecked = false;
 
             EnterTheAction();
         }
