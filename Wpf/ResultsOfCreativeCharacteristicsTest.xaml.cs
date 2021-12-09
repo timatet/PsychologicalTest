@@ -56,7 +56,7 @@ namespace Wpf
             if (Results[Scales[0]] > 0)
             {
                 // усредненный результат
-                AverageValue = Results[Scales[0]] * AverageMaximum / 13;
+                AverageValue = Results[Scales[0]] * AverageMaximum*2 / 13;
 
                 PBRisk_Positive.Value = AverageValue;
                 PBRisk.Text = (Math.Round(AverageValue, 1)).ToString();
