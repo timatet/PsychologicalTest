@@ -73,7 +73,7 @@ namespace Wpf
                 AverageValue = Results[Scales[0]] * AverageMaximum / 13;
 
                 PBRisk_Negative.Value = PBRisk_Negative.Maximum - (-1) * AverageValue;
-                PBRisk.Text = (AverageValue).ToString();
+                PBRisk.Text = (Math.Round(AverageValue, 1)).ToString();
                 //PBRisk_Negative.Background = Brushes.DarkRed;
             }
 
@@ -96,7 +96,7 @@ namespace Wpf
                 AverageValue = Results[Scales[2]] * AverageMaximum / 12;
 
                 PBCurious_Negative.Value = PBCurious_Negative.Maximum - (-1) * AverageValue;
-                PBCurious.Text = (AverageValue).ToString();
+                PBCurious.Text = (Math.Round(AverageValue, 1)).ToString();
                 //PBCurious_Negative.Background = Brushes.DarkRed;
             }
 
@@ -119,7 +119,7 @@ namespace Wpf
                 AverageValue = Results[Scales[1]] * AverageMaximum / 13;
 
                 PBHard_Negative.Value = PBHard_Negative.Maximum - (-1) * AverageValue;
-                PBHard.Text = (AverageValue).ToString();
+                PBHard.Text = (Math.Round(AverageValue, 1)).ToString();
                 //PBHard_Negative.Background = Brushes.DarkRed;
             }
 
@@ -142,7 +142,7 @@ namespace Wpf
                 AverageValue = Results[Scales[3]] * AverageMaximum / 12;
 
                 PBImagination_Negative.Value = PBImagination_Negative.Maximum - (-1) * AverageValue;
-                PBImagination.Text = (AverageValue).ToString();
+                PBImagination.Text = (Math.Round(AverageValue, 1)).ToString();
                 //PBImagination_Negative.Background = Brushes.DarkRed;
             }
         }
