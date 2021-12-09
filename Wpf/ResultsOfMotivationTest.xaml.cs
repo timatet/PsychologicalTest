@@ -37,28 +37,52 @@ namespace Wpf
             //PBCreativeActivity
             //PBSocialUtility
 
-//            int k = int.Parse(3.5.ToString());
-//k = int.Parse(3.6.ToString());
-            PBLifeSupport.Value = Results["LifeSupport"];
-            TBLifeSupport.Text = Results["LifeSupport"].ToString();
+            //int k = int.Parse(3.5.ToString());
+            //k = int.Parse(3.6.ToString());
 
-            PBComfort.Value = Results["Comfort"];
-            TBComfort.Text = Results["Comfort"].ToString();
+            double ArithmeticMeanResult = (double)(22 + 22 + 26 + 28 + 24 + 32 + 32) / 7;
 
-            PBSocialStatus.Value = Results["SocialStatus"];
-            TBSocialStatus.Text = Results["SocialStatus"].ToString();
+            PBLifeSupport.Maximum = ArithmeticMeanResult;
+            double RatioLifeSupport = ArithmeticMeanResult / 22;
+            double AverageValueLifeSupport = Results["LifeSupport"] * RatioLifeSupport;
+            PBLifeSupport.Value = AverageValueLifeSupport;
+            TBLifeSupport.Text = AverageValueLifeSupport.ToString("N1");
 
-            PBCommunication.Value = Results["Communication"];
-            TBCommunication.Text = Results["Communication"].ToString();
+            PBComfort.Maximum = ArithmeticMeanResult;
+            double RatioComfort = ArithmeticMeanResult / 22;
+            double AverageValueComfort = Results["Comfort"] * RatioComfort;
+            PBComfort.Value = AverageValueComfort;
+            TBComfort.Text = AverageValueComfort.ToString("N1");
 
-            PBGeneralActivity.Value = Results["GeneralActivity"];
-            TBGeneralActivity.Text = Results["GeneralActivity"].ToString();
+            PBSocialStatus.Maximum = ArithmeticMeanResult;
+            double RatioSocialStatus = ArithmeticMeanResult / 26;
+            double AverageValueSocialStatus = Results["SocialStatus"] * RatioSocialStatus;
+            PBSocialStatus.Value = AverageValueSocialStatus;
+            TBSocialStatus.Text = AverageValueSocialStatus.ToString("N1");
 
-            PBCreativeActivity.Value = Results["CreativeActivity"];
-            TBCreativeActivity.Text = Results["CreativeActivity"].ToString();
+            PBCommunication.Maximum = ArithmeticMeanResult;
+            double RatioCommunication = ArithmeticMeanResult / 28;
+            double AverageValueCommunication = Results["Communication"] * RatioCommunication;
+            PBCommunication.Value = AverageValueCommunication;
+            TBCommunication.Text = AverageValueCommunication.ToString("N1");
 
-            PBSocialUtility.Value = Results["SocialUtility"];
-            TBSocialUtility.Text = Results["SocialUtility"].ToString();
+            PBGeneralActivity.Maximum = ArithmeticMeanResult;
+            double RatioGeneralActivity = ArithmeticMeanResult / 24;
+            double AverageValueGeneralActivity = Results["GeneralActivity"] * RatioGeneralActivity;
+            PBGeneralActivity.Value = AverageValueGeneralActivity;
+            TBGeneralActivity.Text = AverageValueGeneralActivity.ToString("N1");
+
+            PBCreativeActivity.Maximum = ArithmeticMeanResult;
+            double RatioCreativeActivity = ArithmeticMeanResult / 32;
+            double AverageValueCreativeActivity = Results["CreativeActivity"] * RatioCreativeActivity;
+            PBCreativeActivity.Value = AverageValueCreativeActivity;
+            TBCreativeActivity.Text = AverageValueCreativeActivity.ToString("N1");
+
+            PBSocialUtility.Maximum = ArithmeticMeanResult;
+            double RatioSocialUtility = ArithmeticMeanResult / 32;
+            double AverageValueSocialUtility = Results["SocialUtility"] * RatioSocialUtility;
+            PBSocialUtility.Value = AverageValueSocialUtility;
+            TBSocialUtility.Text = AverageValueSocialUtility.ToString("N1");
 
             // Новые шкалы "Эмоциональный профиль"
             // "StenType", "AstenType", "StenFrust", "AstenFrust"
