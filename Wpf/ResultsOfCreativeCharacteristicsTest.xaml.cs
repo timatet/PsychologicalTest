@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using psychologicaltestlib;
 
 namespace Wpf
@@ -56,7 +47,7 @@ namespace Wpf
             if (Results[Scales[0]] > 0)
             {
                 // усредненный результат
-                AverageValue = Results[Scales[0]] * AverageMaximum*2 / 13;
+                AverageValue = Results[Scales[0]] * AverageMaximum / 13;
 
                 PBRisk_Positive.Value = AverageValue;
                 PBRisk.Text = (Math.Round(AverageValue, 1)).ToString();

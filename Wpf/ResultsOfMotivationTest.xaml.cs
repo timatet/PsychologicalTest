@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 using psychologicaltestlib;
 
 namespace Wpf
@@ -36,9 +24,6 @@ namespace Wpf
             //PBGeneralActivity
             //PBCreativeActivity
             //PBSocialUtility
-
-            //int k = int.Parse(3.5.ToString());
-            //k = int.Parse(3.6.ToString());
 
             double ArithmeticMeanResult = (double)(22 + 22 + 26 + 28 + 24 + 32 + 32) / 7;
 
