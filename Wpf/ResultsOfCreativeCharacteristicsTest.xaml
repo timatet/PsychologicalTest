@@ -218,52 +218,52 @@
                         <ProgressBar Name="PBRisk_Negative" 
                              Grid.Row="2" Grid.Column="1" 
                              Orientation="Vertical" VerticalAlignment="Stretch"
-                             Maximum="156" Minimum="0" Value="156"
+                             Maximum="12.5" Minimum="0" Value="12.5"
                              BorderBrush="White"
                              Background="LimeGreen" Foreground="White"/>
                         <ProgressBar Name="PBRisk_Positive" 
                              Grid.Row="1" Grid.Column="1"
                              VerticalAlignment="Stretch" Orientation="Vertical"
-                             Maximum="312" Minimum="0"
+                             Maximum="12.5" Minimum="0"
                              BorderBrush="White"
                              Background="White" Foreground="LimeGreen"/>
                         <!--Любознательность-->
                         <ProgressBar Name="PBCurious_Negative" 
                              Grid.Row="2" Grid.Column="3" 
                              VerticalAlignment="Stretch" Orientation="Vertical"
-                             Maximum="156" Minimum="0" Value="156"
+                             Maximum="12.5" Minimum="0" Value="12.5"
                              BorderBrush="White"
                              Background="LimeGreen" Foreground="White"/>
                         <ProgressBar Name="PBCurious_Positive" 
                              Grid.Row="1" Grid.Column="3"
                              VerticalAlignment="Stretch" Orientation="Vertical"
-                             Maximum="312" Minimum="0"
+                             Maximum="12.5" Minimum="0"
                              BorderBrush="White"
                              Background="White" Foreground="LimeGreen"/>
                         <!--Сложность-->
                         <ProgressBar Name="PBHard_Negative" 
                              Grid.Row="2" Grid.Column="5" 
                              VerticalAlignment="Stretch" Orientation="Vertical"
-                             Maximum="156" Minimum="0" Value="156"
+                             Maximum="12.5" Minimum="0" Value="12.5"
                              BorderBrush="White"
                              Background="LimeGreen" Foreground="White"/>
                         <ProgressBar Name="PBHard_Positive" 
                              Grid.Row="1" Grid.Column="5"
                              VerticalAlignment="Stretch" Orientation="Vertical"
-                             Maximum="312" Minimum="0"
+                             Maximum="12.5" Minimum="0"
                              BorderBrush="White"
                              Background="White" Foreground="LimeGreen"/>
                         <!--Воображение-->
                         <ProgressBar Name="PBImagination_Negative" 
                              Grid.Row="2" Grid.Column="7" 
                              VerticalAlignment="Stretch" Orientation="Vertical"
-                             Maximum="156" Minimum="0" Value="156"
+                             Maximum="12.5" Minimum="0" Value="12.5"
                              BorderBrush="White"
                              Background="LimeGreen" Foreground="White"/>
                         <ProgressBar Name="PBImagination_Positive" 
                              Grid.Row="1" Grid.Column="7"
                              VerticalAlignment="Stretch" Orientation="Vertical"
-                             Maximum="312" Minimum="0"
+                             Maximum="12.5" Minimum="0"
                              BorderBrush="White"
                              Background="White" Foreground="LimeGreen"/>
 

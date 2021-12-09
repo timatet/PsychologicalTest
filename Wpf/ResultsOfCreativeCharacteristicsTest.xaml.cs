@@ -49,11 +49,16 @@ namespace Wpf
                 PBGeneralScore_Negative.Background = Brushes.DarkRed;
             }
 
+            double AverageMaximum = 12.5;
+            double AverageValue;
             //PBRisk_Negative;
             //PBRisk_Positive;
             if (Results[Scales[0]] > 0)
             {
-                PBRisk_Positive.Value = Results[Scales[0]]*12;
+                // усредненный результат
+                AverageValue = Results[Scales[0]] * AverageMaximum / 13;
+
+                PBRisk_Positive.Value = AverageValue;
                 PBRisk.Text = PBRisk_Positive.Value.ToString();
 
                 //!!!!//Надо переделать
@@ -64,8 +69,11 @@ namespace Wpf
             }
             else if (Results[Scales[0]] < 0)
             {
-                PBRisk_Negative.Value = PBRisk_Negative.Maximum - (-1) * Results[Scales[0]]*12;
-                PBRisk.Text = "-"+(Results[Scales[0]]*12).ToString();
+                // усредненный результат
+                AverageValue = Results[Scales[0]] * AverageMaximum / 13;
+
+                PBRisk_Negative.Value = PBRisk_Negative.Maximum - (-1) * AverageValue;
+                PBRisk.Text = (AverageValue).ToString();
                 //PBRisk_Negative.Background = Brushes.DarkRed;
             }
 
@@ -73,7 +81,10 @@ namespace Wpf
             //PBCurious_Positive;
             if (Results[Scales[2]] > 0)
             {
-                PBCurious_Positive.Value = Results[Scales[2]]*13;
+                // усредненный результат
+                AverageValue = Results[Scales[2]] * AverageMaximum / 12;
+
+                PBCurious_Positive.Value = AverageValue;
                 PBCurious.Text = PBCurious_Positive.Value.ToString();
                 //if (Results[Scales[2]] <= 11) PBCurious_Positive.Foreground = Brushes.DarkRed;
                 //else if (Results[Scales[2]] <= 20) PBCurious_Positive.Foreground = Brushes.Green;
@@ -81,8 +92,11 @@ namespace Wpf
             }
             else if (Results[Scales[2]] < 0)
             {
-                PBCurious_Negative.Value = PBCurious_Negative.Maximum - (-1) * Results[Scales[2]]*13;
-                PBCurious.Text = (Results[Scales[2]] * 13).ToString();
+                // усредненный результат
+                AverageValue = Results[Scales[2]] * AverageMaximum / 12;
+
+                PBCurious_Negative.Value = PBCurious_Negative.Maximum - (-1) * AverageValue;
+                PBCurious.Text = (AverageValue).ToString();
                 //PBCurious_Negative.Background = Brushes.DarkRed;
             }
 
@@ -90,7 +104,10 @@ namespace Wpf
             //PBHard_Positive;
             if (Results[Scales[1]] > 0)
             {
-                PBHard_Positive.Value = Results[Scales[1]]*12;
+                // усредненный результат
+                AverageValue = Results[Scales[1]] * AverageMaximum / 13;
+
+                PBHard_Positive.Value = AverageValue;
                 PBHard.Text = PBHard_Positive.Value.ToString();
                 //if (Results[Scales[1]] <= 12) PBHard_Positive.Foreground = Brushes.DarkRed;
                 //else if (Results[Scales[1]] <= 21) PBHard_Positive.Foreground = Brushes.Green;
@@ -98,8 +115,11 @@ namespace Wpf
             }
             else if (Results[Scales[1]] < 0)
             {
-                PBHard_Negative.Value = PBHard_Negative.Maximum - (-1) * Results[Scales[1]]*12;
-                PBHard.Text = (Results[Scales[1]] * 12).ToString();
+                // усредненный результат
+                AverageValue = Results[Scales[1]] * AverageMaximum / 13;
+
+                PBHard_Negative.Value = PBHard_Negative.Maximum - (-1) * AverageValue;
+                PBHard.Text = (AverageValue).ToString();
                 //PBHard_Negative.Background = Brushes.DarkRed;
             }
 
@@ -107,7 +127,10 @@ namespace Wpf
             //PBImagination_Positive;
             if (Results[Scales[3]] > 0)
             {
-                PBImagination_Positive.Value = Results[Scales[3]]*13;
+                // усредненный результат
+                AverageValue = Results[Scales[3]] * AverageMaximum / 12;
+
+                PBImagination_Positive.Value = AverageValue;
                 PBImagination.Text = PBImagination_Positive.Value.ToString();
                 //if (Results[Scales[3]] <= 11) PBImagination_Positive.Foreground = Brushes.DarkRed;
                 //else if (Results[Scales[3]] <= 20) PBImagination_Positive.Foreground = Brushes.Green;
@@ -115,8 +138,11 @@ namespace Wpf
             }
             else if (Results[Scales[3]] < 0)
             {
-                PBImagination_Negative.Value = PBImagination_Negative.Maximum - (-1) * Results[Scales[3]] * 13;
-                PBImagination.Text = (Results[Scales[3]] * 13).ToString();
+                // усредненный результат
+                AverageValue = Results[Scales[3]] * AverageMaximum / 12;
+
+                PBImagination_Negative.Value = PBImagination_Negative.Maximum - (-1) * AverageValue;
+                PBImagination.Text = (AverageValue).ToString();
                 //PBImagination_Negative.Background = Brushes.DarkRed;
             }
         }
