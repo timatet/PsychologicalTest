@@ -7,6 +7,7 @@ namespace psychologicaltestlib
         Dictionary<string, Question> Asks { get; set; }
 
         Dictionary<string, int> Processing();
+        Dictionary<string, double> GetAverageResults(Dictionary<string, int> TestResults);
         void InitQuestions();
         string[] GetScales();
         string GetNameOfTest();

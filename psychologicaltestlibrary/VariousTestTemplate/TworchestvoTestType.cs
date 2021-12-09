@@ -93,10 +93,29 @@ namespace psychologicaltestlib
             else return SchemeParse12(Asks[que.ToString()].QuestionAnswer);
         }
 
+        public Dictionary<string, double> GetAverageResults(Dictionary<string, int> TestResults)
+        {
+            Dictionary<string, double> _AverageResult = new Dictionary<string, double>();
+
+            double AverageMaximum = 12.5;
+
+            double AverageValue = TestResults[_Scales[0]] * AverageMaximum / 13;
+            _AverageResult.Add(_Scales[0], AverageValue);
+
+            AverageValue = TestResults[_Scales[1]] * AverageMaximum / 13;
+            _AverageResult.Add(_Scales[1], AverageValue);
+
+            AverageValue = TestResults[_Scales[2]] * AverageMaximum / 12;
+            _AverageResult.Add(_Scales[2], AverageValue);
+
+            AverageValue = TestResults[_Scales[3]] * AverageMaximum / 12;
+            _AverageResult.Add(_Scales[3], AverageValue);
+
+            return _AverageResult;
+        }
         public Dictionary<string, int> Processing()
         {
             Dictionary<string, int> TestResults = new Dictionary<string, int>();
-
 
             if (!Asks.Select(a => a.Value.QuestionAnswer).Contains(Question.Default))
             {
@@ -105,14 +124,17 @@ namespace psychologicaltestlib
                      + AutoSchemeParseGetRes(21) + AutoSchemeParseGetRes(22) + AutoSchemeParseGetRes(25) + AutoSchemeParseGetRes(29) +
                      + AutoSchemeParseGetRes(32) + AutoSchemeParseGetRes(34) + AutoSchemeParseGetRes(35) + AutoSchemeParseGetRes(36) +
                      + AutoSchemeParseGetRes(43) + AutoSchemeParseGetRes(44));
+
                 TestResults.Add(_Scales[1], AutoSchemeParseGetRes(4) + AutoSchemeParseGetRes(7) + AutoSchemeParseGetRes(9) +
                      +AutoSchemeParseGetRes(10) + AutoSchemeParseGetRes(15) + AutoSchemeParseGetRes(17) + AutoSchemeParseGetRes(18) +
                      +AutoSchemeParseGetRes(24) + AutoSchemeParseGetRes(26) + AutoSchemeParseGetRes(41) + AutoSchemeParseGetRes(42) +
                      +AutoSchemeParseGetRes(48) + AutoSchemeParseGetRes(50));
+
                 TestResults.Add(_Scales[2], AutoSchemeParseGetRes(2) + AutoSchemeParseGetRes(3) + AutoSchemeParseGetRes(11) +
                      +AutoSchemeParseGetRes(12) + AutoSchemeParseGetRes(19) + AutoSchemeParseGetRes(27) + AutoSchemeParseGetRes(28) +
                      +AutoSchemeParseGetRes(33) + AutoSchemeParseGetRes(37) + AutoSchemeParseGetRes(38) + AutoSchemeParseGetRes(47) +
                      +AutoSchemeParseGetRes(49));
+
                 TestResults.Add(_Scales[3], AutoSchemeParseGetRes(6) + AutoSchemeParseGetRes(13) + AutoSchemeParseGetRes(14) +
                      +AutoSchemeParseGetRes(16) + AutoSchemeParseGetRes(20) + AutoSchemeParseGetRes(23) + AutoSchemeParseGetRes(30) +
                      +AutoSchemeParseGetRes(31) + AutoSchemeParseGetRes(39) + AutoSchemeParseGetRes(40) + AutoSchemeParseGetRes(45) +

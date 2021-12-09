@@ -27,6 +27,7 @@ namespace Wpf
             InitializeComponent();
             this.psychologicaltest = psychologicaltest;
             var Results = psychologicaltest.GetResults();
+            var AverageResults = psychologicaltest.GetAverageResults(Results);
 
             //обработка результатов
             //PBLifeSupport
@@ -43,46 +44,32 @@ namespace Wpf
             double ArithmeticMeanResult = (double)(22 + 22 + 26 + 28 + 24 + 32 + 32) / 7;
 
             PBLifeSupport.Maximum = ArithmeticMeanResult;
-            double RatioLifeSupport = ArithmeticMeanResult / 22;
-            double AverageValueLifeSupport = Results["LifeSupport"] * RatioLifeSupport;
-            PBLifeSupport.Value = AverageValueLifeSupport;
-            TBLifeSupport.Text = AverageValueLifeSupport.ToString("N1");
+            PBLifeSupport.Value = AverageResults["LifeSupport"];
+            TBLifeSupport.Text = AverageResults["LifeSupport"].ToString("N1");
 
             PBComfort.Maximum = ArithmeticMeanResult;
-            double RatioComfort = ArithmeticMeanResult / 22;
-            double AverageValueComfort = Results["Comfort"] * RatioComfort;
-            PBComfort.Value = AverageValueComfort;
-            TBComfort.Text = AverageValueComfort.ToString("N1");
+            PBComfort.Value = AverageResults["Comfort"];
+            TBComfort.Text = AverageResults["Comfort"].ToString("N1");
 
             PBSocialStatus.Maximum = ArithmeticMeanResult;
-            double RatioSocialStatus = ArithmeticMeanResult / 26;
-            double AverageValueSocialStatus = Results["SocialStatus"] * RatioSocialStatus;
-            PBSocialStatus.Value = AverageValueSocialStatus;
-            TBSocialStatus.Text = AverageValueSocialStatus.ToString("N1");
+            PBSocialStatus.Value = AverageResults["SocialStatus"];
+            TBSocialStatus.Text = AverageResults["SocialStatus"].ToString("N1");
 
             PBCommunication.Maximum = ArithmeticMeanResult;
-            double RatioCommunication = ArithmeticMeanResult / 28;
-            double AverageValueCommunication = Results["Communication"] * RatioCommunication;
-            PBCommunication.Value = AverageValueCommunication;
-            TBCommunication.Text = AverageValueCommunication.ToString("N1");
+            PBCommunication.Value = AverageResults["Communication"];
+            TBCommunication.Text = AverageResults["Communication"].ToString("N1");
 
             PBGeneralActivity.Maximum = ArithmeticMeanResult;
-            double RatioGeneralActivity = ArithmeticMeanResult / 24;
-            double AverageValueGeneralActivity = Results["GeneralActivity"] * RatioGeneralActivity;
-            PBGeneralActivity.Value = AverageValueGeneralActivity;
-            TBGeneralActivity.Text = AverageValueGeneralActivity.ToString("N1");
+            PBGeneralActivity.Value = AverageResults["GeneralActivity"];
+            TBGeneralActivity.Text = AverageResults["GeneralActivity"].ToString("N1");
 
             PBCreativeActivity.Maximum = ArithmeticMeanResult;
-            double RatioCreativeActivity = ArithmeticMeanResult / 32;
-            double AverageValueCreativeActivity = Results["CreativeActivity"] * RatioCreativeActivity;
-            PBCreativeActivity.Value = AverageValueCreativeActivity;
-            TBCreativeActivity.Text = AverageValueCreativeActivity.ToString("N1");
+            PBCreativeActivity.Value = AverageResults["GeneralActivity"];
+            TBCreativeActivity.Text = AverageResults["GeneralActivity"].ToString("N1");
 
             PBSocialUtility.Maximum = ArithmeticMeanResult;
-            double RatioSocialUtility = ArithmeticMeanResult / 32;
-            double AverageValueSocialUtility = Results["SocialUtility"] * RatioSocialUtility;
-            PBSocialUtility.Value = AverageValueSocialUtility;
-            TBSocialUtility.Text = AverageValueSocialUtility.ToString("N1");
+            PBSocialUtility.Value = AverageResults["SocialUtility"];
+            TBSocialUtility.Text = AverageResults["SocialUtility"].ToString("N1");
 
             // Новые шкалы "Эмоциональный профиль"
             // "StenType", "AstenType", "StenFrust", "AstenFrust"

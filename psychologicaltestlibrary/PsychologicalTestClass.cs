@@ -24,6 +24,7 @@ namespace psychologicaltestlib
         public string[] GetScales() => _VariousTestTemplate.GetScales();
         public int Count() => _VariousTestTemplate.Asks.Count();
         public Dictionary<string, int> GetResults() => _VariousTestTemplate.Processing();
+        public Dictionary<string, double> GetAverageResults(Dictionary<string, int> TestResults) => _VariousTestTemplate.GetAverageResults(TestResults);
         /// <summary>
         /// Сохраняет результат пользователя в таблицу.
         /// Дописывает в таблицу данные о результатах пользователя.
@@ -33,7 +34,9 @@ namespace psychologicaltestlib
         {
             if (!_VariousTestTemplate.Asks.Select(a => a.Value.QuestionAnswer).Contains(Question.Default))
             {
-                _User.RegisterResult(_VariousTestTemplate.Processing());
+                var TestResults = _VariousTestTemplate.Processing();
+                _User.RegisterResult(TestResults); // сырые результаты
+                _User.RegisterAverageResult(_VariousTestTemplate.GetAverageResults(TestResults));
                 dataSaveInterface.Print(_User, _VariousTestTemplate.GetNameOfTest());
             }
             else

@@ -13,6 +13,7 @@ namespace psychologicaltestlib
         private int _Age;
         private string _DopInfo;
         private Dictionary<string, int> _ResultsDict;
+        private Dictionary<string, double> _AverageResultsDict;
         #endregion Fields
 
         #region Properties
@@ -86,6 +87,11 @@ namespace psychologicaltestlib
             get { return _ResultsDict; }
             private set{}
         }
+        public Dictionary<string, double> AverageResultDict
+        {
+            get { return _AverageResultsDict; }
+            private set { }
+        }
         #endregion Properties
 
         #region Methods
@@ -97,6 +103,10 @@ namespace psychologicaltestlib
         public void RegisterResult(Dictionary<string, int> resultsDict)
         {
             _ResultsDict = new Dictionary<string, int>(resultsDict);
+        }
+        public void RegisterAverageResult(Dictionary<string, double> resultsAverageDict)
+        {
+            _AverageResultsDict = new Dictionary<string, double>(resultsAverageDict);
         }
         public object Clone()
         {

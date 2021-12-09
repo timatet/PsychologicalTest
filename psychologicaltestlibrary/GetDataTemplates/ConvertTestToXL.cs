@@ -15,7 +15,8 @@ namespace psychologicaltestlib
         #region Method
         public void Print(UserClass _User, string _NameTest)
         {
-            
+            // _User.ResultDict - сырые данные
+            // _User.AverageResultDict - взвешенные данные
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
             string path = Directory.GetCurrentDirectory() + @"\\" + _NameTest + ".xlsx";
             FileInfo fi = new FileInfo(path);

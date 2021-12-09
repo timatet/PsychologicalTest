@@ -28,6 +28,7 @@ namespace Wpf
             this.psychologicaltest = psychologicalTest;
 
             var Results = psychologicaltest.GetResults();
+            var AverageResults = psychologicaltest.GetAverageResults(Results);
             // отобразить результаты
             var Scales = psychologicaltest.GetScales();
             //порядок расположения в словаре шкал-ключей
@@ -50,16 +51,13 @@ namespace Wpf
             }
 
             double AverageMaximum = 12.5;
-            double AverageValue;
+            
             //PBRisk_Negative;
             //PBRisk_Positive;
             if (Results[Scales[0]] > 0)
             {
-                // усредненный результат
-                AverageValue = Results[Scales[0]] * AverageMaximum*2 / 13;
-
-                PBRisk_Positive.Value = AverageValue;
-                PBRisk.Text = (Math.Round(AverageValue, 1)).ToString();
+                PBRisk_Positive.Value = AverageResults[Scales[0]];
+                PBRisk.Text = (Math.Round(AverageResults[Scales[0]], 1)).ToString();
 
                 //!!!!//Надо переделать
 
@@ -69,11 +67,8 @@ namespace Wpf
             }
             else if (Results[Scales[0]] < 0)
             {
-                // усредненный результат
-                AverageValue = Results[Scales[0]] * AverageMaximum / 13;
-
-                PBRisk_Negative.Value = PBRisk_Negative.Maximum - (-1) * AverageValue;
-                PBRisk.Text = (Math.Round(AverageValue, 1)).ToString();
+                PBRisk_Negative.Value = PBRisk_Negative.Maximum - (-1) * AverageResults[Scales[0]];
+                PBRisk.Text = (Math.Round(AverageResults[Scales[0]], 1)).ToString();
                 //PBRisk_Negative.Background = Brushes.DarkRed;
             }
 
@@ -81,22 +76,16 @@ namespace Wpf
             //PBCurious_Positive;
             if (Results[Scales[2]] > 0)
             {
-                // усредненный результат
-                AverageValue = Results[Scales[2]] * AverageMaximum / 12;
-
-                PBCurious_Positive.Value = AverageValue;
-                PBCurious.Text = (Math.Round(AverageValue, 1)).ToString();
+                PBCurious_Positive.Value = AverageResults[Scales[2]];
+                PBCurious.Text = (Math.Round(AverageResults[Scales[2]], 1)).ToString();
                 //if (Results[Scales[2]] <= 11) PBCurious_Positive.Foreground = Brushes.DarkRed;
                 //else if (Results[Scales[2]] <= 20) PBCurious_Positive.Foreground = Brushes.Green;
                 //else if (Results[Scales[2]] <= 24) PBCurious_Positive.Foreground = Brushes.LimeGreen;
             }
             else if (Results[Scales[2]] < 0)
             {
-                // усредненный результат
-                AverageValue = Results[Scales[2]] * AverageMaximum / 12;
-
-                PBCurious_Negative.Value = PBCurious_Negative.Maximum - (-1) * AverageValue;
-                PBCurious.Text = (Math.Round(AverageValue, 1)).ToString();
+                PBCurious_Negative.Value = PBCurious_Negative.Maximum - (-1) * AverageResults[Scales[2]];
+                PBCurious.Text = (Math.Round(AverageResults[Scales[2]], 1)).ToString();
                 //PBCurious_Negative.Background = Brushes.DarkRed;
             }
 
@@ -104,22 +93,16 @@ namespace Wpf
             //PBHard_Positive;
             if (Results[Scales[1]] > 0)
             {
-                // усредненный результат
-                AverageValue = Results[Scales[1]] * AverageMaximum / 13;
-
-                PBHard_Positive.Value = AverageValue;
-                PBHard.Text = (Math.Round(AverageValue, 1)).ToString();
+                PBHard_Positive.Value = AverageResults[Scales[1]];
+                PBHard.Text = (Math.Round(AverageResults[Scales[1]], 1)).ToString();
                 //if (Results[Scales[1]] <= 12) PBHard_Positive.Foreground = Brushes.DarkRed;
                 //else if (Results[Scales[1]] <= 21) PBHard_Positive.Foreground = Brushes.Green;
                 //else if (Results[Scales[1]] <= 26) PBHard_Positive.Foreground = Brushes.LimeGreen;
             }
             else if (Results[Scales[1]] < 0)
             {
-                // усредненный результат
-                AverageValue = Results[Scales[1]] * AverageMaximum / 13;
-
-                PBHard_Negative.Value = PBHard_Negative.Maximum - (-1) * AverageValue;
-                PBHard.Text = (Math.Round(AverageValue, 1)).ToString();
+                PBHard_Negative.Value = PBHard_Negative.Maximum - (-1) * AverageResults[Scales[1]];
+                PBHard.Text = (Math.Round(AverageResults[Scales[1]], 1)).ToString();
                 //PBHard_Negative.Background = Brushes.DarkRed;
             }
 
@@ -127,22 +110,16 @@ namespace Wpf
             //PBImagination_Positive;
             if (Results[Scales[3]] > 0)
             {
-                // усредненный результат
-                AverageValue = Results[Scales[3]] * AverageMaximum / 12;
-
-                PBImagination_Positive.Value = AverageValue;
-                PBImagination.Text = (Math.Round(AverageValue, 1)).ToString();
+                PBImagination_Positive.Value = AverageResults[Scales[3]];
+                PBImagination.Text = (Math.Round(AverageResults[Scales[3]], 1)).ToString();
                 //if (Results[Scales[3]] <= 11) PBImagination_Positive.Foreground = Brushes.DarkRed;
                 //else if (Results[Scales[3]] <= 20) PBImagination_Positive.Foreground = Brushes.Green;
                 //else if (Results[Scales[3]] <= 24) PBImagination_Positive.Foreground = Brushes.LimeGreen;
             }
             else if (Results[Scales[3]] < 0)
             {
-                // усредненный результат
-                AverageValue = Results[Scales[3]] * AverageMaximum / 12;
-
-                PBImagination_Negative.Value = PBImagination_Negative.Maximum - (-1) * AverageValue;
-                PBImagination.Text = (Math.Round(AverageValue, 1)).ToString();
+                PBImagination_Negative.Value = PBImagination_Negative.Maximum - (-1) * AverageResults[Scales[3]];
+                PBImagination.Text = (Math.Round(AverageResults[Scales[3]], 1)).ToString();
                 //PBImagination_Negative.Background = Brushes.DarkRed;
             }
         }

@@ -10,6 +10,8 @@ namespace psychologicaltestlib
         private Dictionary<string, Question> _Asks;
         private string[] _Scales;
         private InformaitionAboutTests InfAT;
+
+        private static double ArithmeticMeanResult = (double)(22 + 22 + 26 + 28 + 24 + 32 + 32) / 7;
         #endregion Fields
 
         #region Properties
@@ -168,6 +170,41 @@ namespace psychologicaltestlib
             Asks.Add("14H", new Question(QuestionBlock14, "стараюсь понять причины неудачи и исправить положение."));
             #endregion Init Questions
         }
+
+        public Dictionary<string, double> GetAverageResults(Dictionary<string, int> TestResults)
+        {
+            Dictionary<string, double> _AverageResult = new Dictionary<string, double>();
+            
+            double RatioLifeSupport = ArithmeticMeanResult / 22;
+            double AverageValueLifeSupport = TestResults[_Scales[0]] * RatioLifeSupport;
+            _AverageResult.Add(_Scales[0], AverageValueLifeSupport);
+
+            double RatioComfort = ArithmeticMeanResult / 22;
+            double AverageValueComfort = TestResults[_Scales[1]] * RatioComfort;
+            _AverageResult.Add(_Scales[1], AverageValueComfort);
+
+            double RatioSocialStatus = ArithmeticMeanResult / 26;
+            double AverageValueSocialStatus = TestResults[_Scales[2]] * RatioSocialStatus;
+            _AverageResult.Add(_Scales[2], AverageValueSocialStatus);
+
+            double RatioCommunication = ArithmeticMeanResult / 28;
+            double AverageValueCommunication = TestResults[_Scales[3]] * RatioCommunication;
+            _AverageResult.Add(_Scales[3], AverageValueCommunication);
+
+            double RatioGeneralActivity = ArithmeticMeanResult / 24;
+            double AverageValueGeneralActivity = TestResults[_Scales[4]] * RatioGeneralActivity;
+            _AverageResult.Add(_Scales[4], AverageValueGeneralActivity);
+
+            double RatioCreativeActivity = ArithmeticMeanResult / 32;
+            double AverageValueCreativeActivity = TestResults[_Scales[5]] * RatioCreativeActivity;
+            _AverageResult.Add(_Scales[5], AverageValueCreativeActivity);
+
+            double RatioSocialUtility = ArithmeticMeanResult / 32;
+            double AverageValueSocialUtility = TestResults[_Scales[6]] * RatioSocialUtility;
+            _AverageResult.Add(_Scales[6], AverageValueSocialUtility);
+
+            return _AverageResult;
+        }
         public Dictionary<string, int> Processing()
         {           
             Dictionary<string, int> TestResults = new Dictionary<string, int>();
@@ -180,28 +217,33 @@ namespace psychologicaltestlib
                     (int)Asks["3A"].QuestionAnswer + (int)Asks["4F"].QuestionAnswer + (int)Asks["5A"].QuestionAnswer +
                     (int)Asks["6H"].QuestionAnswer + (int)Asks["8A"].QuestionAnswer + (int)Asks["10E"].QuestionAnswer +
                     (int)Asks["11A"].QuestionAnswer + (int)Asks["12A"].QuestionAnswer);
+
                 // "Comfort", 
                 TestResults.Add(_Scales[1], (int)Asks["2B"].QuestionAnswer + (int)Asks["2C"].QuestionAnswer + (int)Asks["3B"].QuestionAnswer +
                     (int)Asks["4H"].QuestionAnswer + (int)Asks["5B"].QuestionAnswer + (int)Asks["5C"].QuestionAnswer +
                     (int)Asks["7A"].QuestionAnswer + (int)Asks["9A"].QuestionAnswer + (int)Asks["11B"].QuestionAnswer +
                     (int)Asks["11C"].QuestionAnswer + (int)Asks["12B"].QuestionAnswer);
+
                 // "SocialStatus",
                 TestResults.Add(_Scales[2], (int)Asks["1F"].QuestionAnswer + (int)Asks["2D"].QuestionAnswer + (int)Asks["7C"].QuestionAnswer +
                     (int)Asks["7D"].QuestionAnswer + (int)Asks["8C"].QuestionAnswer + (int)Asks["8H"].QuestionAnswer +
                     (int)Asks["9C"].QuestionAnswer + (int)Asks["9D"].QuestionAnswer + (int)Asks["9F"].QuestionAnswer +
                     (int)Asks["10D"].QuestionAnswer + (int)Asks["11E"].QuestionAnswer + (int)Asks["12E"].QuestionAnswer +
                     (int)Asks["12F"].QuestionAnswer);
+
                 // "Communication", 
                 TestResults.Add(_Scales[3], (int)Asks["1C"].QuestionAnswer + (int)Asks["2E"].QuestionAnswer + (int)Asks["3C"].QuestionAnswer +
                     (int)Asks["4B"].QuestionAnswer + (int)Asks["6C"].QuestionAnswer + (int)Asks["7B"].QuestionAnswer +
                     (int)Asks["7H"].QuestionAnswer + (int)Asks["8B"].QuestionAnswer + (int)Asks["8C"].QuestionAnswer +
                     (int)Asks["9E"].QuestionAnswer + (int)Asks["9H"].QuestionAnswer + (int)Asks["10A"].QuestionAnswer +
                     (int)Asks["11D"].QuestionAnswer + (int)Asks["12C"].QuestionAnswer);
+
                 // "GeneralActivity", 
                 TestResults.Add(_Scales[4], (int)Asks["1D"].QuestionAnswer + (int)Asks["1H"].QuestionAnswer + (int)Asks["4A"].QuestionAnswer +
                     (int)Asks["4D"].QuestionAnswer + (int)Asks["5H"].QuestionAnswer + (int)Asks["6A"].QuestionAnswer +
                     (int)Asks["6B"].QuestionAnswer + (int)Asks["6D"].QuestionAnswer + (int)Asks["7E"].QuestionAnswer +
                     (int)Asks["9B"].QuestionAnswer + (int)Asks["10C"].QuestionAnswer + (int)Asks["12H"].QuestionAnswer);
+
                 // "CreativeActivity", 
                 TestResults.Add(_Scales[5], (int)Asks["1G"].QuestionAnswer + (int)Asks["1H"].QuestionAnswer + (int)Asks["2F"].QuestionAnswer +
                     (int)Asks["2G"].QuestionAnswer + (int)Asks["3G"].QuestionAnswer + (int)Asks["4E"].QuestionAnswer +
@@ -209,6 +251,7 @@ namespace psychologicaltestlib
                     (int)Asks["7F"].QuestionAnswer + (int)Asks["7G"].QuestionAnswer + (int)Asks["8E"].QuestionAnswer +
                     (int)Asks["8G"].QuestionAnswer + (int)Asks["10G"].QuestionAnswer + (int)Asks["11H"].QuestionAnswer
                     + (int)Asks["12D"].QuestionAnswer);
+
                 // "SocialUtility"
                 TestResults.Add(_Scales[6], (int)Asks["1E"].QuestionAnswer + (int)Asks["2H"].QuestionAnswer + (int)Asks["3D"].QuestionAnswer +
                     (int)Asks["3E"].QuestionAnswer + (int)Asks["4C"].QuestionAnswer + (int)Asks["4G"].QuestionAnswer +
@@ -216,6 +259,7 @@ namespace psychologicaltestlib
                     (int)Asks["8F"].QuestionAnswer + (int)Asks["9G"].QuestionAnswer + (int)Asks["10B"].QuestionAnswer +
                     (int)Asks["10F"].QuestionAnswer + (int)Asks["11F"].QuestionAnswer + (int)Asks["11G"].QuestionAnswer
                     + (int)Asks["12G"].QuestionAnswer);
+
                 // Шкалы эмоционального профиля
                 // Стенического типа
                 TestResults.Add(_Scales[7], (int)Asks["13E"].QuestionAnswer + (int)Asks["13F"].QuestionAnswer +
