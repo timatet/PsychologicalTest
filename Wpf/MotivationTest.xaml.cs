@@ -128,8 +128,19 @@ namespace Wpf
                 Random rnd = new Random(DateTime.Now.Millisecond);
                 foreach (Question q in psychologicalTest)
                 {
-                    EnterTheAction();
-                    q.SetAnswer(rnd.Next(0,3));
+                    q.SetAnswer(rnd.Next(0, 3));
+                }
+
+                QuestionCounter = 112;
+                ProgressInTest.Value = 112;
+                TestingIsOver tio = new TestingIsOver { Owner = this };
+
+                tio.psychologicaltest = psychologicalTest;
+
+                if (tio.ShowDialog() == true)
+                {
+                    ProgressInTest.Value--;
+                    CountQuestions.Text = $"{(int)(ProgressInTest.Value / 8)}/14";
                 }
             }
         }
