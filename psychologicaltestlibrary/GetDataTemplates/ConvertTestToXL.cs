@@ -39,7 +39,7 @@ namespace psychologicaltestlib
                     ws.Cells[1, 7].Value = "Additional information";
 
                     cur_row = 8;
-                    foreach (var item in _User.ResultDict)
+                    foreach (var item in _User.AverageResultDict)
                     {
                         ws.Cells[1, cur_row].Value = item.Key;
                         cur_row++;
@@ -91,9 +91,9 @@ namespace psychologicaltestlib
 
                 cur_row = 8;
 
-                foreach (var item in _User.ResultDict)
+                foreach (var item in _User.AverageResultDict)
                 {
-                    ws.Cells[start_index, cur_row].Style.Numberformat.Format = "0";
+                    ws.Cells[start_index, cur_row].Style.Numberformat.Format = "0.0";
                     ws.Cells[start_index, cur_row].Value = item.Value;
 
                     ws.Columns[cur_row].Width = 30;
