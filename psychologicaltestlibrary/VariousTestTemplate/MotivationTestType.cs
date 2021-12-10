@@ -9,7 +9,6 @@ namespace psychologicaltestlib
         #region Fields
         private Dictionary<string, Question> _Asks;
         private string[] _Scales;
-        private InformaitionAboutTests InfAT;
 
         private static double ArithmeticMeanResult = (double)(22 + 22 + 26 + 28 + 24 + 32 + 32) / 7;
         #endregion Fields
@@ -23,9 +22,27 @@ namespace psychologicaltestlib
         #endregion Properties
 
         #region Interface Methods
-        public string GetNameOfTest() => InfAT.TestNames[0];
-        public string GetDescriptionOfTest() => InfAT.TestDescription[0];
+        public string GetNameOfTest() => "Диагностика мотивационной структуры личности";
+        public string GetDescriptionOfTest() => "Автор В. Э. Мильман. Методика позволяет выявлять некоторые устойчивые тенденции личности: " +
+                "общую и творческую активность, стремление к общению, обеспечению комфорта и социального " +
+                "статуса и др. На основе всех ответов можно составить суждение о рабочей (деловой) и " +
+                "общежитейской направленности личности.";
+        public string GetInstructionOfTest() => "Вам будет представлено 14 утверждений, касающихся жизненных устремлений и некоторых сторон " +
+                "образа жизни человека. Просим вас высказать отношение к ним по каждому из 8 вариантов ответов, " +
+                "проставив одну из следующих оценок каждого утверждения: «согласен с этим», «когда как», «нет, " +
+                "не согласен», «не знаю». Старайтесь отвечать быстро, не задумывайтесь долго над ответами. На " +
+                "всю работу у вас должно уйти не более 20 минут.";
         public string[] GetScales() => _Scales;
+        public int GetMaxForScale(string scale)
+        {
+            if (scale == _Scales[0] || scale == _Scales[1]) return 22;
+            if (scale == _Scales[2]) return 26;
+            if (scale == _Scales[3]) return 28;
+            if (scale == _Scales[4]) return 24;
+            if (scale == _Scales[5] || scale == _Scales[6]) return 32;
+
+            return 0;
+        }
         public void InitQuestions()
         {
             #region Init Questions
@@ -289,7 +306,6 @@ namespace psychologicaltestlib
         {
             _Asks = new Dictionary<string, Question>();
             _Scales = new string[] { "LifeSupport", "Comfort", "SocialStatus", "Communication", "GeneralActivity", "CreativeActivity", "SocialUtility", "StenType", "AstenType", "StenFrust", "AstenFrust" };
-            InfAT = new InformaitionAboutTests();
         }
         #endregion Constructor
     }

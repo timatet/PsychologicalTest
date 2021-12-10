@@ -48,9 +48,8 @@ namespace Wpf
             }
 
             UserClass uc = new UserClass(fio[0], fio[1], fio[2], gender, age, dopInfo);
-            psychologicaltest.RegisterUser(uc);
-
-            psychologicaltest.SaveResults(new ConvertTestToXL());
+            uc.RegisterTest(psychologicaltest);
+            uc.SaveResults(new ConvertTestToXL());
 
             //откроет уведомление messagewindow , что все отправил
             string message = "Результаты сохранены";

@@ -8,37 +8,37 @@ namespace Wpf
     /// </summary>
     public partial class MainWindow : Window
     {
-        //private string[] TestNames = {
-        //        "Дианостика мотивационной структуры личности",
-        //        "Личностные творческие характеристики" };
-        InformaitionAboutTests InfAT = new InformaitionAboutTests();
         public MainWindow()
         {
             InitializeComponent();
-            ListOfTestNames.ItemsSource = InfAT.TestNames;
+            ListOfTestNames.ItemsSource = new string[] { 
+                "Диагностика мотивационной структуры личности", 
+                "Личностные творческие характеристики" };
         }
         private void ButtonContinue_Click(object sender, RoutedEventArgs e)
         {
             if (ListOfTestNames.SelectedItem != null)
             {
                 // запустить нужный тест
-                string NameOfTest = ListOfTestNames.SelectedItem.ToString();
-                DescriptionAndInstruction DesAndIns = new DescriptionAndInstruction();
-                this.Close();
-                DesAndIns.Show();
-                switch (NameOfTest)
+                // Тест создается здесь! И только здесь
+                
+                PsychologicalTest psychologicalTest = new PsychologicalTest();
+                switch (ListOfTestNames.SelectedIndex)
                 {
-                    case "Диагностика мотивационной структуры личности":
-                        DesAndIns._lableNameOfTest.Content = InfAT.TestNames[0];
-                        DesAndIns.DescriptionOfTest.Text = InfAT.TestDescription[0];
-                        DesAndIns.InstructionOfTest.Text = InfAT.TestInstruction[0];
+                    case 0:
+                        psychologicalTest.InitTest(new MotivationTestType());
                         break;
-                    case "Личностные творческие характеристики":
-                        DesAndIns._lableNameOfTest.Content = InfAT.TestNames[1];
-                        DesAndIns.DescriptionOfTest.Text = InfAT.TestDescription[1];
-                        DesAndIns.InstructionOfTest.Text = InfAT.TestInstruction[1];
+                    case 1:
+                        psychologicalTest.InitTest(new TworchestvoTestType());
                         break;
                 }
+
+                DescriptionAndInstruction DesAndIns = new DescriptionAndInstruction(psychologicalTest);
+                DesAndIns._lableNameOfTest.Content = psychologicalTest.GetNameOfTest();
+                DesAndIns.DescriptionOfTest.Text = psychologicalTest.GetDescriptionOfTest();
+                DesAndIns.InstructionOfTest.Text = psychologicalTest.GetInstructionOfTest();
+                this.Close();
+                DesAndIns.Show();
             }
 
         }

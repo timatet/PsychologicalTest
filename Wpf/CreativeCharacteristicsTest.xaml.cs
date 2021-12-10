@@ -13,11 +13,11 @@ namespace Wpf
         private PsychologicalTest psychologicalTest;
         private int QuestionCounter;
 
-        public CreativeCharacteristicsTest()
+        public CreativeCharacteristicsTest(PsychologicalTest psychologicalTest)
         {
             InitializeComponent();
-
-            psychologicalTest = new PsychologicalTest(new TworchestvoTestType());
+            this.psychologicalTest = psychologicalTest;
+            
             //NumberOfStatement - утвержд номер
             // Statement - утверждение
             Statement.Text = psychologicalTest[0].Value.QuestionName;

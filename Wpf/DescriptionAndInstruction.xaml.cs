@@ -2,6 +2,7 @@
 using System;
 using System.IO;
 using System.Windows;
+using psychologicaltestlib;
 
 namespace Wpf
 {
@@ -10,7 +11,12 @@ namespace Wpf
     /// </summary>
     public partial class DescriptionAndInstruction : Window
     {
-
+        PsychologicalTest psychologicalTest;
+        public DescriptionAndInstruction(PsychologicalTest psychologicalTest)
+        {
+            InitializeComponent();
+            this.psychologicalTest = psychologicalTest;
+        }
         private void ButtonBack_Click(object sender, RoutedEventArgs e)
         {
             if (Button_continue_start.Text == "Дальше")
@@ -38,12 +44,12 @@ namespace Wpf
                 switch (NameOfTest)
                 {
                     case "Диагностика мотивационной структуры личности":
-                        MotivationTest MotTest = new MotivationTest();
+                        MotivationTest MotTest = new MotivationTest(psychologicalTest);
                         this.Close();
                         MotTest.Show();
                         break;
                     case "Личностные творческие характеристики":
-                        CreativeCharacteristicsTest CrChTest = new CreativeCharacteristicsTest();
+                        CreativeCharacteristicsTest CrChTest = new CreativeCharacteristicsTest(psychologicalTest);
                         this.Close();
                         CrChTest.Show();
                         break;
@@ -99,11 +105,6 @@ namespace Wpf
             }
             mw.MessageTextBlock.Text = message;
             mw.ShowDialog();
-        }
-
-        public DescriptionAndInstruction()
-        {
-            InitializeComponent();
         }
     }
 }

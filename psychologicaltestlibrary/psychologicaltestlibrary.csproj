@@ -87,7 +87,6 @@
     <Compile Include="GetDataTemplates\ConvertTestToPDF.cs" />
     <Compile Include="GetDataTemplates\ConvertTestToXL.cs" />
     <Compile Include="ExceptionsClass.cs" />
-    <Compile Include="InformationAboutTests.cs" />
     <Compile Include="GetDataTemplates\InterfaceGetDataTemplates.cs" />
     <Compile Include="UserClass\UserClass.cs" />
     <Compile Include="VariousTestTemplate\IVariousTestTemplate.cs" />

@@ -13,11 +13,10 @@ namespace Wpf
         private PsychologicalTest psychologicalTest;
         private int QuestionCounter;
 
-        public MotivationTest()
+        public MotivationTest(PsychologicalTest psychologicalTest)
         {
             InitializeComponent();
-
-            psychologicalTest = new PsychologicalTest(new MotivationTestType());
+            this.psychologicalTest = psychologicalTest;
 
             //NumberOfStatement - утвержд номер
             // Statement - утверждение

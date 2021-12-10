@@ -18,7 +18,7 @@ namespace Wpf
             InitializeComponent();
             this.psychologicaltest = psychologicalTest;
 
-            var Results = psychologicaltest.GetResults();
+            var Results = psychologicaltest.Processing();
             var AverageResults = psychologicaltest.GetAverageResults(Results);
             // отобразить результаты
             var Scales = psychologicaltest.GetScales();
@@ -40,8 +40,6 @@ namespace Wpf
                 PBGeneralScore_Negative.Value = PBGeneralScore_Negative.Maximum - (-1) * GeneralResult;
                 PBGeneralScore_Negative.Background = Brushes.DarkRed;
             }
-
-            double AverageMaximum = 12.5;
             
             //PBRisk_Negative;
             //PBRisk_Positive;
@@ -117,7 +115,7 @@ namespace Wpf
 
         private void ButtonRepeat_Click(object sender, RoutedEventArgs e)
         {
-            CreativeCharacteristicsTest cct = new CreativeCharacteristicsTest();
+            CreativeCharacteristicsTest cct = new CreativeCharacteristicsTest(psychologicaltest);
             cct.Show();
             this.Close();
         }

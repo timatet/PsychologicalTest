@@ -14,7 +14,7 @@ namespace Wpf
         {
             InitializeComponent();
             this.psychologicaltest = psychologicaltest;
-            var Results = psychologicaltest.GetResults();
+            var Results = psychologicaltest.Processing();
             var AverageResults = psychologicaltest.GetAverageResults(Results);
 
             //обработка результатов
@@ -62,7 +62,7 @@ namespace Wpf
 
         private void ButtonRepeat_Click(object sender, RoutedEventArgs e)
         {
-            MotivationTest mt = new MotivationTest();
+            MotivationTest mt = new MotivationTest(psychologicaltest);
             mt.Show();
             this.Close();
         }

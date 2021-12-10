@@ -9,49 +9,22 @@ namespace psychologicaltestlib
     {
         #region Fields
         private IVariousTestTemplate _VariousTestTemplate;
-        private UserClass _User;
         #endregion Fields
-
-        #region Properties
-        private Dictionary<string, Question> Asks
-        {
-            get => _VariousTestTemplate.Asks;
-            set => _VariousTestTemplate.Asks = value;
-        }
-        #endregion Properties
 
         #region Methods
         public string[] GetScales() => _VariousTestTemplate.GetScales();
         public int Count() => _VariousTestTemplate.Asks.Count();
-        public Dictionary<string, int> GetResults() => _VariousTestTemplate.Processing();
+        
+        public Dictionary<string, int> Processing() => _VariousTestTemplate.Processing();
         public Dictionary<string, double> GetAverageResults(Dictionary<string, int> TestResults) => _VariousTestTemplate.GetAverageResults(TestResults);
-        /// <summary>
-        /// Сохраняет результат пользователя в таблицу.
-        /// Дописывает в таблицу данные о результатах пользователя.
-        /// </summary>
-        /// <param name="dataSaveInterface"></param>
-        public void SaveResults(IDataSaveInterface dataSaveInterface)
-        {
-            if (!_VariousTestTemplate.Asks.Select(a => a.Value.QuestionAnswer).Contains(Question.Default))
-            {
-                var TestResults = _VariousTestTemplate.Processing();
-                _User.RegisterResult(TestResults); // сырые результаты
-                _User.RegisterAverageResult(_VariousTestTemplate.GetAverageResults(TestResults));
-                dataSaveInterface.Print(_User, _VariousTestTemplate.GetNameOfTest());
-            }
-            else
-            {
-                throw new NotAllAnswersReceivedException("Error! Not all answer received!", DateTime.Now);
-            }
-        }
-        public void RegisterUser(UserClass _User)
-        {
-            this._User = (UserClass)_User.Clone();
-        }
-        /// <summary>
-        /// Получить все ответы, сделанные пользователем на тест.
-        /// </summary>
-        /// <returns></returns>
+
+        public Dictionary<string, Question> GetTestAsks() => _VariousTestTemplate.Asks;
+        public string GetNameOfTest() => _VariousTestTemplate.GetNameOfTest();
+        public string GetDescriptionOfTest() => _VariousTestTemplate.GetDescriptionOfTest();
+        public string GetInstructionOfTest() => _VariousTestTemplate.GetInstructionOfTest();
+
+        public int GetMaxForScale(string scale) => _VariousTestTemplate.GetMaxForScale(scale);
+
         public int[] GetAllAnswers()
         {
             if (_VariousTestTemplate.Asks.Select(a => a.Value.QuestionAnswer).Contains(Question.Default))
@@ -60,6 +33,12 @@ namespace psychologicaltestlib
             } 
 
             return _VariousTestTemplate.Asks.Select(a => a.Value.QuestionAnswer).ToArray();
+        }
+
+        public void InitTest(IVariousTestTemplate VariousTestTemplate)
+        {
+            _VariousTestTemplate = VariousTestTemplate;
+            _VariousTestTemplate.InitQuestions();
         }
         #endregion Methods
 
@@ -77,21 +56,12 @@ namespace psychologicaltestlib
             return new PsychologicalTest(_VariousTestTemplate);
         }
 
-        /// <summary>
-        /// Получение вопроса по числовому индексу.
-        /// </summary>
-        /// <param name="index">Порядковый номер вопроса.</param>
-        /// <returns></returns>
         public KeyValuePair<string, Question> this[int index]
         {
             get => _VariousTestTemplate.Asks.ElementAt(index);
             private set { }
         }
-        /// <summary>
-        /// Получение вопроса по собственному индексу.
-        /// </summary>
-        /// <param name="index">Строка. Номер блока + буква вопроса [A..H]</param>
-        /// <returns></returns>
+
         public Question this[string index]
         {
             get => _VariousTestTemplate.Asks[index];
@@ -105,6 +75,7 @@ namespace psychologicaltestlib
             _VariousTestTemplate = VariousTestTemplate;
             _VariousTestTemplate.InitQuestions();
         }
+        public PsychologicalTest() { }
         #endregion Constructors
     }
 }

@@ -9,7 +9,6 @@ namespace psychologicaltestlib
         #region Fields
         private Dictionary<string, Question> _Asks;
         private string[] _Scales;
-        private InformaitionAboutTests InfAT;
         #endregion Fields
 
         #region Properties
@@ -21,9 +20,22 @@ namespace psychologicaltestlib
         #endregion Properties
 
         #region Interface Methods
-        public string GetNameOfTest() => InfAT.TestNames[1];
-        public string GetDescriptionOfTest() => InfAT.TestNames[1];
+        public string GetNameOfTest() => "Личностные творческие характеристики";
+        public string GetDescriptionOfTest() => "Предложенный тест позволяет вам выявить, насколько творческой личностью вы себя считаете.";
+        public string GetInstructionOfTest() => "В тесте вам будет представлено 50 утверждений. Просим вас высказать отношение по каждому из них, " +
+                "выбрав одну из следующих оценок: «Согласен», «Согласен отчасти», «Затрудняюсь с ответом» или «Не " +
+                "согласен» . Старайтесь отвечать быстро, не задумывайтесь долго над ответами. Выполнение теста " +
+                "не ограничено по времени.";
         public string[] GetScales() => _Scales;
+        public int GetMaxForScale(string scale)
+        {
+            if (scale == _Scales[0]) return 13;
+            if (scale == _Scales[1]) return 13;
+            if (scale == _Scales[2]) return 12;
+            if (scale == _Scales[3]) return 12;
+
+            return 0;
+        }
         public void InitQuestions()
         {
             #region Init Questions
@@ -113,6 +125,7 @@ namespace psychologicaltestlib
 
             return _AverageResult;
         }
+
         public Dictionary<string, int> Processing()
         {
             Dictionary<string, int> TestResults = new Dictionary<string, int>();
@@ -155,7 +168,6 @@ namespace psychologicaltestlib
         {
             _Asks = new Dictionary<string, Question>();
             _Scales = new string[] { "Risk appetite", "Complexity", "Curiosity", "Imagination" };
-            InfAT = new InformaitionAboutTests();
         }
         #endregion Constructor
     }

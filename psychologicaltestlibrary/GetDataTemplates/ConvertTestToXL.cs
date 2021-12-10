@@ -15,6 +15,16 @@ namespace psychologicaltestlib
         #region Method
         public void Print(UserClass _User, string _NameTest)
         {
+            var Scales = _User.GetScales();
+            double AverageResultMax = 0;
+            int CntScale = 1;
+            foreach (var Scale in Scales)
+            {
+                AverageResultMax += _User.GetMaxForScale(Scale);
+                CntScale++;
+            }
+            AverageResultMax /= CntScale;
+
             // _User.ResultDict - сырые данные
             // _User.AverageResultDict - взвешенные данные
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
