@@ -66,7 +66,7 @@ namespace psychologicaltestlib
             Asks.Add("4D", new Question(QuestionBlock4, "учеба, получение новой информации, повышение квалификации."));
             Asks.Add("4E", new Question(QuestionBlock4, "работа творческого характера."));
             Asks.Add("4F", new Question(QuestionBlock4, "работа, непосредственно влияющая на заработок."));
-            Asks.Add("4G", new Question(QuestionBlock4, "работа, непосредственно влияющая на заработок."));
+            Asks.Add("4G", new Question(QuestionBlock4, "работа, связанная с ответственностью перед другими."));
             Asks.Add("4H", new Question(QuestionBlock4, "свободное время, перекуры, отдых."));
 
             string QuestionBlock5 = "Если бы мне добавили дополнительный выходной день, я бы скорее всего потратил его на то чтобы:";
