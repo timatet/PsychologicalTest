@@ -17,7 +17,7 @@ namespace psychologicaltestlib
         {
             var Scales = _User.GetScales();
             double AverageResultMax = 0;
-            int CntScale = 1;
+            int CntScale = 0;
             foreach (var Scale in Scales)
             {
                 AverageResultMax += _User.GetMaxForScale(Scale);
@@ -55,26 +55,28 @@ namespace psychologicaltestlib
                     ws.Cells[2, 6].Value = "Sex";
                     ws.Cells[2, 7].Value = "Additional information";
 
-                    cur_row = 8;
+                    cur_row = 8; int oldcur_row = cur_row;
                     foreach (var item in _User.AverageResultDict)
                     {
-                        ws.Cells[2, cur_row].Value = item.Key + " max" + AverageResultMax;
+                        ws.Cells[2, cur_row].Value = item.Key + " max" + AverageResultMax.ToString("N1");
                         cur_row++;
                     }
 
-                    ws.Cells["H1:N1"].Merge = true;
+                    //"H1:N1"
+                    ws.Cells[1, oldcur_row, 1, cur_row - 1].Merge = true;
                     ws.Cells[1, 8].Value = "Взвешенные данные";
 
+                    oldcur_row = cur_row;
                     foreach (var item in _User.ResultDict)
                     {
                         ws.Cells[2, cur_row].Value = item.Key + " max" + _User.GetMaxForScale(item.Key);
                         cur_row++;
                     }
 
-                    ws.Cells["O1:Y1"].Merge = true;
-                    ws.Cells[1, 15].Value = "Сырые данные";
+                    //"O1:Y1"
+                    ws.Cells[1, oldcur_row, 1, cur_row - 1].Merge = true;
+                    ws.Cells[1, oldcur_row].Value = "Сырые данные";
                    
-
                     ws.Rows[1].Height = 20;
                     for (int i = 1; i < cur_row; i++)
                     {

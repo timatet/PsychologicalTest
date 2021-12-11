@@ -221,13 +221,15 @@ namespace psychologicaltestlib
             double AverageValueSocialUtility = TestResults[_Scales[6]] * RatioSocialUtility;
             _AverageResult.Add(_Scales[6], AverageValueSocialUtility);
 
-            _AverageResult.Add(_Scales[7], TestResults[_Scales[7]]);
-            _AverageResult.Add(_Scales[8], TestResults[_Scales[8]]);
-            _AverageResult.Add(_Scales[9], TestResults[_Scales[9]]);
-            _AverageResult.Add(_Scales[10], TestResults[_Scales[10]]);
+            _AverageResult.Add(_Scales[7], AverageStens[_Scales[7]]);
+            _AverageResult.Add(_Scales[8], AverageStens[_Scales[8]]);
+            _AverageResult.Add(_Scales[9], AverageStens[_Scales[9]]);
+            _AverageResult.Add(_Scales[10], AverageStens[_Scales[10]]);
 
             return _AverageResult;
         }
+
+        public Dictionary<string, int> AverageStens;
         public Dictionary<string, int> Processing()
         {           
             Dictionary<string, int> TestResults = new Dictionary<string, int>();
@@ -283,18 +285,19 @@ namespace psychologicaltestlib
                     (int)Asks["10F"].QuestionAnswer + (int)Asks["11F"].QuestionAnswer + (int)Asks["11G"].QuestionAnswer
                     + (int)Asks["12G"].QuestionAnswer);
 
+                AverageStens = new Dictionary<string, int>();
                 // Шкалы эмоционального профиля
                 // Стенического типа
-                TestResults.Add(_Scales[7], (int)Asks["13E"].QuestionAnswer + (int)Asks["13F"].QuestionAnswer +
+                AverageStens.Add(_Scales[7], (int)Asks["13E"].QuestionAnswer + (int)Asks["13F"].QuestionAnswer +
                     (int)Asks["13G"].QuestionAnswer + (int)Asks["13H"].QuestionAnswer);
                 // Астенического типа
-                TestResults.Add(_Scales[8], (int)Asks["13A"].QuestionAnswer + (int)Asks["13B"].QuestionAnswer +
+                AverageStens.Add(_Scales[8], (int)Asks["13A"].QuestionAnswer + (int)Asks["13B"].QuestionAnswer +
                     (int)Asks["13C"].QuestionAnswer + (int)Asks["13D"].QuestionAnswer);
                 // Стенический тип фрустрации
-                TestResults.Add(_Scales[9], (int)Asks["14E"].QuestionAnswer + (int)Asks["14F"].QuestionAnswer +
+                AverageStens.Add(_Scales[9], (int)Asks["14E"].QuestionAnswer + (int)Asks["14F"].QuestionAnswer +
                     (int)Asks["14G"].QuestionAnswer + (int)Asks["14H"].QuestionAnswer);
                 // Астенический тип фрустрации
-                TestResults.Add(_Scales[10], (int)Asks["14A"].QuestionAnswer + (int)Asks["14B"].QuestionAnswer +
+                AverageStens.Add(_Scales[10], (int)Asks["14A"].QuestionAnswer + (int)Asks["14B"].QuestionAnswer +
                     (int)Asks["14C"].QuestionAnswer + (int)Asks["14D"].QuestionAnswer);
                 #endregion Init Results
             }
