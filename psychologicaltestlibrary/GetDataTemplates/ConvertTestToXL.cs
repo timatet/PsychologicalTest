@@ -39,13 +39,18 @@ namespace psychologicaltestlib
                     ws = excelPackage.Workbook.Worksheets[0];
                 else
                 {
+                    
                     ws = excelPackage.Workbook.Worksheets.Add("List1");
-                    ws.Cells[1, 1].Value = "Взвешенные данные";
-                    ws.Cells[1, 2].Value = "Сырые данные";
+                    //ws.Cells["A1:N1"].Merge = true;
+                    //ws.Cells["O1:Y1"].Merge = true;
+                    //ws.Cells[1, 1].Value = "Взвешенные данные";
+                    //ws.Cells[1, 2].Value = "Сырые данные";
+                    ws.Cells[1, 1].Value = "Данные";
+                    ws.Cells["A1:G1"].Merge = true;
                     ws.Cells[2, 1].Value = "Date";
                     ws.Cells[2, 2].Value = "First Name";
                     ws.Cells[2, 3].Value = "Last Name";
-                    ws.Cells[2, 4].Value = "Middle Name";
+                    ws.Cells[2, 4].Value = "Middle Name"; 
                     ws.Cells[2, 5].Value = "Age";
                     ws.Cells[2, 6].Value = "Sex";
                     ws.Cells[2, 7].Value = "Additional information";
@@ -53,15 +58,12 @@ namespace psychologicaltestlib
                     cur_row = 8;
                     foreach (var item in _User.AverageResultDict)
                     {
-                        ws.Cells[2, cur_row].Value = item.Key + " max" + _User.GetMaxForScale(item.Key);
+                        ws.Cells[2, cur_row].Value = item.Key + " max" + AverageResultMax;
                         cur_row++;
                     }
 
-                    //// Выделяем диапазон ячеек от A1 до N1         
-                    //excelPackage.Range _excelCells2 = (excelPackage.Range)ws.get_Range("A1", "N1").Cells;
-                    //// Производим объединение
-                    //_excelCells2.Merge(Type.Missing);
-                    //ws.Cells[1, cur_row] = "Взвешенные данные";
+                    ws.Cells["H1:N1"].Merge = true;
+                    ws.Cells[1, 8].Value = "Взвешенные данные";
 
                     foreach (var item in _User.ResultDict)
                     {
@@ -69,15 +71,18 @@ namespace psychologicaltestlib
                         cur_row++;
                     }
 
-                    //// Выделяем диапазон ячеек от N1 до Y1         
-                    //excelPackage.Range _excelCells2 = (excelPackage.Range)ws.get_Range("N1", "Y1").Cells;
-                    //// Производим объединение
-                    //_excelCells2.Merge(Type.Missing);
-                    //ws.Cells[1, cur_row] = "Сырые данные";
+                    ws.Cells["O1:Y1"].Merge = true;
+                    ws.Cells[1, 15].Value = "Сырые данные";
+                   
 
                     ws.Rows[1].Height = 20;
                     for (int i = 1; i < cur_row; i++)
                     {
+                        ws.Cells[1, i].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                        ws.Cells[1, i].Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        ws.Cells[1, i].Style.Font.Bold = true;
+                        ws.Cells[1, i].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                        ws.Cells[1, i].Style.Fill.BackgroundColor.SetColor(Color.FromArgb(255, 232, 197));
                         ws.Cells[2, i].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
                         ws.Cells[2, i].Style.VerticalAlignment = ExcelVerticalAlignment.Center;
                         ws.Cells[2, i].Style.Font.Bold = true;
