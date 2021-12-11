@@ -40,6 +40,7 @@ namespace psychologicaltestlib
             if (scale == _Scales[3]) return 28;
             if (scale == _Scales[4]) return 24;
             if (scale == _Scales[5] || scale == _Scales[6]) return 32;
+            if (scale == _Scales[7] || scale == _Scales[8] || scale == _Scales[9] || scale == _Scales[10])  return 8;
 
             return 0;
         }
@@ -219,6 +220,11 @@ namespace psychologicaltestlib
             double RatioSocialUtility = ArithmeticMeanResult / 32;
             double AverageValueSocialUtility = TestResults[_Scales[6]] * RatioSocialUtility;
             _AverageResult.Add(_Scales[6], AverageValueSocialUtility);
+
+            _AverageResult.Add(_Scales[7], TestResults[_Scales[7]]);
+            _AverageResult.Add(_Scales[8], TestResults[_Scales[8]]);
+            _AverageResult.Add(_Scales[9], TestResults[_Scales[9]]);
+            _AverageResult.Add(_Scales[10], TestResults[_Scales[10]]);
 
             return _AverageResult;
         }

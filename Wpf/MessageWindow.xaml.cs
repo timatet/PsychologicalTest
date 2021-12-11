@@ -32,6 +32,7 @@ namespace Wpf
 
         private void ButtonYes_Click(object sender, RoutedEventArgs e)
         {
+            DialogResult = true;
             this.Close();
         }
     }

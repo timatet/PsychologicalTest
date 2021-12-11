@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Media;
 using psychologicaltestlib;
 
@@ -39,15 +40,22 @@ namespace Wpf
 
             // процесс сохранения результатов это вызов метода сохранения из объекта теста
             string[] fio = name.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            if (!IsNameCorrect() || string.IsNullOrEmpty(gender))
+
+            if (fio.Length == 0 || string.IsNullOrWhiteSpace(fio[0]))
             {
-                MessageWindow msgWindow = new MessageWindow();
-                msgWindow.MessageTextBlock.Text = "Некорректно введены данные. Пожалуйста, повторите.";
-                msgWindow.ShowDialog();
-                return;
+                MessageWindow err = new MessageWindow();
+                err.MessageTextBlock.Text = "Поле ФИО не заполнено.";
+                if (err.ShowDialog() == true)
+                {
+                    return;
+                }
             }
 
-            UserClass uc = new UserClass(fio[0], fio[1], fio[2], gender, age, dopInfo);
+            string firstname = fio[0];
+            string lastname = fio.Length >= 2 ? fio[1] : "-";
+            string middlename = fio.Length >= 3 ? fio[2] : "-";
+
+            UserClass uc = new UserClass(firstname, lastname, middlename, gender, age, dopInfo);
             uc.RegisterTest(psychologicaltest);
             uc.SaveResults(new ConvertTestToXL());
 
@@ -59,27 +67,9 @@ namespace Wpf
             mw.ShowDialog();
         }
 
-        private void CheckCorrectInput(object sender, System.Windows.Input.KeyEventArgs e)
+        private void CheckCorrectInput(object sender, KeyEventArgs e)
         {
-            IsNameCorrect();
-        }
-
-        public bool IsNameCorrect()
-        {
-            string text = NameOfUser.Text;
-            Regex isNameOK = new Regex(@"^\s*([a-zA-Z]|[а-яА-Я])+\s+([a-zA-Z]|[а-яА-Я])+\s+([a-zA-Z]|[а-яА-Я])+\s*$");
-            if (!isNameOK.IsMatch(text))
-            {
-                NameOfUser.Foreground = Brushes.White;
-                NameOfUser.Background = new SolidColorBrush(Color.FromRgb(255, 182, 185));
-                return false;
-            }
-            else
-            {
-                NameOfUser.Foreground = Brushes.Black;
-                NameOfUser.Background = new SolidColorBrush(Color.FromRgb(187, 222, 214));
-                return true;
-            }
+            
         }
     }
 }

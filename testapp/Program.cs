@@ -25,8 +25,8 @@ namespace libtestapp
             //}
 
             UserClass uc = new UserClass("Ivan", "Ivanov", "Ivanovich", "school", 15, "dopinfo");
-            motivationTest.RegisterUser(uc);
-            motivationTest.SaveResults(new ConvertTestToPDF());
+            //motivationTest.RegisterUser(uc);
+            //motivationTest.SaveResults(new ConvertTestToPDF());
         }
     }
 }
