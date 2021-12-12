@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace psychologicaltestlib
+﻿namespace psychologicaltestlib
 {
     public interface IDataSaveInterface
     {

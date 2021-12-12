@@ -1,9 +1,9 @@
 ﻿using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+
 
 namespace psychologicaltestlib
 {
@@ -30,8 +30,10 @@ namespace psychologicaltestlib
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
             string path = Directory.GetCurrentDirectory() + @"\\" + _NameTest + ".xlsx";
             FileInfo fi = new FileInfo(path);
+
             using (ExcelPackage excelPackage = new ExcelPackage(fi))
             {
+             
                 // Получение листа (Worksheet), созданного в предыдущем примере:
                 ExcelWorksheet ws;
                 int cur_row;
