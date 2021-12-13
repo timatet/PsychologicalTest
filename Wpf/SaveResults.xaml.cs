@@ -46,9 +46,7 @@ namespace Wpf
                 MessageWindow err = new MessageWindow();
                 err.MessageTextBlock.Text = "Поле ФИО не заполнено.";
                 if (err.ShowDialog() == true)
-                {
                     return;
-                }
             }
 
             string firstname = fio[0];
@@ -69,7 +67,11 @@ namespace Wpf
 
         private void CheckCorrectInput(object sender, KeyEventArgs e)
         {
-            
+            string[] fio = NameOfUser.Text.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            if (fio.Length > 3)
+                NameOfUser.Background = Brushes.LightPink;
+            else
+                NameOfUser.Background = Brushes.White;
         }
 
         private void NameOfUser_LostFocus(object sender, RoutedEventArgs e)
