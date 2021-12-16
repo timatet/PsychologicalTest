@@ -38,7 +38,7 @@
         <ListBox Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="4" FontSize="25" 
                  FontFamily="{StaticResource CommonFont}" Background="{StaticResource ColorOfAccent}"
                  ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                 Name="ListOfTestNames" HorizontalContentAlignment="Stretch" >
+                 Name="ListOfTestNames" HorizontalContentAlignment="Stretch" MouseDoubleClick="EnterTheTestDoubleClick" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border Margin="6" BorderThickness="1" CornerRadius="8" BorderBrush="{StaticResource ColorOfLine}" Padding="3">

@@ -21,24 +21,42 @@ namespace Wpf
             {
                 // запустить нужный тест
                 // Тест создается здесь! И только здесь
-                
-                PsychologicalTest psychologicalTest = new PsychologicalTest();
-                switch (ListOfTestNames.SelectedIndex)
-                {
-                    case 0:
-                        psychologicalTest.InitTest(new MotivationTestType());
-                        break;
-                    case 1:
-                        psychologicalTest.InitTest(new TworchestvoTestType());
-                        break;
-                }
 
-                DescriptionAndInstruction DesAndIns = new DescriptionAndInstruction(psychologicalTest);
-                DesAndIns._lableNameOfTest.Content = psychologicalTest.GetNameOfTest();
-                DesAndIns.DescriptionOfTest.Text = psychologicalTest.GetDescriptionOfTest();
-                DesAndIns.InstructionOfTest.Text = psychologicalTest.GetInstructionOfTest();
-                this.Close();
-                DesAndIns.Show();
+                CreateNewTest();
+            }
+
+        }
+
+        public void CreateNewTest()
+        {
+            PsychologicalTest psychologicalTest = new PsychologicalTest();
+            switch (ListOfTestNames.SelectedIndex)
+            {
+                case 0:
+                    psychologicalTest.InitTest(new MotivationTestType());
+                    break;
+                case 1:
+                    psychologicalTest.InitTest(new TworchestvoTestType());
+                    break;
+            }
+
+            DescriptionAndInstruction DesAndIns = new DescriptionAndInstruction(psychologicalTest);
+            DesAndIns._lableNameOfTest.Content = psychologicalTest.GetNameOfTest();
+            DesAndIns.DescriptionOfTest.Text = psychologicalTest.GetDescriptionOfTest();
+            DesAndIns.InstructionOfTest.Text = psychologicalTest.GetInstructionOfTest();
+            this.Close();
+            DesAndIns.Show();
+        }
+
+        private void EnterTheTestDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (ListOfTestNames.SelectedIndex != -1 && ListOfTestNames.SelectedItem != null)
+            {
+                int index = ListOfTestNames.SelectedIndex;
+                
+                CreateNewTest();
+
+                ListOfTestNames.SelectedIndex = -1;
             }
 
         }
