@@ -53,6 +53,13 @@ namespace Wpf
             string lastname = fio.Length >= 2 ? fio[1] : "-";
             string middlename = fio.Length >= 3 ? fio[2] : "-";
 
+            if (fio.Length >= 0)
+            {
+                MessageWindow alarm = new MessageWindow();
+                alarm.MessageTextBlock.Text = $"Внимание! \n ФИО будет сохранено как: {firstname} {lastname} {middlename}";
+                alarm.ShowDialog();
+            }
+
             UserClass uc = new UserClass(firstname, lastname, middlename, gender, age, dopInfo);
             uc.RegisterTest(psychologicaltest);
             uc.SaveResults(new ConvertTestToXL());
@@ -69,7 +76,7 @@ namespace Wpf
         {
             string[] fio = NameOfUser.Text.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
             if (fio.Length > 3)
-                NameOfUser.Background = Brushes.LightPink;
+                NameOfUser.Background = Brushes.LightYellow;
             else
                 NameOfUser.Background = Brushes.White;
         }
