@@ -95,5 +95,19 @@ namespace Wpf
             NameOfUser.Visibility = System.Windows.Visibility.Visible;
             NameOfUser.Focus();
         }
+        private void AdditionalInformationOfUser_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(AdditionalInformationOfUser.Text))
+            {
+                AdditionalInformationOfUser.Visibility = System.Windows.Visibility.Collapsed;
+                Watermarket2.Visibility = System.Windows.Visibility.Visible;
+            }
+        }
+        private void Watermarket2_GotFocus(object sender, RoutedEventArgs e)
+        {
+            Watermarket2.Visibility = System.Windows.Visibility.Collapsed;
+            AdditionalInformationOfUser.Visibility = System.Windows.Visibility.Visible;
+            AdditionalInformationOfUser.Focus();
+        }
     }
 }
