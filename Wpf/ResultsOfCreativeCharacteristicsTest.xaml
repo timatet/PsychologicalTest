@@ -308,7 +308,7 @@
             Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="2"
             Click="ButtonSaveResults_Click">
             <Viewbox>
-                <TextBlock Text="Отправить результаты"/>
+                <TextBlock Text="Сохранить результаты"/>
             </Viewbox>
         </Button>
     </Grid>
