@@ -23,6 +23,8 @@ namespace Wpf
             Statement.Text = psychologicalTest[0].Value.QuestionName;
             QuestionCounter = 1;
             CountQuestions.Text = $"{QuestionCounter - 1}/50";
+
+            ButtonBack.Visibility = Visibility.Hidden;
         }
 
         private void ButtonBack_Click(object sender, RoutedEventArgs e)
@@ -46,6 +48,9 @@ namespace Wpf
         {
             //увеличить счетчик вопросов
             CountQuestions.Text = $"{QuestionCounter}/50";
+
+            if (QuestionCounter > 0) ButtonBack.Visibility = Visibility.Visible;
+            else ButtonBack.Visibility = Visibility.Hidden;
 
             //если вопрос последний, то открыть уведомление
             if (QuestionCounter == 50)
@@ -120,28 +125,28 @@ namespace Wpf
             EnterTheAction();
         }
 
-        private void ShiftQ(object sender, KeyEventArgs e)
-        {
-            if (e.KeyboardDevice.Modifiers == ModifierKeys.Shift && e.Key == Key.Q)
-            {
-                Random rnd = new Random(DateTime.Now.Millisecond);
-                foreach (Question q in psychologicalTest)
-                {
-                    q.SetAnswer(rnd.Next(0, 3));
-                }
+        //private void ShiftQ(object sender, KeyEventArgs e)
+        //{
+        //    if (e.KeyboardDevice.Modifiers == ModifierKeys.Shift && e.Key == Key.Q)
+        //    {
+        //        Random rnd = new Random(DateTime.Now.Millisecond);
+        //        foreach (Question q in psychologicalTest)
+        //        {
+        //            q.SetAnswer(rnd.Next(0, 3));
+        //        }
 
-                QuestionCounter = 50;
-                ProgressInTest.Value = 50;
-                TestingIsOver tio = new TestingIsOver { Owner = this };
+        //        QuestionCounter = 50;
+        //        ProgressInTest.Value = 50;
+        //        TestingIsOver tio = new TestingIsOver { Owner = this };
 
-                tio.psychologicaltest = psychologicalTest;
+        //        tio.psychologicaltest = psychologicalTest;
 
-                if (tio.ShowDialog() == true)
-                {
-                    ProgressInTest.Value--;
-                    CountQuestions.Text = $"{ProgressInTest.Value}/50";
-                }
-            }
-        }
+        //        if (tio.ShowDialog() == true)
+        //        {
+        //            ProgressInTest.Value--;
+        //            CountQuestions.Text = $"{ProgressInTest.Value}/50";
+        //        }
+        //    }
+        //}
     }
 }

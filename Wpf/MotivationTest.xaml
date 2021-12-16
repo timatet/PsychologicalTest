@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Wpf"
         mc:Ignorable="d" Icon="icon/psi.ico"
         Title="Диагностика мотивационной структуры личности" Height="675" Width="1200"
-        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" KeyDown="ShiftQ">
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.Resources>
         <FontFamily x:Key="CommonFont">Comic Sans MS</FontFamily>
         <SolidColorBrush Color="#272343" x:Key="ColorOfLine" />
@@ -90,7 +90,7 @@
 
 
 
-        <Button 
+        <Button x:Name="ButtonBack"
             Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2"
             Click="ButtonBack_Click">
             <Viewbox>
